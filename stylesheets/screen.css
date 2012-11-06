@@ -1,0 +1,62 @@
+body {
+  font-family: 'Mako', sans-serif;
+  background: white url(../images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'PT Mono', sans-serif;
+  font-weight: normal;
+  line-height: 1em;
+  margin: 0;
+}
+
+h1 {
+  color: #F23A29;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin: 6px 0;
+}
+
+h3 {
+  margin: 0 0 16px 0;
+}
+
+a,
+a:hover {
+  color: white;
+}
+
+#content {
+  width: 300px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+#content h2 {
+  color: #15140C;
+}
+
+#content ul {
+  margin: 20px 0;
+}
+
+#content ul li {
+  list-style: none;
+}
+
+#credit {
+  font-size: .8em;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
