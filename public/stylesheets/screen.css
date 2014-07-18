@@ -17,8 +17,13 @@ h3 {
   margin: 0;
 }
 
-h1 {
+h1 a {
   color: #DE534A;
+}
+
+h1 a:hover {
+  color: #DE534A;
+  text-decoration: underline;
 }
 
 h2 {
@@ -36,10 +41,7 @@ a:hover {
 }
 
 #content {
-  width: 300px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
+  margin: 1.5em;
 }
 
 #content h2 {
@@ -57,6 +59,6 @@ a:hover {
 #credit {
   font-size: .8em;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 1.5em;
+  left: 1.5em;
 }
