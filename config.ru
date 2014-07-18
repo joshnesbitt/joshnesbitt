@@ -6,4 +6,8 @@ get '/' do
   File.open('public/index.html', File::RDONLY)
 end
 
+get '/mixes' do
+  File.open('public/mixes.html', File::RDONLY)
+end
+
 run Sinatra::Application
