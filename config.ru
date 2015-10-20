@@ -7,8 +7,13 @@ before do
   is_production = ENV['RACK_ENV'] == 'production'
   is_primary_host = request.host == host
 
+  puts "-------------"
   puts request.host
+  puts host
   puts ENV['RACK_ENV']
+  puts is_production
+  puts request.ssl?
+  puts "------------- <>"
 
   if is_production && !request.ssl? && !is_primary_host
     redirect("https://#{host}#{request.path_info}")
