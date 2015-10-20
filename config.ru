@@ -15,7 +15,7 @@ before do
   puts request.ssl?
   puts "------------- <>"
 
-  if is_production && !request.ssl? && !is_primary_host
+  if is_production && (!request.ssl? || !is_primary_host)
     redirect("https://#{host}#{request.path_info}")
   end
 end
