@@ -10,4 +10,5 @@ get '/mixes' do
   File.open('public/mixes.html', File::RDONLY)
 end
 
+use Rack::SslEnforcer if ENV['RACK_ENV'] == 'production'
 run Sinatra::Application
