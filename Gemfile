@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.7'
+ruby '2.2.2'
 
-gem 'rack',    '1.4.1'
-gem 'sinatra', '1.3.3'
+gem 'foreman'
+gem 'puma'
+gem 'rack'
+gem 'sinatra'
