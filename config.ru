@@ -1,5 +1,6 @@
 require 'sinatra'
 
+set :views, settings.root + '/views'
 set :public_folder, File.dirname(__FILE__) + '/public'
 
 before do
@@ -12,12 +13,18 @@ before do
   end
 end
 
+not_found do
+  erb :not_found
+end
+
 get '/' do
-  File.open('public/index.html', File::RDONLY)
+  @title = 'Software Engineer'
+  erb :index
 end
 
 get '/mixes' do
-  File.open('public/mixes.html', File::RDONLY)
+  @title = 'Mixes'
+  erb :mixes
 end
 
 run Sinatra::Application
