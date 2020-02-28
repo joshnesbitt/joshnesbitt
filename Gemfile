@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 gem 'foreman'
-gem 'puma', '~> 3.12.2'
+gem 'puma', '~> 3.12.3'
 gem "rack", "~> 2.0.8"
 gem "rack-protection", ">= 1.5.5"
 gem 'sinatra'
