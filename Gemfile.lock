@@ -1,18 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    foreman (0.86.0)
-    mustermann (1.1.0)
+    foreman (0.87.1)
+    mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    puma (3.12.4)
-    rack (2.0.8)
-    rack-protection (2.0.7)
+    puma (3.12.6)
+    rack (2.1.4)
+    rack-protection (2.0.8.1)
       rack
-    ruby2_keywords (0.0.1)
-    sinatra (2.0.7)
+    ruby2_keywords (0.0.2)
+    sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.7)
+      rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
     tilt (2.0.10)
 
@@ -22,7 +22,7 @@ PLATFORMS
 DEPENDENCIES
   foreman
   puma (~> 3.12.4)
-  rack (~> 2.0.8)
+  rack (~> 2.1.4)
   rack-protection (>= 1.5.5)
   sinatra
 
