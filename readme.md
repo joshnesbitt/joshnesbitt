@@ -1,3 +1,3 @@
 # Josh Nesbitt | Software Engineer
 
-Look [over here](http://josh-nesbitt.net).
+Look [over here](https://joshnesbitt.dev).
