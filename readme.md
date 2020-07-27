@@ -7,6 +7,7 @@ I'm Josh. I made Stac to [help companies build better software](https://stac.wor
 It was working with so many people that helped me start [Hey!](https://stac.works/events/hey) and [All Day Hey!](https://stac.works/events/all-day-hey), events designed to empower and educate people, not only about technology but important topics such as mental health and how to look after yourself in an industry that's moving at a thousand miles an hour.
 
 * [Stac](https://stac.works)
+* [Personal site](https://joshnesbitt.dev)
 * [Hey!](https://heyst.ac)
 * [All Day Hey!](https://alldayhey.com)
 * [LinkedIn](https://www.linkedin.com/in/josh-nesbitt)
