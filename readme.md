@@ -1,4 +1,4 @@
-# Hello there 👋
+# Hey! 👋
 
 ![Clients](https://github.com/joshnesbitt/joshnesbitt/blob/master/clients.png?raw=true)
 
