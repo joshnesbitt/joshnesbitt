@@ -1,10 +1,10 @@
 # Hey! 👋
 
-![Clients](https://github.com/joshnesbitt/joshnesbitt/blob/master/clients.png?raw=true)
+![Clients](https://github.com/joshnesbitt/joshnesbitt/blob/main/clients.png?raw=true)
 
-I am a meticulous, hard-working leader who combines teams and technology to define strategies that deliver incredible products.
+I'm Josh, a software engineer and technical leader. My work spans from hands-on projects building large platforms to leading some of the best-performing teams in our industry.
 
-I organise conferences and events to bring people together to learn and progress our industry. A robust set of technical skills and experience building cohesive teams make me a strong leader, consultant and engineer.
+I also run internationally recognised conferences and events, which bring people from all over the world to the heart of Leeds to learn, inspire and share stories.
 
 * [Company](https://stac.works)
 * [Events](https://heypresents.com)
