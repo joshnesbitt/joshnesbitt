@@ -1,0 +1,35 @@
+---
+import '../styles/application.scss';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+export interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description = SITE_DESCRIPTION, image = '/open-graph.jpg' } = Astro.props;
+const fullTitle = `${title} · ${SITE_TITLE}`
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link href="/favicon.ico" rel="icon" type="image/x-icon" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />

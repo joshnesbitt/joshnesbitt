@@ -1,17 +1,13 @@
-# Hey! 👋
+# Josh Nesbitt site
 
-![Clients](https://github.com/joshnesbitt/joshnesbitt/blob/main/clients.png?raw=true)
+## Overview
 
-I'm Josh, a software engineer and technical leader. My work spans from hands-on projects building large platforms to leading some of the best-performing teams in our industry.
+The portfolio site for Josh Nesbitt.
 
-I also run internationally recognised conferences and events, which bring people from all over the world to the heart of Leeds to learn, inspire and share stories.
+## Setup
 
-* [Company](https://stac.works)
-* [Events](https://heypresents.com)
-* [Conference](https://heypresents.com/conference)
-* [LinkedIn](https://www.linkedin.com/in/josh-nesbitt)
-* [Twitter](https://twitter.com/joshnesbitt)
-* [Instagram](http://instagram.com/joshnesbitt)
-* [Mixcloud](https://mixcloud.com/joshnesbitt)
-* [Cooking](https://joshnesbitt.cooking)
-* [Directory](https://joshnesbitt.dev)
+```
+nvm install
+npm install
+npm run dev
+```
