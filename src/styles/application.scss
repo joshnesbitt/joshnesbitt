@@ -73,4 +73,8 @@ $color-highlight: #0fdfef;
 	.c-link {
 		@apply hover:underline;
 	}
+
+	.c-link__pointer {
+		@apply text-stone-300;
+	}
 }
