@@ -6,8 +6,8 @@ module.exports = {
 	theme: {
     extend: {
       fontFamily: {
-        sans: ['"Heebo"', ...defaultTheme.fontFamily.sans],
-        body: ['"Heebo"', ...defaultTheme.fontFamily.sans]
+        heading: ['"DM Serif Text"', ...defaultTheme.fontFamily.sans],
+        body: ['"Karla"', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         'brand-highlight': '#0fdfef',
