@@ -6,7 +6,10 @@
 // Settings
 //
 
-$color-highlight: #0fdfef;
+$color-background: #FFFFFA;
+$color-text: #000103;
+$color-primary: #FF312E;
+$color-secondary: #333138;
 
 //
 // Fonts
@@ -42,16 +45,17 @@ $color-highlight: #0fdfef;
 //
 
 ::selection {
-  background: $color-highlight;
+  background: $color-primary;
 }
 
 ::-moz-selection {
-  background: $color-highlight;
+  background: $color-primary;
 }
 
 @layer components {
 	.c-body {
-		background: #FAA381;
+		background: $color-background;
+		color: $color-text;
 	}
 
 	.c-container {
@@ -67,15 +71,14 @@ $color-highlight: #0fdfef;
 		@apply font-heading
 					 text-5xl
 					 inline-block;
-
-		background: $color-highlight;
 	}
 
 	.c-sub-heading {
 		@apply font-bold
 					 uppercase
 					 text-xl
-					 mb-6;
+					 mb-2
+					 sm:mb-4;
 	}
 
 	.c-para {
@@ -87,8 +90,7 @@ $color-highlight: #0fdfef;
 	}
 
 	.c-link__pointer {
-
-		color: #F5CDA7;
+		color: $color-secondary;
 	}
 
 	.c-spacer {
@@ -97,6 +99,6 @@ $color-highlight: #0fdfef;
 					 border-y-2
 					 w-6;
 
-		border-color: #C9DBBA;
+		border-color: $color-primary;
 	}
 }
