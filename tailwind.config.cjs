@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         heading: ['"DM Serif Text"', ...defaultTheme.fontFamily.sans],
-        body: ['"Karla"', ...defaultTheme.fontFamily.sans]
+        body: ['"Nunito Sans"', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         'brand-highlight': '#0fdfef',

@@ -9,7 +9,7 @@
 $color-background: #FFFFFA;
 $color-text: #000103;
 $color-primary: #FF312E;
-$color-secondary: #333138;
+$color-secondary: #868291;
 
 //
 // Fonts
@@ -23,21 +23,20 @@ $color-secondary: #333138;
   src: url('/fonts/dm-serif-text.woff2') format('woff2');
 }
 
-/* karla-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Karla';
+  font-display: swap;
+  font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/karla-400.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/nunito-sans-400.woff2') format('woff2');
 }
 
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Karla';
+  font-display: swap;
+  font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/karla-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/fonts/nunito-sans-700.woff2') format('woff2');
 }
 
 //
@@ -54,6 +53,8 @@ $color-secondary: #333138;
 
 @layer components {
 	.c-body {
+		@apply font-body;
+
 		background: $color-background;
 		color: $color-text;
 	}
@@ -64,7 +65,8 @@ $color-secondary: #333138;
 					 max-w-screen-md
 					 my-6
 					 px-6
-					 text-xl;
+					 text-xl
+					 sm:text-2xl;
 	}
 
 	.c-heading {
