@@ -50,6 +50,10 @@ $color-highlight: #0fdfef;
 }
 
 @layer components {
+	.c-body {
+		background: #FAA381;
+	}
+
 	.c-container {
 		@apply container
 					 mx-auto
@@ -60,7 +64,7 @@ $color-highlight: #0fdfef;
 	}
 
 	.c-heading {
-		@apply font-body
+		@apply font-heading
 					 text-5xl
 					 inline-block;
 
@@ -68,8 +72,9 @@ $color-highlight: #0fdfef;
 	}
 
 	.c-sub-heading {
-		@apply uppercase
-					 text-2xl
+		@apply font-bold
+					 uppercase
+					 text-xl
 					 mb-6;
 	}
 
@@ -82,6 +87,16 @@ $color-highlight: #0fdfef;
 	}
 
 	.c-link__pointer {
-		@apply text-stone-300;
+
+		color: #F5CDA7;
+	}
+
+	.c-spacer {
+		@apply my-4
+					 sm:my-10
+					 border-y-2
+					 w-6;
+
+		border-color: #C9DBBA;
 	}
 }
