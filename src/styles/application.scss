@@ -88,7 +88,15 @@ $color-secondary: #868291;
 	}
 
 	.c-link {
-		@apply hover:underline;
+		&:hover {
+			.c-link__inner {
+				@apply underline;
+			}
+
+			.c-link__pointer {
+				color: $color-primary;
+			}
+		}
 	}
 
 	.c-link__pointer {
