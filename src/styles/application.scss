@@ -72,6 +72,7 @@ $color-secondary: #868291;
 	.c-heading {
 		@apply font-heading
 					 text-5xl
+					 sm:text-7xl
 					 inline-block;
 	}
 
