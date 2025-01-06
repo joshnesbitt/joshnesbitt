@@ -5,11 +5,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 export interface Props {
 	title: string;
 	description: string;
-	image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description = SITE_DESCRIPTION, image = '/open-graph.jpg' } = Astro.props;
+const { title, description = SITE_DESCRIPTION } = Astro.props;
 const fullTitle = `${title} · ${SITE_TITLE}`
 ---
 

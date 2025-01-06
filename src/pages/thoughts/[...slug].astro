@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Application from '../../layouts/Application.astro';
+import Spacer from '../../components/Spacer.astro';
+
+export async function getStaticPaths() {
+	const thoughts = await getCollection('thought');
+	return thoughts.map((thought) => ({
+		params: { slug: thought.slug },
+		props: thought,
+	}));
+}
+
+const { Content } = await Astro.props.render();
+const data = Astro.props.data;
+---
+
+<Application {...data}>
+	<h1 class="c-heading">{data.title}.</h1>
+
+	<Spacer />
+
+	<div class="markdown-container">
+		<Content />
+
+		<p>
+			<a class="c-link" href="/">
+				<span class="c-link__inner">Return home</span> <span class="c-link__pointer">→</span>
+			</a>
+		</p>
+	</div>
+</Application>

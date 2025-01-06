@@ -10,11 +10,21 @@ module.exports = {
         body: ['"Nunito Sans"', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        'brand-highlight': '#0fdfef',
+        'brand-highlight': '#FF312E',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': '#212427',
+          }
+        }
       }
     },
 	},
 	plugins: [
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography')({
+      className: 'markdown',
+    }),
   ],
 }

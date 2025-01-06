@@ -1,0 +1,17 @@
+---
+import Meta from '../components/Meta.astro';
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<Meta title={title} description={description} />
+	</head>
+	<body class="c-body">
+		<div class="c-container">
+			<slot />
+		</div>
+	</body>
+</html>
