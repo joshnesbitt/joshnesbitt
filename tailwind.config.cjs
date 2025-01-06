@@ -10,7 +10,7 @@ module.exports = {
         body: ['"Nunito Sans"', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        'brand-highlight': '#0fdfef',
+        'brand-highlight': '#FF312E',
       },
       typography: {
         DEFAULT: {
