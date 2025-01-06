@@ -1,45 +1,53 @@
 ---
-import Meta from '../components/Meta.astro';
+import { getCollection } from 'astro:content';
+
+import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
+
+const thoughts = await getCollection('thought');
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<Meta title="Hello" />
-	</head>
-	<body class="c-body">
-		<div class="c-container">
-			<h1 class="c-heading">Josh Nesbitt.</h1>
+<Application title="Hello">
+	<h1 class="c-heading">Josh Nesbitt.</h1>
 
-			<Spacer />
+	<Spacer />
 
-			<p class="c-para">Josh is a software engineer and technical leader. His work ranges from building platforms to leading some of the best-performing teams in technology.</p>
-			<p>He also runs internationally recognised conferences and events, bringing people from all over the world to the heart of Leeds to learn, inspire and share stories.</p>
+	<p class="c-para">Josh is a software engineer and technical leader. His work ranges from building platforms to leading some of the best-performing teams in technology.</p>
+	<p>He also runs internationally recognised conferences and events, bringing people from all over the world to the heart of Leeds to learn, inspire and share stories.</p>
 
-			<Spacer />
+	<Spacer />
 
-			<h2 class="c-sub-heading">Focus</h2>
+	<h2 class="c-sub-heading">Focus</h2>
 
-			<ul>
-				<li><a class="c-link" href="https://glean.co"><span class="c-link__inner">Company</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://stac.works"><span class="c-link__inner">Consultancy</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://heypresents.com/conference"><span class="c-link__inner">Conference</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://heypresents.com/podcast"><span class="c-link__inner">Podcast</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://stac.works/speaking"><span class="c-link__inner">Speaking</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://joshnesbitt.cooking"><span class="c-link__inner">Cooking</span> <span class="c-link__pointer">→</span></a></li>
-			</ul>
+	<ul>
+		<li><a class="c-link" href="https://glean.co"><span class="c-link__inner">Company</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://stac.works"><span class="c-link__inner">Consultancy</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://heypresents.com/conference"><span class="c-link__inner">Conference</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://heypresents.com/podcast"><span class="c-link__inner">Podcast</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://stac.works/speaking"><span class="c-link__inner">Speaking</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://joshnesbitt.cooking"><span class="c-link__inner">Cooking</span> <span class="c-link__pointer">→</span></a></li>
+	</ul>
 
-			<Spacer />
+	<Spacer />
 
-			<h2 class="c-sub-heading">Networks</h2>
+	<h2 class="c-sub-heading">Networks</h2>
 
-			<ul>
-				<li><a class="c-link" href="https://www.linkedin.com/in/josh-nesbitt"><span class="c-link__inner">LinkedIn</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://github.com/joshnesbitt"><span class="c-link__inner">GitHub</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://bsky.app/profile/joshnesbitt.dev"><span class="c-link__inner">Bluesky</span> <span class="c-link__pointer">→</span></a></li>
-				<li><a class="c-link" href="https://www.instagram.com/joshnesbitt"><span class="c-link__inner">Instagram</span> <span class="c-link__pointer">→</span></a></li>
-			</ul>
-		</body>
-		</div>
-</html>
+	<ul>
+		<li><a class="c-link" href="https://www.linkedin.com/in/josh-nesbitt"><span class="c-link__inner">LinkedIn</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://github.com/joshnesbitt"><span class="c-link__inner">GitHub</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://bsky.app/profile/joshnesbitt.dev"><span class="c-link__inner">Bluesky</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://www.instagram.com/joshnesbitt"><span class="c-link__inner">Instagram</span> <span class="c-link__pointer">→</span></a></li>
+	</ul>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Thoughts</h2>
+
+	<ul>
+		{
+			thoughts.map((thought) => (
+				<li><a class="c-link" href={`/thoughts/${thought.slug}`}><span class="c-link__inner">{thought.data.title}</span> <span class="c-link__pointer">→</span></a></li>
+			))
+		}
+	</ul>
+</Application>

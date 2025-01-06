@@ -52,6 +52,30 @@ $color-secondary: #868291;
 }
 
 @layer components {
+  .markdown-container {
+    @apply markdown
+					 markdown-lg
+           md:markdown-xl
+           print:markdown-sm
+					 max-w-none
+					 break-words
+					 md:break-normal
+					 leading-8
+           markdown-h1:font-medium
+           markdown-h2:font-medium
+           markdown-h3:font-medium
+           markdown-h4:font-medium
+           markdown-h5:font-medium
+           markdown-code:before:hidden
+           markdown-code:after:hidden
+           markdown-code:bg-[#22272e]
+           markdown-code:text-white
+           markdown-code:px-1
+           markdown-code:py-0.5
+           markdown-code:font-normal
+           markdown-code:rounded-sm;
+  }
+
 	.c-body {
 		@apply font-body;
 

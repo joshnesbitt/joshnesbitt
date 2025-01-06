@@ -11,10 +11,20 @@ module.exports = {
       },
       colors: {
         'brand-highlight': '#0fdfef',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': '#212427',
+          }
+        }
       }
     },
 	},
 	plugins: [
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography')({
+      className: 'markdown',
+    }),
   ],
 }
