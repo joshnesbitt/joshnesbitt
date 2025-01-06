@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import Application from './../../layouts/Application.astro';
-import Spacer from './../../components/Spacer.astro';
+import Application from '../../layouts/Application.astro';
+import Spacer from '../../components/Spacer.astro';
 
 export async function getStaticPaths() {
 	const thoughts = await getCollection('thought');
