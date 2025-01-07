@@ -16,27 +16,27 @@ $color-secondary: #868291;
 //
 
 @font-face {
-  font-display: swap;
   font-family: 'DM Serif Text';
-  font-style: normal;
-  font-weight: 400;
   src: url('/fonts/dm-serif-text.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/nunito-sans-400.woff2') format('woff2');
+  font-stretch: 100%;
 }
 
 @font-face {
-  font-display: swap;
   font-family: 'Nunito Sans';
+  src: url('/fonts/nunito-sans-400.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('/fonts/nunito-sans-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/nunito-sans-700.woff2') format('woff2');
+  font-stretch: 100%;
 }
 
 //
