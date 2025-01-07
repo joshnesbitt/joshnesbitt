@@ -22,6 +22,11 @@ const fullTitle = `${title} · ${SITE_TITLE}`
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Preload fonts -->
+<link rel="preload" href="/fonts/dm-serif-text.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/nunito-sans-400.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/nunito-sans-700.woff2" as="font" crossorigin="anonymous">
+
 <!-- Primary Meta Tags -->
 <title>{fullTitle}</title>
 <meta name="title" content={fullTitle} />
