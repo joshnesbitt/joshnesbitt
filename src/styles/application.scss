@@ -85,11 +85,18 @@ $color-secondary: #868291;
 	.c-container {
 		@apply container
 					 mx-auto
-					 max-w-screen-md
 					 my-6
 					 px-6
 					 text-xl
 					 sm:text-2xl;
+	}
+
+	.c-container--small {
+			@apply max-w-screen-md;
+	}
+
+	.c-container--large {
+			@apply max-w-screen-lg;
 	}
 
 	.c-heading {
@@ -135,4 +142,12 @@ $color-secondary: #868291;
 
 		border-color: $color-primary;
 	}
+}
+
+.c-container--small {
+		@apply max-w-screen-md;
+}
+
+.c-container--large {
+		@apply max-w-screen-lg;
 }
