@@ -91,14 +91,6 @@ $color-secondary: #868291;
 					 sm:text-2xl;
 	}
 
-	.c-container--small {
-			@apply max-w-screen-md;
-	}
-
-	.c-container--large {
-			@apply max-w-screen-lg;
-	}
-
 	.c-heading {
 		@apply font-heading
 					 text-5xl
