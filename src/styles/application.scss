@@ -144,6 +144,8 @@ $color-secondary: #868291;
 	}
 }
 
+// TODO: Sort this out into util classes?
+
 .c-container--small {
 		@apply max-w-screen-md;
 }
