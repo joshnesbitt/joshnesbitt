@@ -1,7 +1,7 @@
 ---
 title: "Core skills now considered a creative endeavour"
-description: ""
-pubDate: "08 Jan 2025 09:10:00"
+description: "For a long time, I've enjoyed working with teams to build exceptional products."
+pubDate: "08 Jan 2025 14:40:00"
 ---
 
 For a long time, I've enjoyed working with teams to build exceptional products. A core part of that is facilitating clear communication and working practices to ensure we do the best job we can. I really enjoy this aspect of working with teams in different environments (and I also appreciate not everyone enjoys this aspect).
