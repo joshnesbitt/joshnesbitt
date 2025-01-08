@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
+import { getThoughts } from '../utils/finders';
 
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 
-const thoughts = await getCollection('thought');
+const thoughts = await getThoughts();
 ---
 
 <Application title="Hello">
