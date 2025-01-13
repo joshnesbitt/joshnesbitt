@@ -15,7 +15,7 @@ const { Content } = await Astro.props.render();
 const data = Astro.props.data;
 ---
 
-<Application {...data} container="large">
+<Application {...data}>
 	<h1 class="c-heading">{data.title}.</h1>
 
 	<Spacer />
