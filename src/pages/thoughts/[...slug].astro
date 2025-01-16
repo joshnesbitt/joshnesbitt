@@ -1,4 +1,5 @@
 ---
+import getReadingTime from 'reading-time';
 import { getCollection } from 'astro:content';
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
@@ -11,8 +12,11 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { Content } = await Astro.props.render();
+const item = Astro.props
+const { Content } = await item.render();
+const readingTime = getReadingTime(item.body);
 const data = Astro.props.data;
+const date = data.pubDate;
 ---
 
 <Application {...data}>
@@ -21,6 +25,19 @@ const data = Astro.props.data;
 	<Spacer />
 
 	<div class="markdown-container">
+		<p class="text-slate-500 text-lg uppercase">
+			<time datetime={date.toISOString()} >
+				{date.toLocaleDateString('en-uk', {
+			    year: 'numeric',
+			    month: 'short'
+			  })}
+
+				·
+
+				{readingTime.text}
+			</time>
+		</p>
+
 		<Content />
 
 		<p>
