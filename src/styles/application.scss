@@ -13,7 +13,6 @@ $color-text: #000103;
 $color-primary: #46FF10;
 $color-spacer: #767676;
 
-
 //
 // App
 //
@@ -60,6 +59,7 @@ $color-spacer: #767676;
 
 	.c-container {
 		@apply container
+					 max-w-screen-lg
 					 mx-auto
 					 my-6
 					 px-6
@@ -86,10 +86,6 @@ $color-spacer: #767676;
 					 md:text-3xl
 					 mb-2
 					 sm:mb-4;
-	}
-
-	.c-para {
-		@apply mb-4;
 	}
 
 	.c-link {
@@ -124,14 +120,4 @@ $color-spacer: #767676;
 
 		border-color: $color-spacer;
 	}
-}
-
-// TODO: Sort this out into util classes?
-
-.c-container--small {
-		@apply max-w-screen-md;
-}
-
-.c-container--large {
-		@apply max-w-screen-lg;
 }

@@ -1,7 +1,7 @@
 ---
 import Meta from '../components/Meta.astro';
 
-const { title, description, container = 'small' } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ const { title, description, container = 'small' } = Astro.props;
 		<Meta title={title} description={description} />
 	</head>
 	<body class="c-body">
-		<div class={`c-container c-container--${container}`}>
+		<div class="c-container">
 			<slot />
 		</div>
 	</body>
