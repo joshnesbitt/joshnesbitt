@@ -6,11 +6,11 @@ module.exports = {
 	theme: {
     extend: {
       fontFamily: {
-        heading: ['"DM Serif Text"', ...defaultTheme.fontFamily.sans],
-        body: ['"Nunito Sans"', ...defaultTheme.fontFamily.sans]
+        heading: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
+        body: ['"DM Sans"', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        'brand-highlight': '#FF312E',
+        'brand-highlight': '#46FF10',
       },
       typography: {
         DEFAULT: {

@@ -16,7 +16,7 @@ const data = Astro.props.data;
 ---
 
 <Application {...data} container="large">
-	<h1 class="c-heading">{data.title}.</h1>
+	<h1 class="c-heading">{data.title}<span class="c-heading--highlight">.</span></h1>
 
 	<Spacer />
 
@@ -24,9 +24,7 @@ const data = Astro.props.data;
 		<Content />
 
 		<p>
-			<a class="c-link" href="/">
-				<span class="c-link__inner">Return home</span> <span class="c-link__pointer">→</span>
-			</a>
+			<a href="/">Go back</a>
 		</p>
 	</div>
 </Application>

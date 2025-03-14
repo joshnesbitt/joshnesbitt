@@ -8,7 +8,7 @@ const thoughts = await getThoughts();
 ---
 
 <Application title="Hello">
-	<h1 class="c-heading">Josh Nesbitt.</h1>
+	<h1 class="c-heading">Josh Nesbitt<span class="c-heading--highlight">.</span></h1>
 
 	<Spacer />
 
@@ -20,12 +20,12 @@ const thoughts = await getThoughts();
 	<h2 class="c-sub-heading">Focus</h2>
 
 	<ul>
-		<li><a class="c-link" href="https://glean.co"><span class="c-link__inner">Company</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://stac.works"><span class="c-link__inner">Consultancy</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://heypresents.com/conference"><span class="c-link__inner">Conference</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://heypresents.com/podcast"><span class="c-link__inner">Podcast</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://stac.works/speaking"><span class="c-link__inner">Speaking</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://joshnesbitt.cooking"><span class="c-link__inner">Cooking</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://glean.co">Company</a></li>
+		<li><a class="c-link" href="https://stac.works">Consultancy</a></li>
+		<li><a class="c-link" href="https://heypresents.com/conference">Conference</a></li>
+		<li><a class="c-link" href="https://heypresents.com/podcast">Podcast</a></li>
+		<li><a class="c-link" href="https://stac.works/speaking">Speaking</a></li>
+		<li><a class="c-link" href="https://joshnesbitt.cooking">Cooking</a></li>
 	</ul>
 
 	<Spacer />
@@ -33,10 +33,10 @@ const thoughts = await getThoughts();
 	<h2 class="c-sub-heading">Networks</h2>
 
 	<ul>
-		<li><a class="c-link" href="https://www.linkedin.com/in/josh-nesbitt"><span class="c-link__inner">LinkedIn</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://github.com/joshnesbitt"><span class="c-link__inner">GitHub</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://bsky.app/profile/joshnesbitt.dev"><span class="c-link__inner">Bluesky</span> <span class="c-link__pointer">→</span></a></li>
-		<li><a class="c-link" href="https://www.instagram.com/joshnesbitt"><span class="c-link__inner">Instagram</span> <span class="c-link__pointer">→</span></a></li>
+		<li><a class="c-link" href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
+		<li><a class="c-link" href="https://github.com/joshnesbitt">GitHub</a></li>
+		<li><a class="c-link" href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
+		<li><a class="c-link" href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
 	</ul>
 
 	<Spacer />
@@ -46,7 +46,7 @@ const thoughts = await getThoughts();
 	<ul>
 		{
 			thoughts.map((thought) => (
-				<li><a class="c-link" href={`/thoughts/${thought.slug}`}><span class="c-link__inner">{thought.data.title}</span> <span class="c-link__pointer">→</span></a></li>
+				<li><a class="c-link" href={`/thoughts/${thought.slug}`}>{thought.data.title}</a></li>
 			))
 		}
 	</ul>

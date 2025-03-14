@@ -2,42 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+// TODO: Locally host Google Fonts
+
 //
 // Settings
 //
 
-$color-background: #FFFFFA;
+$color-background: #FFFFFF;
 $color-text: #000103;
-$color-primary: #FF312E;
-$color-secondary: #868291;
+$color-primary: #46FF10;
+$color-spacer: #767676;
 
-//
-// Fonts
-//
-
-@font-face {
-  font-family: 'DM Serif Text';
-  src: url('/fonts/dm-serif-text.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-  font-stretch: 100%;
-}
-
-@font-face {
-  font-family: 'Nunito Sans';
-  src: url('/fonts/nunito-sans-400.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-  font-stretch: 100%;
-}
-
-@font-face {
-  font-family: 'Nunito Sans';
-  src: url('/fonts/nunito-sans-700.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 700;
-  font-stretch: 100%;
-}
 
 //
 // App
@@ -76,7 +51,8 @@ $color-secondary: #868291;
   }
 
 	.c-body {
-		@apply font-body;
+		@apply font-body
+					 font-light;
 
 		background: $color-background;
 		color: $color-text;
@@ -95,13 +71,19 @@ $color-secondary: #868291;
 		@apply font-heading
 					 text-5xl
 					 sm:text-7xl
-					 inline-block;
+					 inline-block
+					 font-black;
+	}
+
+	.c-heading--highlight {
+		@apply text-brand-highlight;
 	}
 
 	.c-sub-heading {
-		@apply font-bold
-					 uppercase
-					 text-xl
+		@apply font-heading
+					 font-bold
+					 text-2xl
+					 md:text-3xl
 					 mb-2
 					 sm:mb-4;
 	}
@@ -111,28 +93,36 @@ $color-secondary: #868291;
 	}
 
 	.c-link {
-		&:hover {
-			.c-link__inner {
-				@apply underline;
-			}
+		position: relative;
 
-			.c-link__pointer {
-				color: $color-primary;
+		&:before {
+			@apply font-heading
+						 font-black
+						 text-5xl
+						 ml-[-18px]
+						 mt-[-22px]
+						 sm:ml-[-22px]
+						 hidden;
+
+			content: '.';
+			position: absolute;
+			color: $color-primary;
+		}
+
+		&:hover {
+			&:before {
+				@apply block;
 			}
 		}
-	}
-
-	.c-link__pointer {
-		color: $color-secondary;
 	}
 
 	.c-spacer {
 		@apply my-4
 					 sm:my-10
-					 border-y-2
+					 border-y
 					 w-6;
 
-		border-color: $color-primary;
+		border-color: $color-spacer;
 	}
 }
 
