@@ -18,34 +18,34 @@ const thoughts = await getThoughts();
 
 	<h2 class="c-sub-heading">Focus</h2>
 
-	<ul>
-		<li><a class="c-link" href="https://glean.co">Company</a></li>
-		<li><a class="c-link" href="https://stac.works">Consultancy</a></li>
-		<li><a class="c-link" href="https://heypresents.com/conference">Conference</a></li>
-		<li><a class="c-link" href="https://heypresents.com/podcast">Podcast</a></li>
-		<li><a class="c-link" href="https://stac.works/speaking">Speaking</a></li>
-		<li><a class="c-link" href="https://joshnesbitt.cooking">Cooking</a></li>
+	<ul class="c-link-list">
+		<li><a href="https://glean.co">Company</a></li>
+		<li><a href="https://stac.works">Consultancy</a></li>
+		<li><a href="https://heypresents.com/conference">Conference</a></li>
+		<li><a href="https://heypresents.com/podcast">Podcast</a></li>
+		<li><a href="https://stac.works/speaking">Speaking</a></li>
+		<li><a href="https://joshnesbitt.cooking">Cooking</a></li>
 	</ul>
 
 	<Spacer />
 
 	<h2 class="c-sub-heading">Networks</h2>
 
-	<ul>
-		<li><a class="c-link" href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
-		<li><a class="c-link" href="https://github.com/joshnesbitt">GitHub</a></li>
-		<li><a class="c-link" href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
-		<li><a class="c-link" href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
+	<ul class="c-link-list">
+		<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
+		<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
+		<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
+		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
 	</ul>
 
 	<Spacer />
 
 	<h2 class="c-sub-heading">Thoughts</h2>
 
-	<ul>
+	<ul class="c-link-list">
 		{
 			thoughts.map((thought) => (
-				<li><a class="c-link" href={`/thoughts/${thought.slug}`}>{thought.data.title}</a></li>
+				<li><a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a></li>
 			))
 		}
 	</ul>

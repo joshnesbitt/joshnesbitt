@@ -88,27 +88,17 @@ $color-spacer: #767676;
 					 sm:mb-4;
 	}
 
-	.c-link {
-		position: relative;
-
-		&:before {
-			@apply font-heading
-						 font-black
-						 text-5xl
-						 ml-[-18px]
-						 mt-[-22px]
-						 md:ml-[-22px]
-						 hidden;
-
-			content: '.';
-			position: absolute;
-			color: $color-primary;
+	.c-link-list {
+		li::marker {
+  		color: $color-primary;
 		}
 
-		&:hover {
-			&:before {
-				@apply block;
-			}
+		li {
+			@apply list-none;
+		}
+
+		li:hover {
+  		@apply list-disc;
 		}
 	}
 
