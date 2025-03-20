@@ -17,10 +17,30 @@ const { Content } = await item.render();
 const readingTime = getReadingTime(item.body);
 const data = Astro.props.data;
 const date = data.pubDate;
+
+function isLastCharacterHighlightable(title) {
+	return ['?', '!'].includes(title.slice(-1));
+}
+
+function trimmedTitle(title) {
+	if(!isLastCharacterHighlightable(title))
+		return title;
+
+	return title.slice(0, title.length - 1);
+}
+
+function lastTitleCharacter(title){
+	if(isLastCharacterHighlightable(title)){
+		return title.slice(-1);
+	}
+	else {
+		return '.';
+	}
+}
 ---
 
 <Application {...data} container="large">
-	<h1 class="c-heading">{data.title}<span class="c-heading--highlight">.</span></h1>
+	<h1 class="c-heading">{trimmedTitle(data.title)}<span class="c-heading--highlight">{lastTitleCharacter(data.title)}</span></h1>
 
 	<Spacer />
 
