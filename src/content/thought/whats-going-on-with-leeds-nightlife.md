@@ -1,5 +1,5 @@
 ---
-title: "What the f*** is going on with Leeds nightlife?"
+title: "What's going on with Leeds nightlife?"
 description: "Last night I had the pleasure of hosting a panel at the Leeds Night Time Economy Group launch."
 pubDate: "20 Mar 2025 12:00:00"
 ---
