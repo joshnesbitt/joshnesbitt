@@ -26,9 +26,9 @@ Allyship isn’t a single statement. It’s not just showing up to a panel or po
 
 ## Data Guides You
 
-If you want allyship to be taken seriously, tie it to business metrics. Retention, innovation, market relevance — these all improve when teams are diverse and feel psychologically safe. If you’re in a C-level role, ask yourself: are we losing talented people because they don’t feel heard? Are we missing markets because our product teams aren’t representative? Allyship isn’t about charity — it’s about long-term competitiveness.
+If you want allyship to be taken seriously, tie it to business metrics. Retention, innovation, market relevance — these all improve when teams are diverse and feel psychologically safe. Ask yourself: are we losing talented people because they don’t feel heard? Are we missing markets because our product teams aren’t representative? When we create more diverse teams, we stand a better chance of making products that meet the needs of diverse markets.
 
-Here are some things you right now if you're wondering what more you can do:
+Here are some things you can do right now if you're wondering what more you can do:
 
 1. Mentor and Sponsor Thoughtfully: Private mentorship is valuable, but public sponsorship — amplifying voices in meetings, giving credit, and creating visibility — changes culture.
 1. Audit and Adjust: Review hiring, promotion, and team dynamics for bias. Start with the basics: blind hiring, inclusive language, balanced interview panels.
