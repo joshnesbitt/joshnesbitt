@@ -4,7 +4,7 @@ description: "Allyship works best with authenticity. Performative allyship is ri
 pubDate: "29 May 2025 13:00:00"
 ---
 
-I had a [great chat with Gemma](https://open.spotify.com/episode/7fu7Zkav7WBXQBfXI431h6?si=da4e506059a5406f) back in March about Allyship. The conversation was more specifically focused on allyship in support of female leaders within an organisation, but it triggered thoughts more widely around what good allyship looks like. There are many [good examples](https://www.linkedin.com/posts/josh-nesbitt_i-recently-wrote-to-my-mp-about-the-political-activity-7326222872950022147-Dnk6?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXM0d0BiCjikEOMtKx_9EdeoKNfArL9T8I) of when allyship is neccessary, so I felt it was worth documenting some of my top level thoughts on how to be a good ally.
+I had a [great chat with Gemma](https://open.spotify.com/episode/7fu7Zkav7WBXQBfXI431h6?si=da4e506059a5406f) back in March about Allyship. The conversation was more specifically focused on allyship in support of female leaders within an organisation, but it triggered thoughts more widely around what good allyship looks like. There are many [good examples](https://www.linkedin.com/posts/josh-nesbitt_i-recently-wrote-to-my-mp-about-the-political-activity-7326222872950022147-Dnk6?utm_source=share&utm_medium=member_desktop&rcm=ACoAACXM0d0BiCjikEOMtKx_9EdeoKNfArL9T8I) of when allyship is necessary, so I felt it was worth documenting some of my top level thoughts on how to be a good ally.
 
 Allyship works best with authenticity. Performative allyship is rife in the workplace, so self-awareness and comfort in calling that out is key.
 
