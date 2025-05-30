@@ -11,7 +11,7 @@
 $color-background: #FFFFFF;
 $color-text: #000103;
 $color-primary: #46FF10;
-$color-spacer: #767676;
+$color-spacer: #DCDCDC;
 
 //
 // App
@@ -46,7 +46,11 @@ $color-spacer: #767676;
            markdown-code:px-1
            markdown-code:py-0.5
            markdown-code:font-normal
-           markdown-code:rounded-sm;
+           markdown-code:rounded-sm
+           markdown-hr:border-[$color-spacer]
+           markdown-hr:border-y
+           markdown-hr:w-6;
+
   }
 
 	.c-body {
