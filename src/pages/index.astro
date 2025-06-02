@@ -29,17 +29,6 @@ const thoughts = await getThoughts();
 
 	<Spacer />
 
-	<h2 class="c-sub-heading">Networks</h2>
-
-	<ul class="c-link-list">
-		<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
-		<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
-		<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
-		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
-	</ul>
-
-	<Spacer />
-
 	<h2 class="c-sub-heading">Thoughts</h2>
 
 	<ul class="c-link-list">
@@ -48,5 +37,16 @@ const thoughts = await getThoughts();
 				<li><a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a></li>
 			))
 		}
+	</ul>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Networks</h2>
+
+	<ul class="c-link-list">
+		<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
+		<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
+		<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
+		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
 	</ul>
 </Application>
