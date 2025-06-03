@@ -1,5 +1,5 @@
 ---
-title: "Improving the state of AI discourse"
+title: "The state of AI discourse"
 description: ""
 pubDate: "30 May 2025 13:00:00"
 ---
@@ -14,3 +14,7 @@ Ways to improve the discourse:
 
 * Understand your feelings on it more deeply: ?
 * Check your facts: ?
+
+
+---------------
+
