@@ -12,7 +12,7 @@ const thoughts = await getThoughts();
 
 	<Spacer />
 
-	<p>Josh is a software engineer and technical leader. His work ranges from building platforms to leading some of the best-performing teams in technology. He also runs internationally recognised conferences and events, bringing people from all over the world to the heart of Leeds to learn, inspire and share stories.</p>
+	<p>Hey 👋 I'm Josh, a software engineer and technical leader based in Leeds, UK. My work ranges from building sustainable platforms and products to leading some of the best-performing teams in technology. I also run internationally recognised conferences and events, bringing people together from all over the world to learn, inspire and share stories.</p>
 
 	<Spacer />
 
@@ -29,17 +29,6 @@ const thoughts = await getThoughts();
 
 	<Spacer />
 
-	<h2 class="c-sub-heading">Networks</h2>
-
-	<ul class="c-link-list">
-		<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
-		<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
-		<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
-		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
-	</ul>
-
-	<Spacer />
-
 	<h2 class="c-sub-heading">Thoughts</h2>
 
 	<ul class="c-link-list">
@@ -48,5 +37,16 @@ const thoughts = await getThoughts();
 				<li><a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a></li>
 			))
 		}
+	</ul>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Networks</h2>
+
+	<ul class="c-link-list">
+		<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
+		<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
+		<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
+		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
 	</ul>
 </Application>
