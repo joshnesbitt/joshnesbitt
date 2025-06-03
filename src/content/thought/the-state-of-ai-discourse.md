@@ -10,8 +10,6 @@ tl;dr:
 
 > It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors, or worse, complete bollocks. Both can be true.
 
----
-
 A familiar narrative has formed around AI in our industry, one that continues to divide creators in our space. Like Steve, I find myself disappointed, not in AI’s capabilities or potential, but in how we talk about it. The snake oil is easy to spot if you’re close to the tech, but harder for the average person wading through a timeline of grifters on LinkedIn. AI is a well established resident in the towerblock of technology, and will leave a lasting legacy on software engineering for years to come.
 
 As always, there is a disconnect between the marketing hype and the technical reality that we as technologists are faced with.
