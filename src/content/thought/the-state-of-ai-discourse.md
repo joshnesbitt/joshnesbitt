@@ -6,6 +6,8 @@ pubDate: "04 Jun 2025 13:00:00"
 
 For a while now, I've struggled to hold uncomfortable feelings about AI in tension with the reality of AI within our industry and world today. Thanks to a post by [Steve](https://steveklabnik.com/writing/i-am-disappointed-in-the-ai-discourse/), I feel compelled to try and articulate my current stance on the subject.
 
+Don't worry, this isn't a [hostile takedown of why you're not smart enough](https://fly.io/blog/youre-all-nuts/) to see the value in AI, but it is trying to provide balanced reasoning on how we can improve the state of conversation around it.
+
 tl;dr:
 
 > It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors, or worse, complete bollocks. Both can be true.
