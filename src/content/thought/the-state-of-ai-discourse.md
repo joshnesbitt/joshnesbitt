@@ -53,7 +53,7 @@ I believe AI can be (and is) transformative. But right now, we’re shelving dif
 
 We don’t get the benefits of AI for free. Every "wow" moment comes with a cost: energy, carbon, or cognitive overhead, and this gets overlooked far too frequently.
 
-There is a very serious environmental reality of AI that needs to feature in your analysis of tooling. Massive data centre energy use, water consumption for cooling, carbon footprint of training/fine-tuning models, these have fast become acceptable downsides to interacting with AI.
+There is a very serious environmental reality of AI that needs to feature in your analysis of tooling. Massive data centre energy use, water consumption for cooling, carbon footprint of training/fine-tuning models — these have fast become acceptable downsides to interacting with AI.
 
 Then there's the threat to actual learning. If Google put the world at your fingertips, AI makes you believe you were actually an expert in a topic all along. The UX of chat interfaces combined with convincing responses can create a sense of overconfidence that detracts from your willingness to learn.
 
