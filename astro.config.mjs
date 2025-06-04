@@ -4,7 +4,7 @@ import netlify from "@astrojs/netlify/functions";
 
 export default defineConfig({
   site: 'https://joshnesbitt.dev',
-  output: 'hybrid',
+  output: 'server',
   integrations: [tailwind()],
   adapter: netlify(),
   build: {
