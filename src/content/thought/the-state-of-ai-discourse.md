@@ -34,7 +34,7 @@ You can of course continue to ignore AI wholesale, I wouldn't blame you for that
 
 So how can we think differently about what's going on with AI?
 
-A good start is to **become more informed** about what's going on. Challenge nonsense when you see it. This doesn't have to (and probably shouldn't) be in public. Challenging views that appear to good to be true or present something as magical through your own research can only better your stance on something.
+A good start is to **become more informed** about what's going on. Challenge nonsense when you see it, albeit privately at first. Challenging views that appear to good to be true or present something as magical through your own research can only better your stance on something.
 
 **Celebrate those in the community trying to harness a sustainable and effective future for AI.** There are teams of people out there trying to make AI greener and more ethical than it is today, and those people need your support. Working against harmful strategies by bad actors can be hard work. Just like we're happy to support open source projects that enrich how we build things, it's important we support progressive AI work, too. Without those people, we'll be left with those who want to financially benefit from its existence as well as it's ability to exploit people and society as a whole.
 
