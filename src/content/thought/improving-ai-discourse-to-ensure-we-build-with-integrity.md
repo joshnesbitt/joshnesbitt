@@ -1,5 +1,5 @@
 ---
-title: "The state of AI discourse"
+title: "Improving AI discourse to ensure we build with integrity"
 description: "It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors. Both can be true."
 pubDate: "04 Jun 2025 13:00:00"
 ---
