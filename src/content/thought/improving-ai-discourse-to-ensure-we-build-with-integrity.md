@@ -23,7 +23,7 @@ One of the things that detracts from good discourse on AI is the involuntary rea
 
 Dunking on people or companies promoting AI may occasionally have merit, when there is clear exploitation or behaviour from bad actors, but it's important that we don't lose track of potentially relevant changes going on behind the scenes.
 
-There are plenty of skilled teams actively trying to build meaningful products that solve real world problems, but it's hard to focus solely on this when aspects of our industry are also being threatened. Big tech firms are mostly to blame for the harm being caused here, and should be on the receiving end of the criticism over individual contributors.
+There are plenty of skilled teams actively trying to build meaningful products that solve real world problems, but it's hard to focus solely on this when aspects of our industry are also being threatened. There is very much a feeling that anyone trying to do anything with AI has bad intentions, and that's just not true. There are definitely bad actors (and bad organisations) to blame for misuse, though, and it's them that should be on the receiving end of the criticism over individual contributors.
 
 There is the hugely important debate of creativity in our industry, and how there is pride and enjoyment out of the act of creating vs shipping lines of code (which in case you're new here, is never a good metric of productivity or value).
 
