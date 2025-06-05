@@ -1,6 +1,6 @@
 ---
 title: "Improving AI discourse to ensure we build with integrity"
-description: "It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors. Both can be true."
+description: "It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors, or worse, complete bollocks. Both can be true."
 pubDate: "04 Jun 2025 13:00:00"
 ---
 
@@ -10,7 +10,7 @@ Do not fear, this isn't a [hostile take-down of why you're not smart enough](htt
 
 tl;dr:
 
-> It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors. Both can be true.
+> It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors, or worse, complete bollocks. Both can be true.
 
 A familiar narrative has formed around AI in our industry, one that continues to divide creators in our space. Like Steve, I find myself disappointed, not in AI itself, but in how we talk about it. The snake oil is easy to spot if you’re close to the tech, but harder for the average person wading through a timeline of grifters on LinkedIn.
 
