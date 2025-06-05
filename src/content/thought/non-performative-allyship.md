@@ -1,5 +1,5 @@
 ---
-title: "Non-performative Allyship"
+title: "Non-performative allyship"
 description: "Allyship works best with authenticity. Performative allyship is rife in the workplace, so self-awareness and comfort in calling that out is key."
 pubDate: "29 May 2025 13:00:00"
 ---
