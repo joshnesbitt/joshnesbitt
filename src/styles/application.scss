@@ -51,6 +51,9 @@ $color-spacer: #DCDCDC;
            markdown-hr:border-y
            markdown-hr:w-6;
 
+		a:hover::selection {
+		  color: white;
+		}
   }
 
 	.c-body {
