@@ -1,7 +1,7 @@
 ---
 title: "The real threat isn’t AI—it’s the discourse surrounding it"
 description: "It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors, or worse, complete bollocks. Both can be true."
-pubDate: "04 Jun 2025 13:00:00"
+pubDate: "06 Jun 2025 13:00:00"
 ---
 
 For a while now, I've struggled to hold uncomfortable feelings about AI in tension with the reality of AI within our industry and world today. Thanks to a post by [Steve](https://steveklabnik.com/writing/i-am-disappointed-in-the-ai-discourse/), I feel compelled to try and articulate my current stance on the subject.
@@ -25,14 +25,14 @@ Dunking on people or companies promoting AI may occasionally have merit, when th
 
 There are plenty of skilled teams actively trying to build meaningful products that solve real world problems, but it's hard to focus solely on this when aspects of our industry are also being threatened. There is very much a feeling that anyone trying to do anything with AI has bad intentions, and that's just not true. There are definitely bad actors (and bad organisations) to blame for misuse, though, and it's them that should be on the receiving end of the criticism over individual contributors.
 
-There is the hugely important debate of creativity in our industry, and how there is pride and enjoyment out of the act of creating vs shipping lines of code (which in case you're new here, is never a good metric of productivity or value).
+There is also the hugely important debate of creativity in our industry, and how there is pride and enjoyment out of the act of creating vs shipping lines of code (which in case you're new here, is never a good metric of productivity or value).
 
 
 ## Engaging productively
 
 You can of course continue to ignore AI wholesale, I wouldn't blame you for that. That approach may, however, leave you open to blind spots as the future of our ecosystem takes shape. Whether you like it or not, it has already infiltrated our toolbox, showing up in pretty much every software engineering tool there is to "help" you ship code. As always with tool diversification, there is a learning curve to figure out what is actually a useful augmentation of your creative process vs a complete blocker to getting things done.
 
-So how can we think differently about what's going on with AI?
+So how can we think and talk differently about what's going on with AI?
 
 A good start is to **become more informed** about what's going on. Challenge nonsense when you see it, albeit privately at first. Challenging views that appear to good to be true or present something as magical through your own research can only better your stance on something.
 
@@ -61,7 +61,7 @@ Friction is important in learning and in life. [We need more friction in the rig
 
 Accessibility also becomes a really big problem. Privileged access to AI tools like ChatGPT intensifies the [digital divide](https://en.wikipedia.org/wiki/Digital_divide). Even if users can access these tools, the knowledge on how to interact with them properly to benefit from them remains a class-based problem.
 
-But these are not specifically AI problems, they're system design problems. These issues are design choices, some of which are lazily worked around. Having a hint in the interface that says "always check your answers, this data might be incorrect" doesn't mean that people will do that. The convenience almost always outweighs the risk of things not being factually correct, and convenience drives usage. None of these trade-off's are inevitable. But they are the result of how we’ve chosen to build, deploy, and monetise AI today.
+But these are not specifically AI problems, they're **system design** problems. These issues are design choices, some of which are lazily worked around. Having a hint in the interface that says "always check your answers, this data might be incorrect" doesn't mean that people will do that. The convenience almost always outweighs the risk of things not being factually correct, and convenience drives usage. None of these trade-off's are inevitable. But they are the result of how we’ve chosen to build, deploy, and monetise AI today.
 
 I am incredibly optimistic, though. Along the same timeline as the [diffusion of innovations](https://en.wikipedia.org/wiki/Diffusion_of_innovations), these aspects will improve. Hard drives were once the size of buses, and now that form factor is almost invisible. Innovation drives refinement and optimisation. We will better the environmental impact of AI just as we'll understand more about how to harness it's ability _and_ better humanity with it, but the road to that will be messy and littered with disinformation.
 
@@ -71,7 +71,7 @@ I am incredibly optimistic, though. Along the same timeline as the [diffusion of
 To ensure we contribute meaningfully to the future of AI, we need to understand what "better" looks like. A few of the ways in which I think about this are:
 
 * **Aim for transparency:** In how AI is implemented in your product and how you train AI on user data (if at all). Be clear about sources and how AI is working (as much as you can be, acknowledging that everyone is in a race to become more diverse and build defensible moats within their product).
-* **Be environmentally aware:** You don't need to always use the latest model for that feature. Test more efficient model version for performance for the task at hand, if the output is acceptable, consider using greener compute options vs latest or research heavy models.
+* **Be environmentally aware:** You don't need to always use the latest model for that feature. Test more efficient model versions for performance for the task at hand, if the output is acceptable, consider using greener compute options vs latest or research heavy models.
 * **Enforce responsible governance:** Create clear policy on how your organisation uses AI, and stick to it. Keeping it updated doesn't mean you're not sticking to it, this space is changing so fast that it's important a policy reflects reality. Creating a visible policy also sets a precedence to your organisation that you take the ethical and compliance aspects seriously and that they form a core part of your values.
 * **Value humans:** Augmentation is more powerful than replacement. Technology that allows humans to focus on more valuable problems is generally good. Human judgement is also (usually) very good, and currently more consistent than AI.
 
