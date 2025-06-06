@@ -1,5 +1,5 @@
 ---
-title: "Non-performative Allyship"
+title: "Non-performative allyship"
 description: "Allyship works best with authenticity. Performative allyship is rife in the workplace, so self-awareness and comfort in calling that out is key."
 pubDate: "29 May 2025 13:00:00"
 ---
@@ -12,21 +12,25 @@ Allyship works best with authenticity. Performative allyship is rife in the work
 
 Allyship is often spoken about in diversity initiatives, but too frequently, it lacks grounding in day-to-day behavior or a company’s reality. It's important that we challenge that. True allyship isn’t performative, it’s operational and cultural.
 
-## Taking Accountability
+
+## Taking accountability
 
 If you’re in a position of power or privilege, you have a responsibility to make space for those who aren’t. This isn’t about guilt or blame, it’s about accountability. It’s not enough to “not be part of the problem.” You have to actively be part of the solution. In meetings, that might mean calling out interruptions or recognising when someone’s ideas are being ignored. Behind the scenes, it means reviewing hiring practices, rethinking promotion pipelines, and auditing how culture is shaped and reinforced across teams.
 
-## The Fear Factor
+
+## The fear factor
 
 A common excuse I hear is, “I don’t want to say the wrong thing”. Silence is often more damaging than imperfection. Fear of making mistakes can’t be the reason leaders opt out. If you’re genuinely uncertain, ask. Build a feedback loop. Engage in reverse mentoring. Center voices from underrepresented groups when shaping policies.
 
 Learn, adjust, repeat.
 
-## Performative Allyship vs Change
+
+## Performative allyship vs change
 
 Allyship isn’t a single statement. It’s not just showing up to a panel or posting a quote about feminism. Real allyship shows up in policies, metrics, and behavior change. It’s in how teams are structured, how meetings are run, how conflict is resolved, and how success is defined. It’s how often you advocate for inclusion when no one’s watching, especially when it’s inconvenient.
 
-## Data Guides You
+
+## Data guides you
 
 If you want allyship to be taken seriously, tie it to business metrics. Retention, innovation, market relevance, these all improve when teams are diverse and feel psychologically safe.
 
@@ -38,7 +42,8 @@ Here are some things you can do right now if you're wondering what more you can 
 1. **Audit and Adjust:** Review hiring, promotion, and team dynamics for bias. Start with the basics: blind hiring, inclusive language, balanced interview panels.
 1. **Build Feedback Loops:** Don’t assume you’re doing it right. Ask the people you’re trying to support whether your actions are working. Then adjust accordingly. Do not be afraid to do this.
 
-## You Don’t Need Permission
+
+## You don’t need permission
 
 You don’t need permission to be an ally. And you certainly don’t need to wait for a DEI group or a global movement to tell you it’s time. If you're unfortunate enough to read the news often, you'll know by now the world needs more of this.
 
