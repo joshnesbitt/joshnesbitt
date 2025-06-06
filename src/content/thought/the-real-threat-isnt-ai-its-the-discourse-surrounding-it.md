@@ -19,7 +19,7 @@ AI is now a well established resident in the tower block of technology, and will
 
 ## Signal-to-noise ratio
 
-One of the things that detracts from good discourse on AI is the involuntary reaction a lot of companies have had to feeling the need to inject AI into every part of their product. Functionality that existed before the rise of AI re-emerges as new functionality _now with 100% more AI_. A cunning move played by marketeers to demonstrate speed to market on meaningful functionality, but sadly a move which is fooling no one.
+One of the things that detracts from good discourse on AI is the involuntary reaction a lot of companies have had to feeling the need to inject AI into every part of their product. Functionality that existed before the rise of AI re-emerges as new functionality _now with 100% more AI_. A cunning move played by marketeers to demonstrate speed-to-market on meaningful functionality, but sadly a move which is fooling no one.
 
 Dunking on people or companies promoting AI may occasionally have merit, when there is clear exploitation or behaviour from bad actors, but it's important that we don't lose track of potentially relevant changes going on behind the scenes.
 
