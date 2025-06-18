@@ -16,7 +16,7 @@ I know in previous workplaces there has been a badge of honour at being one of t
 
 That's not to say I take an unrealistic view on the need for gathering around a problem, sometimes you do need to hatch a plan as a squad to an issue, but there are ways to do that without inciting panic and anxiety.
 
-The team at Genio hit publish on huge amount of work this month as we became Genio. Ensuring every trace of the previous brand were replaced with Genio and the shiny new brand that comes with it. A monumental effort in renaming applications, code references, domains, redirects, emails and brochures, onboarding materials and support literature, to name a few. There were times of pressure and deep work, but it happened with a sense of humbling calm, I can honestly say I've never seen anything quite like it.
+The team at Genio hit publish on huge amount of work this month as we became Genio. Ensuring every trace of the previous brand were replaced with Genio and the shiny new look that comes with it, all without compromising the quality and stability learners know and love about our products. A monumental effort in renaming applications, code references, domains, redirects, emails and brochures, onboarding materials and support literature, to name a few. There were times of pressure and deep work, but it happened with a sense of humbling calm, I can honestly say I've never seen anything quite like it.
 
 A mature team that has invested time in culture and infrastructure demonstrates that value when they navigate huge challenges like a rebrand with a calm and organised approach. Any issues that did surface were dealt with swiftly, without the aid of a war room, to get in the way of the problem at hand.
 
