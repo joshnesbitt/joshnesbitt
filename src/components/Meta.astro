@@ -5,11 +5,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 export interface Props {
 	title: string;
 	description: string;
+	ogImage?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description = SITE_DESCRIPTION } = Astro.props;
+const { title, description = SITE_DESCRIPTION, ogImage } = Astro.props;
 const fullTitle = `${title} · ${SITE_TITLE}`
+const defaultOgImage = '/og-images/default.png';
 ---
 
 <!-- Global Metadata -->
@@ -37,3 +39,4 @@ const fullTitle = `${title} · ${SITE_TITLE}`
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage || defaultOgImage} />

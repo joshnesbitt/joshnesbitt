@@ -12,7 +12,8 @@ const thought = defineCollection({
 		pubDate: z
 			.string()
 			.or(z.date())
-			.transform(transformDate)
+			.transform(transformDate),
+		ogImage: z.string().optional(),
 	}),
 });
 
