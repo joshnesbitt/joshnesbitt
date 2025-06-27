@@ -1,0 +1,110 @@
+---
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OG Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1200px;
+        height: 630px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        font-family: 'DM Sans', sans-serif;
+      }
+      .og-card {
+        width: 1100px;
+        height: 530px;
+        background: #fff;
+        border-radius: 32px;
+        border: 2px solid #DCDCDC;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+      }
+      .og-title {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 64px;
+        font-weight: 900;
+        color: #000103;
+        text-align: center;
+        margin: 0 40px;
+        line-height: 1.1;
+        word-break: break-word;
+        max-height: 320px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        letter-spacing: -2px;
+      }
+      .og-title.small {
+        font-size: 48px;
+      }
+      .og-title.xsmall {
+        font-size: 36px;
+      }
+      .og-title .highlight {
+        color: #46FF10;
+      }
+      .og-author {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 32px;
+        color: #71717a;
+        margin-top: 32px;
+        font-weight: 400;
+        letter-spacing: -1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og-card">
+      <div class="og-title" id="title">Loading...</div>
+      <div class="og-author">joshnesbitt.dev</div>
+    </div>
+    <script>
+      function decodeHtmlEntities(text) {
+        const textarea = document.createElement('textarea');
+        textarea.innerHTML = text;
+        return textarea.value;
+      }
+      function isLastCharacterHighlightable(title) {
+        return ['?', '!'].includes(title.slice(-1));
+      }
+      function trimmedTitle(title) {
+        if (!isLastCharacterHighlightable(title)) return title;
+        return title.slice(0, title.length - 1);
+      }
+      function lastTitleCharacter(title) {
+        if (isLastCharacterHighlightable(title)) {
+          return title.slice(-1);
+        } else {
+          return '.';
+        }
+      }
+      const params = new URLSearchParams(window.location.search);
+      const rawTitle = params.get('title') || 'Untitled';
+      const title = decodeHtmlEntities(rawTitle);
+      const titleEl = document.getElementById('title');
+      if (title.length > 90) {
+        titleEl.classList.add('xsmall');
+      } else if (title.length > 60) {
+        titleEl.classList.add('small');
+      }
+      // Always render highlight span, even if not highlightable
+      const main = trimmedTitle(title);
+      const highlight = lastTitleCharacter(title);
+      titleEl.innerHTML = `${main}<span class="highlight">${highlight}</span>`;
+    </script>
+  </body>
+</html> 
