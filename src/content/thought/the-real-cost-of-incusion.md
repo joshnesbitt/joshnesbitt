@@ -32,13 +32,14 @@ Part of the answer lies in psychology:
 These levers explain why organisations that know better still sign off on the spend. The decision is less about believing in the impact of the award, and more about managing perception in an economy where perception itself is currency.
 
 It's worth stating that I don't think these awards should necessarily be free. Events are expensive to run and the organisers should not foot the bill. But there are tried and tested models (including sponsorship or funds set up to propel initiatives like these) that can support awards without the added exploitative behaviour.
+
 ## The cost of compliance
 
 Every fee paid is also a signal. It tells organisers this model is viable, that recognition can be monetised, that underrepresented communities can be turned into revenue streams. The consequence is subtle but corrosive: energy is diverted away from reforming structures and towards maintaining appearances.
 
 ## An alternative reality
 
-There is another path, though. Award organisers could make finalist participation free. They could publish transparent judging processes, decouple recognition from branding, and use sponsorship funds to reduce barriers rather than erect them.
+There is another path, though. Award organisers could make finalist participation free (like the [Women in Tech Awards](https://www.womenintechawards.co.uk/)). They could publish transparent judging processes, decouple recognition from branding, and use sponsorship funds to reduce barriers rather than erect them.
 
 And companies could redirect what they spend on tables into mentorships, scholarships, or direct support for women entering tech. A tenth of a platinum package could fund a coding bootcamp place. The whole package could sustain a year-long mentoring scheme. It is infuriating to say the least.
 
