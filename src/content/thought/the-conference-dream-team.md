@@ -4,7 +4,9 @@ description: "Last year, as we entered the final months of 2023, planning for th
 pubDate: "26 Jul 2024 13:00:00"
 ---
 
-_Note: This post is a PDA aimed at the people who made this year’s conference possible. If that’s not for you, move along!_
+_This post is a PDA aimed at the people who made this year’s conference possible. If that’s not for you, move along!_
+
+---
 
 Last year, as we entered the final months of 2023, planning for the 2024 edition of All Day Hey! was well underway. The speakers, suppliers and venue were already locked down, and I was ramping up promotion for 2024. The 2nd of May was primed to be our best conference yet. Having listened to the feedback from previous years and gone to town on accessibility and attendee experience, I was so excited to see it all play out. And then, a huge life event happened! We found out Ailsa was pregnant, and we’d just been to get our 12-week scan. We had a due date, the 1st of May!
 
