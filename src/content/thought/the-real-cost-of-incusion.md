@@ -25,7 +25,7 @@ It would be easy to dismiss these finalist packages as cynical gimmicks, except 
 Part of the answer lies in psychology:
 
 - **Scarcity and exclusivity**: A “limited” platinum table suggests that not having one signals absence. Invisibility becomes the thing to fear.
-- **The status economy**: Awards provide a route to credibility. The badge of “winner” sidesteps the messier work of proving a culture is equitable.
+- **The status economy**: Awards provide a route to credibility. The badge of "winner" means companies can endorse their staff while sidestepping the messier work of proving a culture is equitable.
 - **Weaponising the moral dilemma**: Buying in feels like contributing to the cause. The purchase itself becomes framed as virtue.
 - **Social proof**: When competitors and organisations fill their feeds with promotion, silence risks being read as indifference. The optics outweigh the substance.
 
