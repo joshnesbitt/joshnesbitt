@@ -47,6 +47,6 @@ It is infuriating to say the least.
 
 ## Spending wisely
 
-So what are you really buying? If the answer is recognition, then it is worth asking why we feel the need to purchase it, and whether it could be earned elsewhere. A good start would be to evaluate the cost against what you think is realistic and fair. Some napkin maths can help conclude from the location and offering whether the ticket price is exploitative or not.
+So what are you really buying? If the answer is recognition, then it is worth asking why we feel the need to purchase it, and whether it could be earned elsewhere. A good start would be to evaluate the cost against what you think is realistic and fair. A bit of napkin maths can help conclude from the location and offering whether the ticket price is exploitative or not.
 
 In a time of economic scarcity, it's worth thinking twice about how best to deploy that hard earned cash to initiatives that really drive change.
