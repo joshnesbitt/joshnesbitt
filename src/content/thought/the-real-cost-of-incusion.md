@@ -1,22 +1,24 @@
 ---
 title: "The real cost of inclusion"
-description: "Every year, the tech industry produces another round of award ceremonies aimed at celebrating women and underrepresented groups. They arrive dressed in the language of empowerment—shining a light, giving a platform, amplifying voices. But a closer look into the logistics of these awards reveals the need for nominees to buy their time in the spotlight."
-pubDate: "04 Sep 2025 14:00:00"
+description: "Every year, the tech industry produces another round of award ceremonies aimed at celebrating women and underrepresented groups. They arrive dressed in the language of empowerment—shining a light, giving a platform, amplifying voices. But a closer look into the logistics of some of these awards reveals the need for nominees to buy their time in the spotlight."
+pubDate: "05 Sep 2025 14:00:00"
 ---
 
-_This post squarely takes aim at the industry surrounding paid awards and has absolutely nothing to do with the hard earned credit that nominees are rightly getting for their contributions to our industry._
-
----
-
-Every year, the tech industry produces another round of award ceremonies aimed at celebrating women and underrepresented groups. They arrive dressed in the language of empowerment—shining a light, giving a platform, amplifying voices. But a closer look into the logistics of these awards reveals the need for nominees to buy their time in the spotlight.
+Every year, the tech industry produces another round of award ceremonies aimed at celebrating women and underrepresented groups. They arrive dressed in the language of empowerment—shining a light, giving a platform, amplifying voices. But a closer look into the logistics of some of these awards reveals the need for nominees to buy their time in the spotlight.
 
 At the [_Women in Tech Excellence Awards_](https://womenintechexcellence.co.uk/womenintechexcellenceawards/en/page/finalist-packages), finalists are offered packages: £8,495 for platinum seating, branding, and Champagne; £7,495 for gold; £6,795 for silver. What should be an honour quietly morphs into a purchase. Recognition is sold.
+
+This post squarely takes aim at the industry surrounding extortionate paid awards that exploit their position, and has absolutely nothing to do with the hard earned credit that nominees are rightly getting for their contributions to our industry. There are [many awards](https://www.womenintechawards.co.uk/) that do present inclusive offerings that support these communities in more authentic ways.
 
 ## The allyship contradiction
 
 I’ve written before about the difference between [performative gestures and meaningful allyship](/thoughts/non-performative-allyship). Real allyship is slow, structural work: rewriting policies, shifting opportunity, opening space where power is held. It cannot be condensed into a fancy dinner. And yet, awards like these dress the part. They imply that visibility is empowerment, while tying that visibility to whoever can afford the cost.
 
 It becomes a back-patting exercise at the expense of the community they claim to support.
+
+That's not to say awards are not valuable, because they absolutely are. External validation can be incredibly powerful, as is recognition for your hard work from peers. But as with most things surrounding community, you need to ensure that the primary focus is the community itself, not profit.
+
+You can spot the difference with some surface-level research to find the ones authentically shining a light, giving a platform, amplifying voices.
 
 ## Infuriatingly, it works
 
@@ -45,8 +47,8 @@ And companies could redirect what they spend on tables into mentorships, scholar
 
 **Finally, not all awards are bad.** In fact, most are good actors in this space. Authentically shining a light, giving a platform, amplifying voices.
 
-## Choosing substance
+## Spending wisely
 
-So what are you really buying? If the answer is recognition, then it is worth asking why we feel the need to purchase it, and whether it could be earned elsewhere.
+So what are you really buying? If the answer is recognition, then it is worth asking why we feel the need to purchase it, and whether it could be earned elsewhere. A good start would be to evaluate the cost against what you think is realistic and fair. Some napkin maths can help conclude from the location and offering whether the ticket price is exploitative or not.
 
-Not only that, but in a time of economic scarcity, it's worth thinking twice about how best to deploy that hard earned cash to initiatives that really drive change.
+In a time of economic scarcity, it's worth thinking twice about how best to deploy that hard earned cash to initiatives that really drive change.
