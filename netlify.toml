@@ -17,3 +17,9 @@
 [[redirects]]
   from = "/thoughts/what-the-f-is-going-on-with-leeds-nightlife"
   to = "/thoughts/the-state-of-leeds-nightlife"
+
+[[redirects]]
+  from = "https://joshnesbitt.netlify.app/*"
+  to = "https://joshnesbitt.dev/:splat"
+  status = 301
+  force = true
