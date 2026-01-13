@@ -49,7 +49,8 @@ $color-spacer: #DCDCDC;
            markdown-code:rounded-sm
            markdown-hr:border-[$color-spacer]
            markdown-hr:border-y
-           markdown-hr:w-6;
+           markdown-hr:w-6
+           markdown-img:rounded-md;
 
 		a:hover::selection {
 		  color: white;

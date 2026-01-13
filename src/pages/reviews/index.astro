@@ -1,0 +1,23 @@
+---
+import { getReviews } from '../../utils/finders';
+
+import Application from '../../layouts/Application.astro';
+import Spacer from '../../components/Spacer.astro';
+
+const reviews = await getReviews();
+---
+
+<Application title="Reviews">
+	<h1 class="c-heading">Reviews<span class="c-heading--highlight">.</span></h1>
+
+	<Spacer />
+
+	<ul class="c-link-list">
+		{
+			reviews.map((review) => (
+				<li><a href={`/reviews/${review.slug}`}>{review.data.title}</a></li>
+			))
+		}
+	</ul>
+</Application>
+
