@@ -5,10 +5,10 @@ import { getCollection } from 'astro:content';
 import Post from '../../layouts/Post.astro';
 
 export async function getStaticPaths() {
-	const thoughts = await getCollection('thought');
-	return thoughts.map((thought) => ({
-		params: { slug: thought.slug },
-		props: thought,
+	const reviews = await getCollection('review');
+	return reviews.map((review) => ({
+		params: { slug: review.slug },
+		props: review,
 	}));
 }
 
