@@ -1,28 +1,10 @@
 ---
-import getReadingTime from 'reading-time';
 import { getThoughts } from '../../utils/finders';
 
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 
 const thoughts = await getThoughts();
-
-const thoughtsWithMeta = thoughts.map((thought) => ({
-	...thought,
-	readingTime: getReadingTime(thought.body)
-}));
-
-function groupByYear(items) {
-	return items.reduce((acc, item) => {
-		const year = new Date(item.data.pubDate).getFullYear();
-		if (!acc[year]) acc[year] = [];
-		acc[year].push(item);
-		return acc;
-	}, {});
-}
-
-const thoughtsByYear = groupByYear(thoughtsWithMeta);
-const years = Object.keys(thoughtsByYear).sort((a, b) => b - a);
 ---
 
 <Application title="Thoughts" description="A collection of thoughts on software engineering, leadership, events, and life.">
@@ -34,32 +16,27 @@ const years = Object.keys(thoughtsByYear).sort((a, b) => b - a);
 
 	<Spacer />
 
-	{years.map((year) => (
-		<section class="mb-12">
-			<h2 class="c-sub-heading">{year}</h2>
-
-			<ul class="c-thought-list">
-				{thoughtsByYear[year].map((thought) => (
-					<li class="c-thought-list__item">
-						<a href={`/thoughts/${thought.slug}`} class="c-thought-list__link">
-							<span class="c-thought-list__title">{thought.data.title}</span>
-							<span class="c-thought-list__meta">
-								<time datetime={thought.data.pubDate.toISOString()}>
-									{thought.data.pubDate.toLocaleDateString('en-uk', {
-										day: 'numeric',
-										month: 'short'
-									})}
-								</time>
-								<span class="c-thought-list__separator">·</span>
-								<span>{thought.readingTime.text}</span>
-							</span>
-						</a>
-						<p class="c-thought-list__description">{thought.data.description}</p>
-					</li>
-				))}
-			</ul>
-		</section>
-	))}
+	<ul class="list-none p-0 m-0">
+		{thoughts.map((thought) => (
+			<li class="py-4 border-b border-gray-200 last:border-0">
+				<a href={`/thoughts/${thought.slug}`} class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 no-underline text-inherit group">
+					<span class="transition-colors group-hover:text-brand-highlight">{thought.data.title}</span>
+					<span class="text-gray-500 text-base sm:text-lg whitespace-nowrap">
+						<time datetime={thought.data.pubDate.toISOString()}>
+							{thought.data.pubDate.toLocaleDateString('en-uk', {
+								day: 'numeric',
+								month: 'short',
+								year: 'numeric'
+							})}
+						</time>
+						<span class="mx-2">·</span>
+						<span>{thought.readingTime.text}</span>
+					</span>
+				</a>
+				<p class="mt-2 mb-0 text-gray-500 text-base sm:text-lg">{thought.data.description}</p>
+			</li>
+		))}
+	</ul>
 
 	<Spacer />
 
@@ -67,62 +44,3 @@ const years = Object.keys(thoughtsByYear).sort((a, b) => b - a);
 		<a href="/">Go back</a>
 	</p>
 </Application>
-
-<style lang="scss">
-	.c-thought-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-
-		&__item {
-			padding: 1rem 0;
-			border-bottom: 1px solid #DCDCDC;
-
-			&:last-child {
-				border-bottom: none;
-			}
-		}
-
-		&__link {
-			display: flex;
-			flex-direction: column;
-			gap: 0.25rem;
-			text-decoration: none;
-			color: inherit;
-
-			@media (min-width: 640px) {
-				flex-direction: row;
-				justify-content: space-between;
-				align-items: baseline;
-				gap: 1rem;
-			}
-
-			&:hover .c-thought-list__title {
-				color: #46FF10;
-			}
-		}
-
-		&__title {
-			font-weight: 600;
-			font-size: 1.125rem;
-			transition: color 0.2s ease;
-		}
-
-		&__meta {
-			color: #666;
-			font-size: 0.875rem;
-			white-space: nowrap;
-		}
-
-		&__separator {
-			margin: 0 0.5rem;
-		}
-
-		&__description {
-			margin: 0.5rem 0 0 0;
-			color: #444;
-			font-size: 0.9375rem;
-			line-height: 1.5;
-		}
-	}
-</style>

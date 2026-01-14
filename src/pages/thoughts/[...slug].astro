@@ -1,13 +1,12 @@
 ---
 export const prerender = true;
 
-import getReadingTime from 'reading-time';
-import { getCollection } from 'astro:content';
+import { getThoughts } from '../../utils/finders';
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 
 export async function getStaticPaths() {
-	const thoughts = await getCollection('thought');
+	const thoughts = await getThoughts();
 	return thoughts.map((thought) => ({
 		params: { slug: thought.slug },
 		props: thought,
@@ -16,8 +15,7 @@ export async function getStaticPaths() {
 
 const item = Astro.props
 const { Content } = await item.render();
-const readingTime = getReadingTime(item.body);
-const data = Astro.props.data;
+const { data, readingTime } = item;
 const date = data.pubDate;
 
 function isLastCharacterHighlightable(title) {
