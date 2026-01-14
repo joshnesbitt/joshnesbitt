@@ -31,13 +31,25 @@ const thoughts = await getThoughts();
 
 	<h2 class="c-sub-heading">Thoughts</h2>
 
-	<ul class="c-link-list">
+	<ul class="c-home-thoughts">
 		{
 			thoughts.map((thought) => (
-				<li><a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a></li>
+				<li class="c-home-thoughts__item">
+					<a href={`/thoughts/${thought.slug}`} class="c-home-thoughts__link">
+						<span class="c-home-thoughts__title">{thought.data.title}</span>
+						<time class="c-home-thoughts__date" datetime={thought.data.pubDate.toISOString()}>
+							{thought.data.pubDate.toLocaleDateString('en-uk', {
+								month: 'short',
+								year: 'numeric'
+							})}
+						</time>
+					</a>
+				</li>
 			))
 		}
 	</ul>
+
+	<p class="c-view-all"><a href="/thoughts">View all thoughts</a></p>
 
 	<Spacer />
 
@@ -51,3 +63,59 @@ const thoughts = await getThoughts();
 		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
 	</ul>
 </Application>
+
+<style lang="scss">
+	.c-home-thoughts {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		&__item {
+			padding: 0.5rem 0;
+		}
+
+		&__link {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+			text-decoration: none;
+			color: inherit;
+
+			@media (min-width: 640px) {
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 1rem;
+			}
+
+			&:hover .c-home-thoughts__title {
+				color: #46FF10;
+			}
+		}
+
+		&__title {
+			font-weight: 500;
+			transition: color 0.2s ease;
+		}
+
+		&__date {
+			color: #666;
+			font-size: 0.875rem;
+			white-space: nowrap;
+		}
+	}
+
+	.c-view-all {
+		margin-top: 1rem;
+
+		a {
+			color: #666;
+			text-decoration: none;
+			font-size: 0.9375rem;
+
+			&:hover {
+				color: #46FF10;
+			}
+		}
+	}
+</style>
