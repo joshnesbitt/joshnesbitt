@@ -5,6 +5,7 @@ import getReadingTime from 'reading-time';
 import { getCollection } from 'astro:content';
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
+import TrackView from '../../components/TrackView.astro';
 
 export async function getStaticPaths() {
 	const thoughts = await getCollection('thought');
@@ -67,3 +68,5 @@ function lastTitleCharacter(title){
 		</p>
 	</div>
 </Application>
+
+<TrackView namespace="thought" key={item.slug} />
