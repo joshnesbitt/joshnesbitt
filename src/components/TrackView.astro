@@ -1,0 +1,10 @@
+---
+const { key, namespace = 'site' } = Astro.props;
+---
+
+<script define:vars={{ key, namespace }}>
+	const id = `${namespace}:${key}`;
+
+	fetch(`/api/views/${id}`, { method: 'POST' })
+		.then(res => res.json());
+</script>

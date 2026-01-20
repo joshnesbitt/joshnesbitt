@@ -5,6 +5,7 @@ import getReadingTime from 'reading-time';
 import { getCollection } from 'astro:content';
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
+import TrackView from '../../components/TrackView.astro';
 
 export async function getStaticPaths() {
 	const thoughts = await getCollection('thought');
@@ -57,11 +58,6 @@ function lastTitleCharacter(title){
 				·
 
 				{readingTime.text}
-
-				<span id="view-count-wrapper" style="display: none;">
-					·
-					<span id="view-count"></span>
-				</span>
 			</time>
 		</p>
 
@@ -73,15 +69,4 @@ function lastTitleCharacter(title){
 	</div>
 </Application>
 
-<script define:vars={{ slug: item.slug }}>
-	fetch(`/api/views/${slug}`, { method: 'POST' })
-		.then(res => res.json())
-		.then(data => {
-			const wrapper = document.getElementById('view-count-wrapper');
-			const el = document.getElementById('view-count');
-			if (wrapper && el) {
-				el.textContent = `${data.views} ${data.views === 1 ? 'view' : 'views'}`;
-				wrapper.style.display = 'inline';
-			}
-		});
-</script>
+<TrackView namespace="thought" key={item.slug} />

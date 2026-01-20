@@ -8,10 +8,10 @@ const headers = {
 };
 
 export const GET: APIRoute = async ({ params }) => {
-  const slug = params.slug;
+  const key = params.key;
 
-  if (!slug) {
-    return new Response(JSON.stringify({ error: 'Slug is required' }), {
+  if (!key) {
+    return new Response(JSON.stringify({ error: 'Key is required' }), {
       status: 400,
       headers
     });
@@ -19,7 +19,7 @@ export const GET: APIRoute = async ({ params }) => {
 
   try {
     const store = getStore({ name: 'views', consistency: 'strong' });
-    const views = await store.get(slug) || '0';
+    const views = await store.get(key) || '0';
 
     return new Response(JSON.stringify({ views: parseInt(views, 10) }), {
       status: 200,
@@ -27,6 +27,7 @@ export const GET: APIRoute = async ({ params }) => {
     });
   } catch (error) {
     console.error('Blobs GET error:', error);
+
     return new Response(JSON.stringify({ views: 0, error: 'Store unavailable' }), {
       status: 200,
       headers
@@ -35,10 +36,10 @@ export const GET: APIRoute = async ({ params }) => {
 };
 
 export const POST: APIRoute = async ({ params }) => {
-  const slug = params.slug;
+  const key = params.key;
 
-  if (!slug) {
-    return new Response(JSON.stringify({ error: 'Slug is required' }), {
+  if (!key) {
+    return new Response(JSON.stringify({ error: 'Key is required' }), {
       status: 400,
       headers
     });
@@ -46,10 +47,10 @@ export const POST: APIRoute = async ({ params }) => {
 
   try {
     const store = getStore({ name: 'views', consistency: 'strong' });
-    const current = await store.get(slug) || '0';
+    const current = await store.get(key) || '0';
     const newCount = parseInt(current, 10) + 1;
 
-    await store.set(slug, newCount.toString());
+    await store.set(key, newCount.toString());
 
     return new Response(JSON.stringify({ views: newCount }), {
       status: 200,
@@ -57,6 +58,7 @@ export const POST: APIRoute = async ({ params }) => {
     });
   } catch (error) {
     console.error('Blobs POST error:', error);
+
     return new Response(JSON.stringify({ views: 1, error: 'Store unavailable' }), {
       status: 200,
       headers
