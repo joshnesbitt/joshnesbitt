@@ -5,15 +5,12 @@ const { thoughts } = Astro.props;
 <div>
 	{
 		thoughts.map((thought) => (
-			<div class="c-summary-card">
+			<div class="c-summary-card markdown-container">
+				<h4>
+					<a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
+				</h4>
 
-				<div class="markdown-container">
-					<h4>
-						<a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
-					</h4>
-
-					<p>{thought.data.description}</p>
-				</div>
+				<p>{thought.data.description}</p>
 			</div>
 		))
 	}
