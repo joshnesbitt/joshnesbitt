@@ -1,6 +1,6 @@
 ---
 title: "Non-performative allyship"
-description: "Allyship works best with authenticity. Performative allyship is rife in the workplace, so self-awareness and comfort in calling that out is key."
+description: "Allyship is often spoken about in diversity initiatives, but too frequently, it lacks grounding in day-to-day behavior or a company’s reality. It's important that we challenge that. True allyship isn’t performative, it’s operational and cultural."
 pubDate: "29 May 2025 13:00:00"
 ---
 

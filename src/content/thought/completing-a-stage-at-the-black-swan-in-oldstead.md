@@ -1,6 +1,6 @@
 ---
 title: "Completing a Stage at the Black Swan in Oldstead"
-description: "I’ve wanted to do a stint in a professional kitchen for some time, so when the opportunity arose to do one at The Black Swan in Oldstead - a restaurant awarded a star from the Michelin guide - I jumped at it."
+description: "I had wanted to do a stint in a professional kitchen for some time, so when the opportunity arose to do one at The Black Swan in Oldstead - a restaurant awarded a star from the Michelin guide - I jumped at it."
 pubDate: "2 Feb 2024 15:00:00"
 ---
 
