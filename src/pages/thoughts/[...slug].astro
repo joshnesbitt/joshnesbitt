@@ -3,6 +3,7 @@ export const prerender = true;
 
 import { getCollection } from 'astro:content';
 import Post from '../../layouts/Post.astro';
+import TrackView from '../../components/TrackView.astro';
 
 export async function getStaticPaths() {
 	const thoughts = await getCollection('thought');
@@ -16,3 +17,5 @@ const post = Astro.props
 ---
 
 <Post {...post} />
+
+<TrackView namespace="thoughts" key={post.slug} />

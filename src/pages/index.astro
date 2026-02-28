@@ -3,6 +3,7 @@ import { getThoughts } from '../utils/finders';
 
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
+import TrackView from '../components/TrackView.astro';
 
 const thoughts = await getThoughts();
 ---
@@ -51,3 +52,5 @@ const thoughts = await getThoughts();
 		<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
 	</ul>
 </Application>
+
+<TrackView key="home" />
