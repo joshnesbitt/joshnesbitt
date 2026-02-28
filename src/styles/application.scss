@@ -111,7 +111,8 @@ $color-spacer: #DCDCDC;
 	}
 
 	.c-summary-card {
-		@apply mb-6
+		@apply markdown-container
+					 mb-6
 					 max-w-screen-md;
 	}
 
