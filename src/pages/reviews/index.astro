@@ -4,6 +4,7 @@ import { getReviews } from '../../utils/finders';
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 import TrackView from '../../components/TrackView.astro';
+import GoBack from '../../components/GoBack.astro';
 
 const reviews = await getReviews();
 ---
@@ -20,6 +21,8 @@ const reviews = await getReviews();
 			))
 		}
 	</ul>
+
+  <GoBack />
 </Application>
 
 <TrackView namespace="reviews" key="index" />

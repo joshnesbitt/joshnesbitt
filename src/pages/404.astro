@@ -2,6 +2,7 @@
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
+import GoBack from '../components/GoBack.astro';
 ---
 
 <Application title="404" description="The thing you're looking for doesn't exist (404).">
@@ -11,8 +12,9 @@ import TrackView from '../components/TrackView.astro';
 
 	<div class="markdown-container">
 		<p>The thing you're looking for doesn't exist.</p>
-		<p><a href="/">Go back</a></p>
 	</div>
+
+	<GoBack />
 </Application>
 
 <TrackView key="not-found" />
