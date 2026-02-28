@@ -1,0 +1,58 @@
+---
+import getReadingTime from 'reading-time';
+import Application from './Application.astro';
+import Spacer from '../components/Spacer.astro';
+
+const item = Astro.props
+const { Content } = await item.render();
+const readingTime = getReadingTime(item.body);
+const data = Astro.props.data;
+const date = data.pubDate;
+
+function isLastCharacterHighlightable(title) {
+	return ['?', '!'].includes(title.slice(-1));
+}
+
+function trimmedTitle(title) {
+	if(!isLastCharacterHighlightable(title))
+		return title;
+
+	return title.slice(0, title.length - 1);
+}
+
+function lastTitleCharacter(title){
+	if(isLastCharacterHighlightable(title)){
+		return title.slice(-1);
+	}
+	else {
+		return '.';
+	}
+}
+---
+
+<Application {...data} container="large">
+	<h1 class="c-heading">{trimmedTitle(data.title)}<span class="c-heading--highlight">{lastTitleCharacter(data.title)}</span></h1>
+
+	<Spacer />
+
+	<div class="markdown-container">
+		<p class="text-lg font-bold">
+			<time datetime={date.toISOString()} >
+				{date.toLocaleDateString('en-uk', {
+			    year: 'numeric',
+			    month: 'short'
+			  })}
+
+				·
+
+				{readingTime.text}
+			</time>
+		</p>
+
+		<Content />
+
+		<p>
+			<a href="/">Go back</a>
+		</p>
+	</div>
+</Application>

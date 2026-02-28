@@ -16,4 +16,19 @@ const thought = defineCollection({
 	}),
 });
 
-export const collections = { thought };
+const review = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		published: z.boolean().default(true),
+		pubDate: z
+			.string()
+			.or(z.date())
+			.transform(transformDate)
+	}),
+});
+
+export const collections = {
+	thought,
+	review
+};

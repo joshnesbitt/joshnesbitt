@@ -4,6 +4,8 @@ description: "I’ve wanted to do a stint in a professional kitchen for some tim
 pubDate: "2 Feb 2024 15:00:00"
 ---
 
+![The kitchen at the Black Swan in Oldstead](/thoughts/completing-a-stage-at-the-black-swan-in-oldstead/cover.jpg)
+
 I’ve wanted to do a stint in a professional kitchen for some time, so when the opportunity arose to do one at [The Black Swan in Oldstead](https://www.instagram.com/blackswan_oldstead/) - a restaurant awarded a star from the Michelin Guide - I jumped at it.
 
 ## What is a Stage?

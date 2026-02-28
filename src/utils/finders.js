@@ -8,6 +8,15 @@ async function getThoughts() {
 		.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 }
 
+async function getReviews() {
+	const collection = await getCollection('review')
+
+	return collection
+		.filter((rec) => rec.data.published)
+		.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+}
+
 export {
-	getThoughts
+	getThoughts,
+	getReviews
 }
