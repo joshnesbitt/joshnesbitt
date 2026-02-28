@@ -1,6 +1,6 @@
 ---
 title: "The conference dream team"
-description: "Last year, as we entered the final months of 2023, planning for the 2024 edition of All Day Hey! was well underway."
+description: "Last year I learned that making yourself redundant is vital to scaling events. Create processes and systems that mean you are replaceable. Not because you want to be replaced but because if you want to create something of permanence, it’s a requirement."
 pubDate: "26 Jul 2024 13:00:00"
 ---
 

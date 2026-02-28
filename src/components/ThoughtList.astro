@@ -1,0 +1,17 @@
+---
+const { thoughts } = Astro.props;
+---
+
+<div>
+	{
+		thoughts.map((thought) => (
+			<div class="c-summary-card">
+				<h4>
+					<a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
+				</h4>
+
+				<p>{thought.data.description}</p>
+			</div>
+		))
+	}
+</div>
