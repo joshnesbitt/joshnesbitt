@@ -110,6 +110,11 @@ $color-spacer: #DCDCDC;
 		}
 	}
 
+	.c-summary-card {
+		@apply mb-6
+					 max-w-screen-md;
+	}
+
 	.c-spacer {
 		@apply my-4
 					 sm:my-10
