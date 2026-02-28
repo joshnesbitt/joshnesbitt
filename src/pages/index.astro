@@ -4,7 +4,7 @@ import { getThoughts } from '../utils/finders';
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
-import ThoughtList from '../components/ThoughtList.astro';
+import PostCards from '../components/PostCards.astro';
 
 const thoughts = await getThoughts(3);
 ---
@@ -34,7 +34,7 @@ const thoughts = await getThoughts(3);
 	<h2 class="c-sub-heading">Thoughts</h2>
 
 	<div class="-mt-6">
-		<ThoughtList thoughts={thoughts} />
+		<PostCards posts={thoughts} path="thoughts" />
 	</div>
 
 	<div class="markdown-container -mt-2">

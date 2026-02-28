@@ -4,6 +4,7 @@ import { getReviews } from '../../utils/finders';
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 import TrackView from '../../components/TrackView.astro';
+import PostCards from '../../components/PostCards.astro';
 import GoBack from '../../components/GoBack.astro';
 
 const reviews = await getReviews();
@@ -14,13 +15,7 @@ const reviews = await getReviews();
 
 	<Spacer />
 
-	<ul class="c-link-list">
-		{
-			reviews.map((review) => (
-				<li><a href={`/reviews/${review.slug}`}>{review.data.title}</a></li>
-			))
-		}
-	</ul>
+  <PostCards posts={reviews} path="reviews" />
 
   <GoBack />
 </Application>
