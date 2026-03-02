@@ -10,6 +10,9 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description = SITE_DESCRIPTION } = Astro.props;
 const fullTitle = `${title} · ${SITE_TITLE}`
+
+const ogImagePath = Astro.url.pathname === '/' ? 'index' : Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
+const ogImageURL = new URL(`/api/og/${ogImagePath}.png`, Astro.site);
 ---
 
 <!-- Global Metadata -->
@@ -37,3 +40,13 @@ const fullTitle = `${title} · ${SITE_TITLE}`
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageURL} />
