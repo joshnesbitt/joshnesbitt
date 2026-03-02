@@ -54,7 +54,7 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   if (basePath === 'thoughts') {
     return {
       title: 'Thoughts',
-      description: 'Writings on software, leadership, and life.',
+      description: 'A running log of ideas on software engineering, leadership, AI, running conferences and building teams and products that solve human problems.',
       url: 'joshnesbitt.dev/thoughts',
     };
   }
@@ -63,7 +63,7 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   if (basePath === 'reviews') {
     return {
       title: 'Reviews',
-      description: 'Annual reflections and year in review.',
+      description: 'Annual reflections on work and life.',
       url: 'joshnesbitt.dev/reviews',
     };
   }
@@ -130,7 +130,7 @@ function formatTitle(title: string): TitleParts {
   };
 }
 
-function truncateDescription(description: string, maxLength: number = 120): string {
+function truncateDescription(description: string, maxLength: number = 210): string {
   if (description.length <= maxLength) return description;
   return description.slice(0, maxLength).trim() + '...';
 }
