@@ -18,7 +18,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
-    "astro": "^5.16.10",
+    "astro": "^5.18.1",
     "reading-time": "^1.5.0",
     "sass": "^1.62.0",
     "satori": "^0.19.2",
