@@ -43,14 +43,15 @@ $color-spacer: #DCDCDC;
            markdown-h5:font-medium
            markdown-code:before:hidden
            markdown-code:after:hidden
-           markdown-code:px-1
-           markdown-code:py-0.5
            markdown-code:font-normal
-           markdown-code:rounded-sm
            markdown-hr:border-[$color-spacer]
            markdown-hr:border-y
            markdown-hr:w-6
            markdown-img:rounded-md;
+
+		:not(pre) > code {
+		  @apply px-1 py-0.5 rounded-sm bg-gray-100;
+		}
 
 		a:hover::selection {
 		  color: white;
