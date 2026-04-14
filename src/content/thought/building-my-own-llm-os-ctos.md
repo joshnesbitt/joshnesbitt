@@ -4,7 +4,7 @@ description: "I built an LLM-based operating system for my CTO workflow. It's ch
 pubDate: "14 Apr 2026 12:00:00"
 ---
 
-As a CTO, my days are spent context switching. Meeting prep, stakeholder management, strategic planning, team comms, competitive intelligence, newsletters. The cognitive overhead of keeping all those threads active require a lot of manual admin. Keeping track of everything can easily become a mess.
+As a CTO, my days are spent context switching. Meeting prep, stakeholder management, strategic planning, competitive intelligence. The cognitive overhead of keeping all those threads active require a lot of manual admin. Keeping track of everything can easily become a mess.
 
 So I built myself an operating system. I've been calling it **ctOS**, a Chief Technology Operating System. It's been running for a few months now, and it's changed where I spend my time.
 
@@ -57,9 +57,9 @@ The interface is the terminal. The architecture has three layers:
 
 **A system prompt.**  The scene setting layer, defines my operating context, preferences, and the persona of the system. An opinionated operator. It pushes back, flags risks and holds me accountable to commitments.
 
-**A skill layer.** Slash commands that handle recurring CTO workflows. `/daily-briefing` pulls my calendar, email, Slack, and tasks into a single morning brief. `/meeting-brief` preps me for any upcoming meeting with stakeholder context and recommended positions. `/eod` wraps my day and logs commitments. `/weekly-review` synthesises the week. `/research` digs deep into a topic and persists findings. About fifteen of these, each built for a specific part of my workflow.
+**A skill layer.** Slash commands that handle recurring CTO workflows. `/daily-briefing` pulls my calendar, email, Slack, and tasks into a single morning brief. `/meeting-brief` preps me for any upcoming meeting with stakeholder context and recommended positions. `/eod` wraps my day and logs commitments. `/weekly-review` logs events from the week. `/research` digs deep into a topic and persists findings. About fifteen of these skills, each built for a specific part of my workflow.
 
-**A persistent filesystem that acts as long-term memory.** Stakeholder CRM with interaction logs and relationship health tracking. Meeting briefs and follow-ups. Strategic plans. Weekly snapshots. Newsletter digests. The filesystem is the source of truth. Conversation context is ephemeral. The filesystem persists.
+**A persistent filesystem that acts as long-term memory.** Stakeholder CRM with interaction logs and relationship health tracking. Meeting briefs and follow-ups. Strategic plans. Weekly snapshots. Newsletter digests. The filesystem is the source of truth. Conversation context is ephemeral, but the filesystem persists.
 
 ## Recovering focus
 
