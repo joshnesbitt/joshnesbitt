@@ -1,14 +1,12 @@
 ---
-title: "Building my own LLM OS"
-description: "I've been running my own LLM-based operating system for months. Then Karpathy started talking about the same idea. Here's what I've built and what I've learned."
+title: "Building my own LLM OS, ctOS"
+description: "I built an LLM-based operating system for my CTO workflow. It's changed where I spend my time and what I focus on. Here's what I've built and what I've learned."
 pubDate: "07 Apr 2026 12:00:00"
 ---
 
-I've been running my own LLM-based operating system for a few months now. I built it out of necessity, not theory. Then Karpathy started talking publicly about the same idea, the LLM as kernel, orchestrating tools, memory, I/O across modalities, and I realised I'd already been living it.
+I'm a CTO. My days are context switching. Meeting prep, stakeholder management, strategic planning, team comms, competitive intelligence, newsletters. The cognitive overhead of keeping all those threads alive was the real bottleneck. The work itself was manageable. Keeping track of it all was not.
 
-I'm a CTO. My days are context switching. Meeting prep, stakeholder management, strategic planning, team comms, competitive intelligence, newsletters. The cognitive overhead of keeping all those threads alive is the bottleneck, not the work itself.
-
-I didn't wait for someone to build this for me. I built it myself. I've been calling it ctOS, a Chief Technology Operating System.
+So I built myself an operating system. I've been calling it ctOS, a Chief Technology Operating System. It's been running for a few months now, and it's changed where I spend my time.
 
 ```
 ============================================
@@ -53,7 +51,7 @@ Tools
 
 ## What it is
 
-ctOS is a personal operating system built on top of Claude Code. The LLM is the kernel. Everything else, calendar, email, Slack, CRM, meeting notes, plugs in as peripherals through MCP servers.
+ctOS is a personal operating system built on top of Claude Code. The LLM is the kernel. Everything else (calendar, email, Slack, CRM, meeting notes) plugs in as peripherals through MCP servers.
 
 The interface is the terminal. No app, no dashboard. I type commands and the system does the rest.
 
@@ -63,26 +61,28 @@ A system prompt that defines my operating context, preferences, and the persona 
 
 A skill layer. Slash commands that handle recurring CTO workflows. `/daily-briefing` pulls my calendar, email, Slack, and tasks into a single morning brief. `/meeting-brief` preps me for any upcoming meeting with stakeholder context and recommended positions. `/eod` wraps my day and logs commitments. `/weekly-review` synthesises the week. `/research` does deep dives and persists findings. About fifteen of these, each built for a specific part of my rhythm.
 
-A persistent filesystem that acts as long term memory. Stakeholder CRM with interaction logs and relationship health tracking. Meeting briefs and follow ups. Strategic plans. Weekly snapshots. Newsletter digests. The filesystem is the source of truth. Conversation context is ephemeral. The filesystem persists.
+A persistent filesystem that acts as long-term memory. Stakeholder CRM with interaction logs and relationship health tracking. Meeting briefs and follow-ups. Strategic plans. Weekly snapshots. Newsletter digests. The filesystem is the source of truth. Conversation context is ephemeral. The filesystem persists.
 
-## Why it works
+## What it's changed
 
-Karpathy's framing, when it arrived, validated something I'd already figured out by using the thing daily: the value is in the orchestration. My daily briefing pulls from four different systems, cross references them against my stakeholder CRM, and surfaces what actually matters.
+The biggest shift is where my attention goes. Before ctOS, a large chunk of my morning was spent gathering context: scanning email, reading Slack, checking the calendar, cross-referencing notes from last week. Now `/daily-briefing` does that in seconds. It pulls from four different systems, cross-references them against my stakeholder CRM, and surfaces what actually matters. I start the day with a clear picture instead of spending the first hour assembling one.
 
-The persistent filesystem solves the memory problem. Most AI tools feel amnesiac. When I prep for a 1:1 with a direct report, the system reads their stakeholder file, surfaces open loops from our last conversation, checks for cold relationships, and suggests a question I should be asking. It has that context because I've been disciplined about writing back to the filesystem after every interaction.
+Meeting prep used to be another tax. Pulling up the last conversation, remembering what was promised, figuring out what to push on. Now when I prep for a 1:1 with a direct report, the system reads their stakeholder file, surfaces open loops from our last conversation, checks for cold relationships, and suggests a question I should be asking. It has that context because I've been disciplined about writing back to the filesystem after every interaction.
 
-The skill layer means I'm not prompt engineering on the fly. Each workflow is codified. The system knows how I want a CEO update structured, how I want meeting briefs formatted, what my writing voice sounds like.
+The compounding effect is real. Every interaction I log, every briefing I run, every weekly review I complete makes the next one sharper. The system gets more useful over time because the filesystem grows. Most AI tools feel amnesiac. ctOS remembers.
+
+The result is that I spend less time on operational overhead and more time on the things that actually move the needle: strategic thinking, building relationships, making decisions with better information. The CTO role has a lot of surface area. ctOS shrinks the administrative portion of it.
 
 ## What I've learned
 
-The system is only as good as the data you feed it. The CRM, the meeting notes, the weekly reviews. If I don't keep those current, the whole thing degrades. Same garbage in, garbage out problem as anything else. The discipline of maintaining the filesystem is the real investment.
+The system is only as good as the data you feed it. The CRM, the meeting notes, the weekly reviews. If I don't keep those current, the whole thing degrades. Same garbage in, garbage out problem as anything else. The discipline of maintaining the filesystem is the real investment. But once the habit is there, the returns compound every week.
 
-The persona matters more than I expected. Defining the system as an opinionated operator that challenges my assumptions and flags risks changed the dynamic completely. It does what I need, which is sometimes different from what I ask for.
+The persona matters more than I expected. Defining the system as an opinionated operator that challenges my assumptions and flags risks changed the dynamic. It does what I need, which is sometimes different from what I ask for. That friction is valuable. A system that only agrees with you is just a mirror.
 
-Terminal first is the right call. No switching between apps. No visual noise. Just me and the system, working through the day.
+Terminal first is the right call. No switching between apps. No visual noise. Just me and the system, working through the day. It keeps me in flow rather than bouncing between tools.
 
 ## The bigger picture
 
-Karpathy talks about the LLM OS making traditional apps obsolete. I think he's right. But the theory is catching up to what practitioners have already been doing. The path forward runs through individuals building systems like this for their own workflows, discovering what works, and sharing patterns.
+Karpathy has been talking about the LLM OS concept publicly: the LLM as kernel, orchestrating tools and memory across modalities. It's a good framework. But the theory is catching up to what practitioners have already been building. The interesting work is happening in the specifics of individual workflows, not in the abstraction.
 
-ctOS is bespoke. Built for how I work, what I care about, and the operational load of being a CTO at a growing company. That's the point. I didn't need a keynote to tell me this was possible. I needed a problem to solve, and the tools were already there. The LLM OS is a practice.
+ctOS is bespoke. Built for how I work, what I care about, and the operational load of being a CTO at a growing company. That's the point. The tools were already there. I just needed a problem to solve. The LLM OS is a practice, and the practice is what makes it valuable.
