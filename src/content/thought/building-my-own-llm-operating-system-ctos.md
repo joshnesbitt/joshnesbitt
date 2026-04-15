@@ -1,12 +1,12 @@
 ---
 title: "Building my own LLM Operating System, ctOS"
-description: "I built an LLM-based operating system for my CTO workflow. It's changed where I spend my time and what I focus on. Here's what I've built and what I've learned."
-pubDate: "14 Apr 2026 12:00:00"
+description: "A conversation with Jack a few months ago set me off on an idea that radically changed how I work. We were talking about how skills in Claude could add an intelligent layer on top of the notes I'd been keeping in Obsidian for years. By the end of it, I'd started building something tailored to how I work as a CTO."
+pubDate: "15 Apr 2026 12:00:00"
 ---
 
 A conversation with [Jack](https://www.linkedin.com/in/jack-sails/) a few months ago set me off on an idea that radically changed how I work. We were talking about how skills in Claude could add an intelligent layer on top of the notes I'd been keeping in Obsidian for years. By the end of it, I'd started building something tailored to how I work as a CTO.
 
-My days are spent context switching. Meeting prep, stakeholder management, strategic planning and competitive intelligence to name a few. The cognitive overhead of keeping all those threads active requires a lot of manual admin. If I'm not careful, things quickly get messy.
+My days are often spent context switching. Meeting prep, stakeholder management, strategic planning and competitive intelligence to name a few. The cognitive overhead of keeping all those threads active requires a lot of manual admin. If I'm not careful, things quickly get messy.
 
 I built myself an operating system to help solve these problems. I've been calling it **ctOS**, a Chief Technology Operating System. It's been running for a few months now, and it's been an absolute revelation for me.
 
@@ -21,7 +21,7 @@ I built myself an operating system to help solve these problems. I've been calli
    ╚═════╝     ╚═╝      ╚═════╝   ╚══════╝
 
   Chief Technology Operating System
-  v1.0.8 | 14 Apr 2026
+  v1.0.8 | 15 Apr 2026
   Operator: Josh Nesbitt, CTO @ Genio
 
   ==========================================
@@ -53,19 +53,19 @@ I built myself an operating system to help solve these problems. I've been calli
 
 ## The system architecture
 
-ctOS is a personal operating system built on top of Claude Code. The LLM is the kernel. Everything else (calendar, email, Slack, CRM, meeting notes) plugs in as peripherals through MCP servers and skills.
+ctOS is a personal operating system built on top of Claude Code. The LLM is the kernel. Everything else (calendar, email, Slack, CRM, notes) plugs in as peripherals through MCP servers and skills.
 
 The architecture has three layers:
 
 **A system prompt.** The scene-setting layer that defines my operating context, preferences, and the persona of the system. An opinionated operator. It pushes back, flags risks and holds me accountable to commitments.
 
-**A skill layer.** Slash commands that handle recurring CTO workflows. `/daily-briefing` pulls my calendar, email, Slack, and tasks into a single morning brief. `/meeting-brief` preps me for any upcoming meeting with stakeholder context and recommended positions. `/eod` wraps my day and logs commitments. `/weekly-review` logs events from the week. `/research` digs deep into a topic and persists findings. About fifteen of these skills, each built for a specific part of my workflow.
+**A skill layer.** Slash commands that handle recurring CTO workflows. `/daily-briefing` pulls my calendar, email, Slack, and tasks into a single morning brief. `/meeting-brief` preps me for any upcoming meeting with stakeholder context and recommended positions. `/eod` wraps my day and logs commitments. `/weekly-review` logs events from the week. `/research` digs deep into a topic and persists findings. About fifteen of these skills, each built to solve a specific point of friction.
 
 **A persistent filesystem that acts as long-term memory.** Stakeholder CRM with interaction logs and relationship health tracking. Meeting briefs and follow-ups. Strategic plans. Weekly snapshots. Newsletter digests. The filesystem is the source of truth. Conversation context is ephemeral, but the filesystem persists.
 
 The interface is the terminal. It's a task driven approach with no distractions, and it's a place I'm used to spending a lot of time in already.
 
-## Recovering focus
+## Reclaiming focus
 
 The biggest improvement I've seen from this approach is regained focus. Before ctOS, a large chunk of my morning was spent gathering context: scanning email, reading Slack, checking the calendar, cross-referencing notes from last week. Now `/daily-briefing` does that for me. It pulls from four different systems, cross-references them against my stakeholder CRM, and surfaces what actually matters. I start the day with a clear picture instead of spending the first hour assembling one.
 
@@ -73,12 +73,12 @@ A persistent filesystem has a compounding effect. Every interaction that's logge
 
 ## It's never going to be perfect
 
-The system is only as good as the data you feed it. The CRM, the meeting notes, the weekly reviews. If I don't keep those current, the whole thing degrades. It's the same rubbish in, rubbish out problem that you'd have before AI. You need to invest time in building that corpus of knowledge.
+The system is only as good as the data you feed it. The CRM, the meeting notes, the weekly reviews. If I don't keep those current, the whole thing degrades. It's the same rubbish in, rubbish out problem that you'd have before AI, but is exacerbated with it. You need to invest time in building that corpus of knowledge.
 
-The way you build the persona also matters. I chose one that interrogates my plans and pushes back on ideas to ensure they're well considered. It might be that you prefer more of a coached approach or something more agreeable, but I wouldn't recommend that if you're looking for a system that can help hold you to account on things.
+The way you define the persona is also important. I chose one that interrogates my plans and pushes back on ideas to ensure they're well considered. It might be that you prefer more of a coached approach or something more agreeable, but I wouldn't recommend that if you're looking for a system that can help hold you to account on things.
 
 ## Personal tools for personal things
 
-ctOS is bespoke. Built for how I work and what I care about. It's taken some time to hone the system to my needs, but building the foundations for it was relatively quick. The beauty of this latest wave of agentic coding is how it's empowering people to scratch their own itch by creating super personalised apps to solve specific problems. For tooling like this, building a solution exactly to your needs is becoming the default rather than the exception.
+The operating system I've made is bespoke. Built for how I work and what I care about. It's taken some time to hone the system to my needs, but building the foundations for it was relatively quick. The beauty of this latest wave of agentic coding is how it's empowering people to scratch their own itch by creating super personalised apps to solve specific problems. For tooling like this, building a solution exactly to your needs is becoming the default rather than the exception.
 
-If you're craving a better way of working so you can focus on the things only you can do, I'd recommend taking a morning to try and use AI skills to streamline your workflow and reclaim focus. I'm excited to continually evolve the operating system I've built as my needs change over time, and I'm certain I'm not alone in this approach.
+If you're craving a better way of working so you can focus on the things only you can do, I'd recommend taking a morning to try and use AI skills to streamline your workflow and reclaim focus. I'm excited to continually evolve the operating system I've built as my needs change over time, and I'm certain I'm not alone in feeling this.
