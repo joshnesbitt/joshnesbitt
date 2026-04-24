@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(curl:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "WebSearch",
+      "Skill(humanizer)",
+      "Bash(ls:*)"
     ]
   }
 }
