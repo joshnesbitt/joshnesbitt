@@ -1,7 +1,7 @@
 ---
 title: "Building my own LLM Operating System, ctOS"
 description: "A conversation with Jack a few months ago set me off on an idea that radically changed how I work. We were talking about how skills in Claude could add an intelligent layer on top of the notes I'd been keeping in Obsidian for years. By the end of it, I'd started building something tailored to how I work as a CTO."
-pubDate: "15 Apr 2026 12:00:00"
+pubDate: "24 Apr 2026 12:00:00"
 ---
 
 A conversation with [Jack](https://www.linkedin.com/in/jack-sails/) a few months ago set me off on an idea that radically changed how I work. We were talking about how skills in Claude could add an intelligent layer on top of the notes I'd been keeping in Obsidian for years. By the end of it, I'd started building something tailored to how I work as a CTO.
@@ -21,7 +21,7 @@ I built myself an operating system to help solve these problems. I've been calli
    ╚═════╝     ╚═╝      ╚═════╝   ╚══════╝
 
   Chief Technology Operating System
-  v1.0.8 | 15 Apr 2026
+  v1.0.8 | 24 Apr 2026
   Operator: Josh Nesbitt, CTO @ Genio
 
   ==========================================
@@ -67,7 +67,7 @@ The interface is the terminal. It's a task driven approach with no distractions,
 
 ## Reclaiming focus
 
-The biggest improvement I've seen from this approach is regained focus. Before ctOS, a large chunk of my morning was spent gathering context: scanning email, reading Slack, checking the calendar, cross-referencing notes from last week. Now `/daily-briefing` does that for me. It pulls from four different systems, cross-references them against my stakeholder CRM, and surfaces what actually matters. I start the day with a clear picture instead of spending the first hour assembling one.
+The biggest improvement I've seen from this approach is regained focus. Before ctOS, a large chunk of my morning was spent gathering context: scanning emails, reading Slack, checking the calendar, cross-referencing notes from last week. Now `/daily-briefing` does that for me. It pulls from four different systems, cross-references them against my stakeholder CRM, and surfaces what actually matters. I start the day with a clear picture instead of spending the first hour assembling one.
 
 A persistent filesystem has a compounding effect. Every interaction that's logged, every briefing I run, every weekly review I complete provides more context for the next one. The system gets more useful over time because the filesystem grows. Most AI tools feel amnesiac, and this is a good way to solve that.
 
@@ -79,6 +79,6 @@ The way you define the persona is also important. I chose one that interrogates 
 
 ## Personal tools for personal things
 
-The operating system I've made is bespoke. Built for how I work and what I care about. It's taken some time to hone the system to my needs, but building the foundations for it was relatively quick. The beauty of this latest wave of agentic coding is how it's empowering people to scratch their own itch by creating super personalised apps to solve specific problems. For tooling like this, building a solution exactly to your needs is becoming the default rather than the exception.
+The operating system I've made is bespoke. Built for how I work and what I care about. It's taken some time to hone the system to my needs, but building the foundations for it was relatively quick. The beauty of this latest wave of agentic coding is how it's empowering people to scratch their own itch by creating super-personalised apps to solve specific problems. For tooling like this, building a solution exactly to your needs is becoming the default rather than the exception.
 
-If you're craving a better way of working so you can focus on the things only you can do, I'd recommend taking a morning to try and use AI skills to streamline your workflow and reclaim focus. I'm excited to continually evolve the operating system I've built as my needs change over time, and I'm certain I'm not alone in feeling this.
+If you're craving a better way of working so you can focus on the things only you can do, I'd recommend taking a morning to try and use AI skills to streamline your workflow. I'm excited to continually evolve the operating system I've built as my needs change over time, and I'm certain I'm not alone in this approach.
