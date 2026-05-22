@@ -4,7 +4,7 @@ description: "Earlier this month, we delivered the final All Day Hey! conference
 pubDate: "22 May 2026 12:00:00"
 ---
 
-Earlier this month, we delivered the final All Day Hey! conference, our tenth edition. I've been reflecting in the aftermath of the event as people have [published their thoughts](https://ewainy.substack.com/p/a-day-at-the-final-all-day-hey-conference) on the day, about the purpose of events like ours and how their existence is fundamental to our industry.
+Earlier this month, we delivered the final [All Day Hey! conference](https://heypresents.com/conferences/2026), our tenth edition. I've been reflecting in the aftermath of the event as people have [published their thoughts](https://ewainy.substack.com/p/a-day-at-the-final-all-day-hey-conference) on the day, about the purpose of events like ours and how their existence is fundamental to our industry.
 
 ![Bramus giving a talk on View Transitions](/thoughts/a-conference-is-a-physical-network-of-incredible-people/1.jpg)
 
@@ -18,9 +18,7 @@ The conference was actually founded on that mindset. I started it because I was 
 
 But the real reason is deeper than that, and something that means the most to me. I began running conferences because I wanted the North to have a community that represented the talent and passion of a collective of creators.
 
-I realised very quickly that a certain type of crowd began coming to the events. A friendly, creative bunch of problem solvers who just wanted to hang out and talk about tech. The events became a safe haven from tech that had to deliver value or profits, one that focused on the very human and fun parts of building.
-
-And then by accident, I'd realised I had created a space where a community had formed, and that was pretty cool to me.
+I realised very quickly that a certain type of crowd began coming to the events. A friendly, creative bunch of problem solvers who just wanted to hang out and talk about tech. The events became a safe haven from tech that had to deliver value or profits, one that focused on the very human and fun parts of building. And then by accident, I'd realised I had created a space where a community had formed, and that was pretty cool to me.
 
 You never own a community, but you can create a space for one to exist and grow, and so I've committed the last ten years to doing just that.
 
@@ -28,17 +26,17 @@ I think [consistency](/thoughts/consistency) has a lot to do with community. It'
 
 A decent community is harder to come by these days, but certainly not impossible.
 
-There are [so](https://www.meetup.com/leeds-js/) [many](https://www.developersupnorth.co.uk/) [other](https://pixelpioneers.co/) [events](https://ffconf.org/) [and](https://greentechgathering.co.uk/) [organisers](https://webdevconf.com/) [showing](https://2026.stateofthebrowser.com/2027/) [up](https://beyondtellerrand.com/) daily with that consistency and they deserve the recognition. Those organisers have become good friends of mine. It can be a lonely old game when an event isn't performing as expected, and that support network is crucial.
+There are [so](https://www.meetup.com/leeds-js/) [many](https://www.developersupnorth.co.uk/) [other](https://pixelpioneers.co/) [events](https://ffconf.org/) [and](https://greentechgathering.co.uk/) [organisers](https://webdevconf.com/) [showing](https://2026.stateofthebrowser.com/2027/) [up](https://beyondtellerrand.com/) daily with consistency and they deserve the recognition. Those organisers have become good friends of mine. It can be a lonely old game when an event isn't performing as expected, and that support network is crucial.
 
-We've also seen a lot of new friends created over the years amongst attendees. Even a wedding and baby! To me that's quite mind-blowing.
-
-In recent years the web has become more fragmented. An anti-pattern to what we were promised, 'this is for everyone', after all. Algorithmic feeds replacing shared timelines and open networks. AI is reshaping how people find each other and communicate authentically. I believe the people who come to conferences like ours are a physical network that can't be cloned in that way.
+We've also seen a lot of new friends created over the years amongst attendees. Even a wedding and a baby! To me that's quite mind-blowing.
 
 ![Cassie losing her mind at the size of her avatar on the 65ft cinema screen](/thoughts/a-conference-is-a-physical-network-of-incredible-people/3.jpg)
 
 ![Cassie pointing out a detail of the live coded game on screen](/thoughts/a-conference-is-a-physical-network-of-incredible-people/4.jpg)
 
-And on the subject of the fragmentation of the web and a space to connect online: Remember: you have a voice, and no one should convince you otherwise. It seemed very fitting to say that on local election day in the UK, as the polling stations opened for voters.
+In recent years the web has become more fragmented. An anti-pattern to what we were promised, 'this is for everyone', after all. Algorithmic feeds replacing shared timelines and open networks. AI is reshaping how people find each other and communicate authentically. I believe the people who come to conferences like ours are a physical network that can't be cloned in that way.
+
+And on the subject of the fragmentation of the web and a space to connect online. Remember: you have a voice, and no one should convince you otherwise. It seemed very fitting to say that on local election day in the UK, as the polling stations opened for voters.
 
 We heard from Bramus at the start of the day about the importance of a blog both personally and professionally. I've seen a [number of great posts](https://localghost.dev/blog/you-should-go-to-conferences/) on the return of the personal website. A space you own where you can exercise that voice, using it to build things that give you joy.
 
