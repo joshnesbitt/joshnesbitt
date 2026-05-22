@@ -46,7 +46,7 @@ They're also a great place to share what you learn and collectively solve proble
 
 ![Jake and Ana happily posing for the final crowd shot of the day](/thoughts/a-conference-is-a-physical-network-of-incredible-people/7.jpg)
 
-I owe a lot to the team of people behind the conference. Phil, Jack, Rio, Simon, Rosy, Marcus and the rest of the production team. These are the people who run the show. Sponsors are also an integral part of indie events. They make them affordable and accessible, and I'm grateful for all the sponsors who have supported us over the years.
+I owe a lot to the team of people behind the conference. Phil, Jack, Rio, Simon, Rosy, Marcus and the rest of the production team. These are the people who run the show, and I'm forever grateful for what we've created together. Sponsors are also an integral part of indie events. They make them affordable and accessible, and I'm grateful for all the sponsors who have supported us over the years.
 
 Hey! isn't going anywhere; we're just bringing this chapter of events to a close. Sometimes it's good to pause and reflect on things, and come back with new ideas. **I believe events like this are foundational to our industry and I'm as committed to them as when I started.**
 
