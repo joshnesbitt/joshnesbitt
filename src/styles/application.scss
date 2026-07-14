@@ -96,6 +96,22 @@ $color-spacer: #DCDCDC;
 		}
   }
 
+	.c-skip-link {
+		@apply sr-only
+					 focus:not-sr-only
+					 focus:fixed
+					 focus:top-4
+					 focus:left-4
+					 focus:z-[60]
+					 focus:bg-white
+					 focus:px-4
+					 focus:py-2
+					 focus:rounded-md
+					 focus:border
+					 focus:border-black
+					 focus:underline;
+	}
+
 	.c-body {
 		@apply font-body
 					 font-light;
@@ -150,7 +166,8 @@ $color-spacer: #DCDCDC;
 					 duration-200;
 
 		.c-nav.is-open & {
-			@apply opacity-0
+			@apply invisible
+						 opacity-0
 						 pointer-events-none;
 		}
 	}
@@ -346,7 +363,7 @@ $color-spacer: #DCDCDC;
 					 border-t
 					 text-base
 					 sm:text-lg
-					 text-gray-400;
+					 text-gray-500;
 
 		border-color: $color-spacer;
 	}
@@ -491,7 +508,7 @@ $color-spacer: #DCDCDC;
 						 text-sm
 						 uppercase
 						 tracking-wider
-						 text-gray-400
+						 text-gray-500
 						 mt-6
 						 mb-1
 						 first:mt-0;
@@ -530,7 +547,7 @@ $color-spacer: #DCDCDC;
 	.c-directory__destination {
 		@apply text-base
 					 sm:text-lg
-					 text-gray-400
+					 text-gray-500
 					 text-right
 					 transition-colors
 					 duration-150;
