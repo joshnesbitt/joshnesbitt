@@ -1,4 +1,4 @@
-export const prerender = false;
+export const prerender = true;
 
 import type { APIRoute } from 'astro';
 import satori from 'satori';
@@ -54,7 +54,7 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   if (basePath === 'thoughts') {
     return {
       title: 'Thoughts',
-      description: 'A running log of ideas on software engineering, leadership, AI, running conferences and building teams and products that solve human problems.',
+      description: 'A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.',
       url: 'joshnesbitt.dev/thoughts',
     };
   }
@@ -101,43 +101,14 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   return null;
 }
 
-interface TitleParts {
-  prefix: string;
-  lastWord: string;
-  highlight: string;
-}
-
-function formatTitle(title: string): TitleParts {
-  const highlightChars = ['?', '!'];
-  const lastChar = title.slice(-1);
-
-  let cleanTitle = title;
-  let highlight = '.';
-
-  if (highlightChars.includes(lastChar)) {
-    cleanTitle = title.slice(0, -1);
-    highlight = lastChar;
-  }
-
-  const words = cleanTitle.split(' ');
-  const lastWord = words.pop() || '';
-  const prefix = words.join(' ');
-
-  return {
-    prefix: prefix ? prefix + ' ' : '',
-    lastWord,
-    highlight,
-  };
-}
-
-function truncateDescription(description: string, maxLength: number = 210): string {
-  if (description.length <= maxLength) return description;
-  return description.slice(0, maxLength).trim() + '...';
+function truncate(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trim() + '...';
 }
 
 function generateSvgMarkup(data: PageData) {
-  const { prefix, lastWord, highlight } = formatTitle(data.title);
-  const truncatedDescription = truncateDescription(data.description);
+  const truncatedDescription = truncate(data.description, 210);
+  const truncatedUrl = truncate(data.url, 50);
 
   return {
     type: 'div',
@@ -167,46 +138,13 @@ function generateSvgMarkup(data: PageData) {
                 props: {
                   style: {
                     display: 'flex',
-                    flexWrap: 'wrap',
                     fontSize: 72,
                     fontWeight: 700,
                     color: colors.text,
                     lineHeight: 1.1,
                     marginBottom: 24,
                   },
-                  children: [
-                    {
-                      type: 'span',
-                      props: {
-                        children: prefix,
-                      },
-                    },
-                    {
-                      type: 'span',
-                      props: {
-                        style: {
-                          display: 'flex',
-                        },
-                        children: [
-                          {
-                            type: 'span',
-                            props: {
-                              children: lastWord,
-                            },
-                          },
-                          {
-                            type: 'span',
-                            props: {
-                              style: {
-                                color: colors.accent,
-                              },
-                              children: highlight,
-                            },
-                          },
-                        ],
-                      },
-                    },
-                  ],
+                  children: data.title,
                 },
               },
               {
@@ -230,17 +168,74 @@ function generateSvgMarkup(data: PageData) {
           props: {
             style: {
               display: 'flex',
-              fontSize: 24,
-              fontWeight: 400,
-              color: colors.text,
-              opacity: 0.6,
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
             },
-            children: data.url,
+            children: [
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: 32,
+                    fontWeight: 700,
+                    color: colors.text,
+                  },
+                  children: [
+                    {
+                      type: 'span',
+                      props: {
+                        children: 'Josh Nesbitt',
+                      },
+                    },
+                    {
+                      type: 'span',
+                      props: {
+                        style: {
+                          color: colors.accent,
+                        },
+                        children: '.',
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    textAlign: 'right',
+                    maxWidth: 720,
+                    marginLeft: 40,
+                    fontSize: 24,
+                    fontWeight: 400,
+                    color: colors.text,
+                    opacity: 0.6,
+                  },
+                  children: truncatedUrl,
+                },
+              },
+            ],
           },
         },
       ],
     },
   };
+}
+
+export async function getStaticPaths() {
+  const thoughts = await getCollection('thought');
+  const reviews = await getCollection('review');
+
+  return [
+    { params: { path: 'index.png' } },
+    { params: { path: 'thoughts.png' } },
+    { params: { path: 'reviews.png' } },
+    ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.slug}.png` } })),
+    ...reviews.map((review) => ({ params: { path: `reviews/${review.slug}.png` } })),
+  ];
 }
 
 export const GET: APIRoute = async ({ params }) => {
@@ -289,7 +284,6 @@ export const GET: APIRoute = async ({ params }) => {
       status: 200,
       headers: {
         'Content-Type': 'image/png',
-        'Cache-Control': 'public, max-age=31536000, immutable',
       },
     });
   } catch (error) {
