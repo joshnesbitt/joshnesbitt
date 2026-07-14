@@ -5,8 +5,18 @@ import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
 import PostCards from '../components/PostCards.astro';
+import Directory from '../components/Directory.astro';
 
 const thoughts = await getThoughts(3);
+
+const focus = [
+	{ name: 'Company', href: 'https://genio.co' },
+	{ name: 'Consultancy', href: 'https://stac.works' },
+	{ name: 'Conference', href: 'https://heypresents.com/conference' },
+	{ name: 'Podcast', href: 'https://heypresents.com/podcast' },
+	{ name: 'Speaking', href: 'https://stac.works/speaking' },
+	{ name: 'Cooking', href: 'https://joshnesbitt.cooking' }
+];
 ---
 
 <Application title="Hello">
@@ -18,15 +28,7 @@ const thoughts = await getThoughts(3);
 
 	<h2 class="c-sub-heading">Focus</h2>
 
-	<ul class="c-link-list">
-		<li><a href="https://genio.co">Company</a></li>
-		<li><a href="https://stac.works">Consultancy</a></li>
-		<li><a href="https://heypresents.com/conference">Conference</a></li>
-		<li><a href="https://heypresents.com/podcast">Podcast</a></li>
-		<li><a href="/thoughts">Thoughts</a></li>
-		<li><a href="https://stac.works/speaking">Speaking</a></li>
-		<li><a href="https://joshnesbitt.cooking">Cooking</a></li>
-	</ul>
+	<Directory items={focus} />
 
 	<Spacer />
 
@@ -37,7 +39,7 @@ const thoughts = await getThoughts(3);
 	</div>
 
 	<div class="markdown-container -mt-2">
-		<p><a href="/thoughts">Read remaining thoughts.</a></p>
+		<p><a href="/thoughts">Read more thoughts.</a></p>
 	</div>
 </Application>
 

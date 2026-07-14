@@ -312,17 +312,49 @@ $color-spacer: #DCDCDC;
 					 sm:mb-4;
 	}
 
-	.c-link-list {
-		li::marker {
-  		color: $color-primary;
-		}
-
+	.c-directory {
 		li {
 			@apply list-none;
 		}
 
-		li:hover {
-  		@apply list-disc;
+		li + li {
+			@apply border-t;
+
+			border-color: $color-spacer;
+		}
+
+		a {
+			@apply flex
+						 items-baseline
+						 justify-between
+						 gap-4
+						 py-3
+						 px-2
+						 -mx-2
+						 transition-colors
+						 duration-150
+						 hover:bg-black/[0.02];
+		}
+	}
+
+	.c-directory__destination {
+		@apply text-base
+					 sm:text-lg
+					 text-gray-400
+					 text-right
+					 transition-colors
+					 duration-150;
+
+		a:hover & {
+			@apply text-gray-600;
+		}
+	}
+
+	.c-directory__arrow {
+		@apply ml-1;
+
+		a:hover & {
+			color: $color-primary;
 		}
 	}
 
