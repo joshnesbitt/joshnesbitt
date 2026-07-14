@@ -5,7 +5,6 @@ import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
-import GoBack from '../../components/GoBack.astro';
 
 const thoughts = await getThoughts();
 ---
@@ -16,8 +15,6 @@ const thoughts = await getThoughts();
   <Spacer />
 
   <PostCards posts={thoughts} path="thoughts" level={2} />
-
-  <GoBack />
 </Application>
 
 <TrackView namespace="thoughts" key="index" />
