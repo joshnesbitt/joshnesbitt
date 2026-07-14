@@ -1,9 +1,14 @@
 ---
+import { Image } from 'astro:assets';
+
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
 import Directory from '../components/Directory.astro';
 import GoBack from '../components/GoBack.astro';
+
+import stageshot from '../assets/images/stageshot.jpg';
+import headshot from '../assets/images/headshot.jpg';
 
 const description = 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.';
 
@@ -31,7 +36,7 @@ const talks = [
 			<p>I speak, host and moderate at technology events — on engineering leadership, AI and building communities. If that sounds like a fit for your event, <a href="mailto:speaking@joshnesbitt.dev">get in touch</a>.</p>
 		</div>
 
-		<img class="c-hero__image" src="/stageshot-display.jpg" alt="Josh Nesbitt on stage hosting All Day Hey!, beneath a slide reading 'A conference is a physical network of incredible people'" width="1600" height="1069" />
+		<Image class="c-hero__image" src={stageshot} alt="Josh Nesbitt on stage hosting All Day Hey!, beneath a slide reading 'A conference is a physical network of incredible people'" width={976} densities={[1, 2]} />
 	</div>
 
 	<Spacer />
@@ -87,7 +92,7 @@ const talks = [
 
 		<div class="c-panel__grid">
 			<div>
-				<img class="c-panel__image" src="/headshot-display.jpg" alt="Headshot of Josh Nesbitt" width="533" height="800" />
+				<Image class="c-panel__image" src={headshot} alt="Headshot of Josh Nesbitt" width={160} densities={[1, 2]} />
 
 				<p class="c-panel__note"><a href="/headshot.jpg">Download headshot</a><br />JPEG, 1365&times;2048</p>
 			</div>
