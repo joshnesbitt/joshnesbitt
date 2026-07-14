@@ -1,6 +1,7 @@
 ---
 title: "Non-performative allyship"
 description: "Allyship is often spoken about in diversity initiatives, but too frequently, it lacks grounding in day-to-day behavior or a company’s reality. It's important that we challenge that. True allyship isn’t performative, it’s operational and cultural."
+tags: ["inclusion", "leadership"]
 pubDate: "29 May 2025 13:00:00"
 ---
 

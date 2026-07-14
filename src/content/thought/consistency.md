@@ -1,6 +1,7 @@
 ---
 title: "Consistency"
 description: "Last week, I was at an event discussing how long I'd been running the Hey! Presents events for (10 years as of a few weeks ago), and the person I was talking to asked how I'd stuck with it for so long."
+tags: ["events", "craft"]
 pubDate: "26 Jun 2023 12:01:34"
 ---
 

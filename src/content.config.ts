@@ -9,6 +9,7 @@ const schema = z.object({
 	title: z.string(),
 	description: z.string(),
 	published: z.boolean().default(true),
+	tags: z.array(z.string()).default([]),
 	pubDate: z
 		.string()
 		.or(z.date())
