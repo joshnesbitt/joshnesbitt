@@ -1,14 +1,15 @@
 ---
-const { posts, path } = Astro.props;
+const { posts, path, level = 3 } = Astro.props;
+const Heading = `h${level}`;
 ---
 
 <div>
 	{
 		posts.map((post) => (
 			<div class="c-post-card">
-				<h4>
+				<Heading class="!text-[1em] !font-medium">
 					<a href={`/${path}/${post.id}`}>{post.data.title}</a>
-				</h4>
+				</Heading>
 
 				<p>{post.data.description}</p>
 			</div>
