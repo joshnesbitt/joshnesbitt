@@ -8,9 +8,28 @@ const { Content } = await item.render();
 const readingTime = getReadingTime(item.body);
 const data = Astro.props.data;
 const date = data.pubDate;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(`/api/og${Astro.url.pathname.replace(/\/$/, '')}.png`, Astro.site);
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: data.title,
+	description: data.description,
+	datePublished: date.toISOString(),
+	url: canonicalURL.toString(),
+	image: ogImageURL.toString(),
+	author: {
+		'@type': 'Person',
+		name: 'Josh Nesbitt',
+		url: 'https://joshnesbitt.dev',
+	},
+};
 ---
 
-<Application {...data} container="large">
+<Application {...data} type="article" container="large">
+	<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
 	<h1 class="c-heading">{data.title}</h1>
 
 	<Spacer />
