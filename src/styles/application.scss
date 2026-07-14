@@ -261,6 +261,10 @@ $color-spacer: #DCDCDC;
 		.c-nav.is-open & li:nth-child(2) {
 			transition-delay: 210ms;
 		}
+
+		.c-nav.is-open & li:nth-child(3) {
+			transition-delay: 270ms;
+		}
 	}
 
 	.c-nav__networks {
