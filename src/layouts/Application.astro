@@ -1,5 +1,6 @@
 ---
 import Meta from '../components/Meta.astro';
+import Nav from '../components/Nav.astro';
 
 const { title, description } = Astro.props;
 ---
@@ -10,6 +11,8 @@ const { title, description } = Astro.props;
 		<Meta title={title} description={description} />
 	</head>
 	<body class="c-body">
+		<Nav />
+
 		<div class="c-container">
 			<slot />
 		</div>

@@ -1,0 +1,69 @@
+---
+---
+
+<header class="c-nav" data-nav>
+	<div class="c-nav__overlay" id="nav-overlay" data-nav-overlay>
+		<div class="c-nav__overlay-inner">
+			<nav class="c-nav__links">
+				<ul>
+					<li><a href="/">Home<span class="u-highlight">.</span></a></li>
+					<li><a href="/thoughts">Thoughts<span class="u-highlight">.</span></a></li>
+				</ul>
+			</nav>
+
+			<ul class="c-nav__networks">
+				<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
+				<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
+				<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
+				<li><a href="https://substack.com/@joshnesbitt">Substack</a></li>
+				<li><a href="https://www.instagram.com/joshnesbitt">Instagram</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="c-nav__inner">
+		<a href="/" class="c-nav__mark">Josh Nesbitt<span class="u-highlight">.</span></a>
+
+		<button class="c-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-overlay" aria-label="Menu" data-nav-toggle>
+			<span class="c-nav__icon" aria-hidden="true">
+				<span class="c-nav__icon-dots">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="c-nav__icon-dot-accent"></span>
+				</span>
+				<span class="c-nav__icon-close">
+					<span></span>
+					<span></span>
+				</span>
+			</span>
+		</button>
+	</div>
+</header>
+
+<script>
+	const nav = document.querySelector('[data-nav]');
+	const toggle = nav.querySelector('[data-nav-toggle]');
+
+	const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+	const setOpen = (open) => {
+		toggle.setAttribute('aria-expanded', String(open));
+		toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+		nav.classList.toggle('is-open', open);
+		document.body.style.overflow = open ? 'hidden' : '';
+	};
+
+	toggle.addEventListener('click', () => setOpen(!isOpen()));
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && isOpen()) {
+			setOpen(false);
+			toggle.focus();
+		}
+	});
+
+	window.addEventListener('scroll', () => {
+		nav.classList.toggle('is-scrolled', window.scrollY > 8);
+	}, { passive: true });
+</script>

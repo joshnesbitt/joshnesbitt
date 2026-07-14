@@ -70,10 +70,230 @@ $color-spacer: #DCDCDC;
 		@apply container
 					 max-w-screen-lg
 					 mx-auto
-					 my-6
+					 mt-24
+					 sm:mt-28
+					 mb-6
 					 px-6
 					 text-xl
 					 sm:text-2xl;
+	}
+
+	.c-nav {
+		@apply fixed
+					 top-0
+					 inset-x-0
+					 z-50;
+
+		&.is-scrolled:not(.is-open) {
+			@apply bg-white/80
+						 backdrop-blur-md
+						 border-b;
+
+			border-color: $color-spacer;
+		}
+	}
+
+	.c-nav__inner {
+		@apply container
+					 max-w-screen-lg
+					 mx-auto
+					 px-6
+					 py-4
+					 sm:py-5
+					 flex
+					 items-center
+					 justify-between
+					 relative
+					 z-10;
+	}
+
+	.c-nav__mark {
+		@apply font-heading
+					 font-black
+					 text-2xl
+					 sm:text-3xl
+					 transition-opacity
+					 duration-200;
+
+		.c-nav.is-open & {
+			@apply opacity-0
+						 pointer-events-none;
+		}
+	}
+
+	.c-nav__toggle {
+		@apply p-2
+					 -m-2;
+	}
+
+	.c-nav__icon {
+		@apply relative
+					 block
+					 w-6
+					 h-6;
+	}
+
+	.c-nav__icon-dots {
+		@apply motion-reduce:transition-none
+					 absolute
+					 inset-0
+					 grid
+					 grid-cols-2
+					 place-items-center
+					 transition-all
+					 duration-300
+					 ease-out;
+
+		span {
+			@apply w-1.5
+						 h-1.5
+						 rounded-full
+						 bg-current;
+		}
+
+		.c-nav__icon-dot-accent {
+			background: $color-primary;
+		}
+
+		.c-nav.is-open & {
+			@apply opacity-0
+						 scale-50
+						 -rotate-90;
+		}
+	}
+
+	.c-nav__icon-close {
+		@apply motion-reduce:transition-none
+					 absolute
+					 inset-0
+					 opacity-0
+					 scale-50
+					 rotate-90
+					 transition-all
+					 duration-300
+					 ease-out;
+
+		span {
+			@apply absolute
+						 top-1/2
+						 left-0
+						 w-6
+						 h-0.5
+						 -mt-px
+						 rounded-full
+						 bg-current;
+		}
+
+		span:first-child {
+			@apply rotate-45;
+		}
+
+		span:last-child {
+			@apply -rotate-45;
+		}
+
+		.c-nav.is-open & {
+			@apply opacity-100
+						 scale-100
+						 rotate-0;
+		}
+	}
+
+	.c-nav__overlay {
+		@apply motion-reduce:transition-none
+					 fixed
+					 inset-0
+					 bg-white
+					 invisible
+					 opacity-0
+					 transition-all
+					 duration-200
+					 ease-out;
+
+		.c-nav.is-open & {
+			@apply visible
+						 opacity-100;
+		}
+	}
+
+	.c-nav__overlay-inner {
+		@apply container
+					 max-w-screen-lg
+					 mx-auto
+					 px-6
+					 h-full
+					 flex
+					 flex-col;
+	}
+
+	.c-nav__links {
+		@apply flex-1
+					 flex
+					 items-center;
+
+		ul {
+			@apply space-y-2
+						 sm:space-y-4;
+		}
+
+		li {
+			@apply motion-reduce:transition-none
+						 opacity-0
+						 translate-y-6
+						 transition-all
+						 duration-300
+						 ease-out;
+		}
+
+		a {
+			@apply font-heading
+						 font-black
+						 text-5xl
+						 sm:text-7xl
+						 inline-block
+						 transition-transform
+						 duration-200
+						 hover:translate-x-2;
+		}
+
+		.c-nav.is-open & li {
+			@apply opacity-100
+						 translate-y-0;
+		}
+
+		.c-nav.is-open & li:nth-child(1) {
+			transition-delay: 150ms;
+		}
+
+		.c-nav.is-open & li:nth-child(2) {
+			transition-delay: 210ms;
+		}
+	}
+
+	.c-nav__networks {
+		@apply motion-reduce:transition-none
+					 flex
+					 flex-wrap
+					 gap-x-6
+					 gap-y-2
+					 pb-8
+					 text-base
+					 sm:text-lg
+					 opacity-0
+					 transition-opacity
+					 duration-300;
+
+		a {
+			@apply text-gray-500
+						 hover:text-black
+						 transition-colors;
+		}
+
+		.c-nav.is-open & {
+			@apply opacity-100;
+
+			transition-delay: 300ms;
+		}
 	}
 
 	.c-heading {
@@ -81,10 +301,12 @@ $color-spacer: #DCDCDC;
 					 text-5xl
 					 sm:text-7xl
 					 inline-block
-					 font-black;
+					 font-black
+					 mb-4
+					 sm:mb-0;
 	}
 
-	.c-heading--highlight {
+	.u-highlight {
 		@apply text-brand-highlight;
 	}
 
