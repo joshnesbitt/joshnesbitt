@@ -2,9 +2,11 @@
 const { key, namespace = 'site' } = Astro.props;
 ---
 
-<script define:vars={{ key, namespace }}>
-	const id = `${namespace}:${key}`;
+<script is:inline data-astro-rerun data-view-id={`${namespace}:${key}`}>
+	(() => {
+		const id = document.currentScript.dataset.viewId;
 
-	fetch(`/api/views/${id}`, { method: 'POST' })
-		.then(res => res.json());
+		fetch(`/api/views/${id}`, { method: 'POST' })
+			.then(res => res.json());
+	})();
 </script>
