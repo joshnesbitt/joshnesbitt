@@ -1,6 +1,7 @@
 ---
 title: "An experienced team sails calmly through uncertainty"
 description: "Following a rebrand to Genio earlier this month, I've been reflecting on how teams are set up to navigate uncertainty and tight deadlines while preserving culture."
+tags: ["teams", "leadership"]
 pubDate: "18 Jun 2025 13:00:00"
 ---
 

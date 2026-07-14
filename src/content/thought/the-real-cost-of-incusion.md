@@ -1,6 +1,7 @@
 ---
 title: "The real cost of inclusion"
 description: "Every year, the tech industry produces another round of award ceremonies aimed at celebrating women and underrepresented groups. They arrive dressed in the language of empowerment—shining a light, giving a platform, amplifying voices. But a closer look into the logistics of some of these awards reveals the need for nominees to buy their time in the spotlight."
+tags: ["inclusion", "events"]
 pubDate: "05 Sep 2025 14:00:00"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "A conference is a physical network of incredible people"
 description: "Earlier this month, we delivered the final All Day Hey! conference, our tenth edition. I've been reflecting in the aftermath of the event as people have published their thoughts on the day and said many lovely things, about the purpose of events like ours and how their existence is fundamental to our industry."
+tags: ["events", "community"]
 pubDate: "22 May 2026 12:00:00"
 ---
 
