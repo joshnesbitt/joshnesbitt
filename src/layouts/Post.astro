@@ -1,10 +1,11 @@
 ---
+import { render } from 'astro:content';
 import getReadingTime from 'reading-time';
 import Application from './Application.astro';
 import Spacer from '../components/Spacer.astro';
 
 const item = Astro.props
-const { Content } = await item.render();
+const { Content } = await render(item);
 const readingTime = getReadingTime(item.body);
 const data = Astro.props.data;
 const date = data.pubDate;

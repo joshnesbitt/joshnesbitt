@@ -8,7 +8,7 @@ import TrackView from '../../components/TrackView.astro';
 export async function getStaticPaths() {
 	const reviews = await getCollection('review');
 	return reviews.map((review) => ({
-		params: { slug: review.slug },
+		params: { slug: review.id },
 		props: review,
 	}));
 }
@@ -18,4 +18,4 @@ const post = Astro.props
 
 <Post {...post} />
 
-<TrackView namespace="reviews" key={post.slug} />
+<TrackView namespace="reviews" key={post.id} />

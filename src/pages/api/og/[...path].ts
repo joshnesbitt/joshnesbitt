@@ -81,7 +81,7 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   if (basePath.startsWith('thoughts/')) {
     const slug = basePath.replace('thoughts/', '');
     const thoughts = await getCollection('thought');
-    const thought = thoughts.find(t => t.slug === slug);
+    const thought = thoughts.find(t => t.id === slug);
 
     if (thought) {
       return {
@@ -96,7 +96,7 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   if (basePath.startsWith('reviews/')) {
     const slug = basePath.replace('reviews/', '');
     const reviews = await getCollection('review');
-    const review = reviews.find(r => r.slug === slug);
+    const review = reviews.find(r => r.id === slug);
 
     if (review) {
       return {
@@ -243,8 +243,8 @@ export async function getStaticPaths() {
     { params: { path: 'speaking.png' } },
     { params: { path: 'thoughts.png' } },
     { params: { path: 'reviews.png' } },
-    ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.slug}.png` } })),
-    ...reviews.map((review) => ({ params: { path: `reviews/${review.slug}.png` } })),
+    ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.id}.png` } })),
+    ...reviews.map((review) => ({ params: { path: `reviews/${review.id}.png` } })),
   ];
 }
 

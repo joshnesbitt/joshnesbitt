@@ -14,14 +14,14 @@ export const GET: APIRoute = async (context) => {
 			title: thought.data.title,
 			description: thought.data.description,
 			pubDate: thought.data.pubDate,
-			link: `/thoughts/${thought.slug}/`,
+			link: `/thoughts/${thought.id}/`,
 			categories: ['thoughts'],
 		})),
 		...reviews.map((review) => ({
 			title: review.data.title,
 			description: review.data.description,
 			pubDate: review.data.pubDate,
-			link: `/reviews/${review.slug}/`,
+			link: `/reviews/${review.id}/`,
 			categories: ['reviews'],
 		})),
 	].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
