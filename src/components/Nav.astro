@@ -1,7 +1,7 @@
 ---
 ---
 
-<header class="c-nav" data-nav>
+<header class="c-nav" data-nav transition:persist="nav">
 	<div class="c-nav__overlay" id="nav-overlay" data-nav-overlay>
 		<div class="c-nav__overlay-inner">
 			<nav class="c-nav__links">
@@ -81,4 +81,10 @@
 	window.addEventListener('scroll', () => {
 		nav.classList.toggle('is-scrolled', window.scrollY > 8);
 	}, { passive: true });
+
+	document.addEventListener('astro:after-swap', () => {
+		if (isOpen()) setOpen(false);
+
+		nav.classList.toggle('is-scrolled', window.scrollY > 8);
+	});
 </script>
