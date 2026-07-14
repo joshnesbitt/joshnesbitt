@@ -8,7 +8,7 @@ import TrackView from '../../components/TrackView.astro';
 export async function getStaticPaths() {
 	const thoughts = await getCollection('thought');
 	return thoughts.map((thought) => ({
-		params: { slug: thought.slug },
+		params: { slug: thought.id },
 		props: thought,
 	}));
 }
@@ -18,4 +18,4 @@ const post = Astro.props
 
 <Post {...post} />
 
-<TrackView namespace="thoughts" key={post.slug} />
+<TrackView namespace="thoughts" key={post.id} />

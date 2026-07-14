@@ -7,7 +7,7 @@ const { posts, path } = Astro.props;
 		posts.map((post) => (
 			<div class="c-post-card">
 				<h4>
-					<a href={`/${path}/${post.slug}`}>{post.data.title}</a>
+					<a href={`/${path}/${post.id}`}>{post.data.title}</a>
 				</h4>
 
 				<p>{post.data.description}</p>
