@@ -44,7 +44,7 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   // Homepage
   if (!basePath || basePath === 'index') {
     return {
-      title: SITE_TITLE,
+      title: "Hello",
       description: SITE_DESCRIPTION,
       url: 'joshnesbitt.dev',
     };
