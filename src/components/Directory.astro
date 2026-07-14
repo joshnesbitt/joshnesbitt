@@ -1,0 +1,26 @@
+---
+const { items } = Astro.props;
+
+function destination(href) {
+	if (!href.startsWith('http')) return href;
+
+	return new URL(href).hostname.replace(/^www\./, '');
+}
+
+function isExternal(href) {
+	return href.startsWith('http');
+}
+---
+
+<ul class="c-directory">
+	{items.map((item) => (
+		<li>
+			<a href={item.href}>
+				<span class="c-directory__name">{item.name}</span>
+				<span class="c-directory__destination">
+					{destination(item.href)}{isExternal(item.href) && <span class="c-directory__arrow">&nearr;</span>}
+				</span>
+			</a>
+		</li>
+	))}
+</ul>

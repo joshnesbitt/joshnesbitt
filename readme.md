@@ -18,4 +18,3 @@ I also run internationally recognised conferences and events, which bring people
 * <a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a>
 * <a href="https://github.com/joshnesbitt">GitHub</a>
 * <a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a>
-* <a href="https://www.instagram.com/joshnesbitt">Instagram</a>
