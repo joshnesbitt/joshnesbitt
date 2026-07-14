@@ -5,10 +5,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 export interface Props {
 	title: string;
 	description: string;
+	type?: 'website' | 'article';
+	pubDate?: Date;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description = SITE_DESCRIPTION } = Astro.props;
+const { title, description = SITE_DESCRIPTION, type = 'website', pubDate } = Astro.props;
 const fullTitle = `${title} · ${SITE_TITLE}`
 
 const ogImagePath = Astro.url.pathname === '/' ? 'index' : Astro.url.pathname.replace(/^\//, '').replace(/\/$/, '');
@@ -28,19 +30,24 @@ const ogImageURL = new URL(`/api/og/${ogImagePath}.png`, Astro.site);
 <!-- Fonts -->
 <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 
+<!-- Feeds -->
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('/rss.xml', Astro.site)} />
+
 <!-- Primary Meta Tags -->
 <title>{fullTitle}</title>
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageURL} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+{type === 'article' && pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
+{type === 'article' && <meta property="article:author" content="Josh Nesbitt" />}
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />

@@ -3,13 +3,13 @@ import Meta from '../components/Meta.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const { title, description } = Astro.props;
+const { title, description, type, pubDate } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<Meta title={title} description={description} />
+		<Meta title={title} description={description} type={type} pubDate={pubDate} />
 	</head>
 	<body class="c-body">
 		<Nav />
