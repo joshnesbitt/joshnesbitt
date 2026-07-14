@@ -50,6 +50,15 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
     };
   }
 
+  // Speaking page
+  if (basePath === 'speaking') {
+    return {
+      title: 'Speaking',
+      description: 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.',
+      url: 'joshnesbitt.dev/speaking',
+    };
+  }
+
   // Thoughts list page
   if (basePath === 'thoughts') {
     return {
@@ -231,6 +240,7 @@ export async function getStaticPaths() {
 
   return [
     { params: { path: 'index.png' } },
+    { params: { path: 'speaking.png' } },
     { params: { path: 'thoughts.png' } },
     { params: { path: 'reviews.png' } },
     ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.slug}.png` } })),

@@ -18,7 +18,7 @@ function isExternal(href) {
 			<a href={item.href}>
 				<span class="c-directory__name">{item.name}</span>
 				<span class="c-directory__destination">
-					{destination(item.href)}{isExternal(item.href) && <span class="c-directory__arrow">&nearr;</span>}
+					{item.meta ?? destination(item.href)}{isExternal(item.href) && <span class="c-directory__arrow">&nearr;</span>}
 				</span>
 			</a>
 		</li>

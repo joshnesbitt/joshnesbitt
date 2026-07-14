@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets';
+
+import Application from '../layouts/Application.astro';
+import Spacer from '../components/Spacer.astro';
+import TrackView from '../components/TrackView.astro';
+import Directory from '../components/Directory.astro';
+import GoBack from '../components/GoBack.astro';
+
+import stageshot from '../assets/images/stageshot.jpg';
+import headshot from '../assets/images/headshot.jpg';
+
+const description = 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.';
+
+const hosting = [
+	{ name: 'All Day Hey! — founder and host, ten editions', href: 'https://heypresents.com/conference', meta: '2017–2026' },
+	{ name: 'The reality of AI in software engineering leadership', href: 'https://www.linkedin.com/events/softwareengineeringleadership-w7366370929024581633/', meta: '2025' },
+	{ name: 'Empathy at work with Sharon Steed', href: 'https://heypresents.com/talks/empathy-at-work', meta: '2020' },
+	{ name: 'An evening with Helen Sharman, Britain’s first astronaut', href: 'https://stac.works/notes/hosting-a-talk-by-helen-sharman-the-first-british-astronaut', meta: '2019' }
+];
+
+const talks = [
+	{ name: 'No more excuses: the real power of culture and getting things done', href: 'https://www.youtube.com/playlist?list=PLJwhw5AkkoduXbcmEpd47h3WDBLHkY4Cj', meta: '2024' },
+	{ name: 'Another Idea: How creativity can be found anywhere', href: 'https://www.youtube.com/watch?v=ZiGwbdJQjls', meta: '2022' },
+	{ name: 'The Official CIO Summit: IT confronts climate change', href: 'https://www.cio.com/article/191630/it-confronts-climate-change.html', meta: '2021' },
+];
+---
+
+<Application title="Speaking" description={description}>
+	<h1 class="c-heading">Speaking</h1>
+
+	<Spacer />
+
+	<div class="c-hero">
+		<div class="markdown-container c-lede">
+			<p>I speak, host and moderate at technology events — on engineering leadership, AI and building communities. If that sounds like a fit for your event, <a href="mailto:speaking@joshnesbitt.dev">get in touch</a>.</p>
+		</div>
+
+		<Image class="c-hero__image" src={stageshot} alt="Josh Nesbitt on stage hosting All Day Hey!, beneath a slide reading 'A conference is a physical network of incredible people'" width={976} densities={[1, 2]} />
+	</div>
+
+	<Spacer />
+
+	<ul class="c-stats">
+		<li>
+			<span class="c-stats__value">30+</span>
+			<span class="c-stats__label">engagements since 2013</span>
+		</li>
+		<li>
+			<span class="c-stats__value">20</span>
+			<span class="c-stats__label">years working on the web</span>
+		</li>
+		<li>
+			<span class="c-stats__value">10</span>
+			<span class="c-stats__label">editions of All Day Hey! hosted</span>
+		</li>
+		<li>
+			<span class="c-stats__value">60+</span>
+			<span class="c-stats__label">episodes of Off Script</span>
+		</li>
+	</ul>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Topics</h2>
+
+	<div class="markdown-container">
+		<ul>
+			<li><strong>Engineering leadership</strong> — building and leading high-performing product engineering teams, from startups to scale.</li>
+			<li><strong>AI in software engineering</strong> — the reality of adoption, the discourse surrounding it, and what it means for how teams work.</li>
+			<li><strong>Conferences and community</strong> — lessons from founding and running All Day Hey! for ten editions.</li>
+			<li><strong>Hosting and moderation</strong> — MCing conferences, chairing panels and interviewing, honed across Off Script and live events.</li>
+		</ul>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Hosting</h2>
+
+	<Directory items={hosting} />
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Talks and panels</h2>
+
+	<Directory items={talks} />
+
+	<Spacer />
+
+	<div class="c-panel">
+		<h2 class="c-sub-heading">Press kit</h2>
+
+		<div class="c-panel__grid">
+			<div>
+				<Image class="c-panel__image" src={headshot} alt="Headshot of Josh Nesbitt" width={160} densities={[1, 2]} />
+
+				<p class="c-panel__note"><a href="/headshot.jpg">Download headshot</a><br />JPEG, 1365&times;2048</p>
+			</div>
+
+			<div class="c-panel__body">
+				<h3>One-liner</h3>
+				<p>Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.</p>
+
+				<h3>Short bio</h3>
+				<p>Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI.</p>
+			</div>
+		</div>
+	</div>
+</Application>
+
+<TrackView key="speaking" />
