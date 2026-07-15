@@ -1,0 +1,27 @@
+---
+const { items } = Astro.props;
+
+let variant;
+
+switch(items.length) {
+	case 1:
+		variant = '';
+	break;
+	case 3:
+		variant = 'c-gallery--three';
+	break;
+	default:
+		variant = 'c-gallery--two';
+	break;
+}
+---
+
+<div class={`not-markdown c-gallery ${variant}`}>
+	{
+		items.map((item) => (
+			<div>
+				<img src={item.path} alt={item.alt} loading="lazy" />
+			</div>
+		))
+	}
+</div>

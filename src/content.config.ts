@@ -16,12 +16,12 @@ const schema = z.object({
 });
 
 const thought = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/thought' }),
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/thought' }),
 	schema,
 });
 
 const review = defineCollection({
-	loader: glob({ pattern: '**/*.md', base: './src/content/review' }),
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/review' }),
 	schema,
 });
 

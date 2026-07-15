@@ -104,6 +104,36 @@ $color-spacer: #DCDCDC;
 		}
   }
 
+	.podcast-player-container {
+		@apply w-full;
+	}
+
+	.c-gallery {
+		@apply grid
+					 grid-cols-1
+					 gap-6
+					 my-8;
+
+		img {
+			@apply w-full
+						 rounded-md
+						 m-0;
+		}
+	}
+
+	.c-gallery--two {
+		@apply md:grid-cols-2;
+
+		// A trailing odd image spans the full row rather than sitting orphaned
+		> div:last-child:nth-child(odd) {
+			@apply md:col-span-2;
+		}
+	}
+
+	.c-gallery--three {
+		@apply md:grid-cols-3;
+	}
+
 	.c-skip-link {
 		@apply sr-only
 					 focus:not-sr-only
