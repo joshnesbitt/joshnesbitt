@@ -527,6 +527,62 @@ $color-spacer: #DCDCDC;
 		}
 	}
 
+	.c-callout {
+		@apply block
+					 border
+					 rounded-md
+					 p-6
+					 sm:p-8
+					 transition-colors
+					 duration-150
+					 hover:bg-black/[0.02];
+
+		border-color: $color-spacer;
+	}
+
+	.c-callout__eyebrow {
+		@apply flex
+					 items-center
+					 gap-2
+					 mb-3
+					 font-heading
+					 font-bold
+					 text-sm
+					 uppercase
+					 tracking-wider
+					 text-gray-500;
+	}
+
+	.c-callout__dot {
+		@apply w-2
+					 h-2
+					 rounded-full;
+
+		background: $color-primary;
+		animation: callout-pulse 2.5s ease-in-out infinite;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+		}
+	}
+
+	.c-callout__title {
+		@apply block
+					 font-heading
+					 font-bold
+					 text-2xl
+					 sm:text-3xl
+					 leading-snug;
+	}
+
+	.c-callout__meta {
+		@apply block
+					 mt-3
+					 text-base
+					 sm:text-lg
+					 text-gray-500;
+	}
+
 	.c-directory {
 		li {
 			@apply list-none;
@@ -587,5 +643,11 @@ $color-spacer: #DCDCDC;
 					 w-6;
 
 		border-color: $color-spacer;
+	}
+}
+
+@keyframes callout-pulse {
+	50% {
+		opacity: 0.25;
 	}
 }

@@ -123,13 +123,11 @@ const talks = [
 		<Fragment>
 			<Spacer />
 
-			<div class="c-panel">
-				<h2 class="c-sub-heading">Latest Off Script episode</h2>
-
-				<div class="markdown-container">
-					<p class="!mb-0"><a href={latestEpisode.href}>{latestEpisode.name}</a> &mdash; {latestEpisode.meta}</p>
-				</div>
-			</div>
+			<a class="c-callout" href={latestEpisode.href}>
+				<span class="c-callout__eyebrow"><span class="c-callout__dot"></span>Latest Off Script episode</span>
+				<span class="c-callout__title">{latestEpisode.name}</span>
+				<span class="c-callout__meta">{latestEpisode.meta} &middot; Listen on heypresents.com<span class="c-directory__arrow">&nearr;</span></span>
+			</a>
 		</Fragment>
 	)}
 
