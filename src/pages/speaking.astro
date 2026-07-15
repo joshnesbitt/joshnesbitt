@@ -51,6 +51,17 @@ async function getLatestEpisode() {
 
 const latestEpisode = await getLatestEpisode();
 
+const bios = [
+	{
+		label: 'One-liner',
+		text: 'Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.'
+	},
+	{
+		label: 'Short bio',
+		text: "Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI."
+	}
+];
+
 const hosting = [
 	{ name: 'All Day Hey! — founder and host, ten editions', href: 'https://heypresents.com/conference', meta: '2017–2026' },
 	{ name: 'Off Script — co-host, with James Hall', href: 'https://heypresents.com/podcast', meta: '2019–present' },
@@ -139,25 +150,47 @@ const talks = [
 
 	<Spacer />
 
-	<div class="c-panel">
-		<h2 class="c-sub-heading">Press kit</h2>
+	<h2 class="c-sub-heading">Press kit</h2>
 
-		<div class="c-panel__grid">
-			<div>
-				<Image class="c-panel__image" src={headshot} alt="Headshot of Josh Nesbitt" width={160} densities={[1, 2]} />
+	<div class="c-presskit">
+		{bios.map((bio) => (
+			<div class="c-presskit__item">
+				<div class="c-presskit__row">
+					<h3 class="c-presskit__label">{bio.label}</h3>
+					<button class="c-presskit__action" type="button" data-copy={bio.text} aria-live="polite">Copy</button>
+				</div>
 
-				<p class="c-panel__note"><a href="/headshot.jpg">Download headshot</a><br />JPEG, 1365&times;2048</p>
+				<p class="c-presskit__text">{bio.text}</p>
+			</div>
+		))}
+
+		<div class="c-presskit__item">
+			<div class="c-presskit__row">
+				<h3 class="c-presskit__label">Headshot</h3>
+				<a class="c-presskit__action" href="/headshot.jpg" download="josh-nesbitt-headshot.jpg">Download</a>
 			</div>
 
-			<div class="c-panel__body">
-				<h3>One-liner</h3>
-				<p>Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.</p>
-
-				<h3>Short bio</h3>
-				<p>Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI.</p>
+			<div class="c-presskit__media">
+				<Image class="c-presskit__image" src={headshot} alt="Headshot of Josh Nesbitt" width={96} densities={[1, 2]} />
 			</div>
 		</div>
 	</div>
 </Application>
 
 <TrackView key="speaking" />
+
+<script>
+	document.addEventListener('click', async (event) => {
+		const button = event.target.closest('[data-copy]');
+
+		if (!button) return;
+
+		await navigator.clipboard.writeText(button.dataset.copy);
+
+		button.textContent = 'Copied';
+
+		setTimeout(() => {
+			button.textContent = 'Copy';
+		}, 2000);
+	});
+</script>

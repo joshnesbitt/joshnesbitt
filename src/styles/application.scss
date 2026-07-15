@@ -469,62 +469,68 @@ $color-spacer: #DCDCDC;
 					 max-w-[11rem];
 	}
 
-	.c-panel {
-		@apply border
-					 rounded-md
-					 p-6
-					 sm:p-10;
+	.c-presskit {
+		@apply mt-8;
+	}
+
+	.c-presskit__item {
+		@apply py-5;
+	}
+
+	.c-presskit__item + .c-presskit__item {
+		@apply border-t;
 
 		border-color: $color-spacer;
 	}
 
-	.c-panel__grid {
-		@apply grid
-					 gap-8
-					 sm:grid-cols-[10rem_1fr]
-					 sm:gap-12;
+	.c-presskit__row {
+		@apply flex
+					 items-baseline
+					 justify-between
+					 gap-4;
 	}
 
-	.c-panel__image {
+	.c-presskit__label {
+		@apply font-heading
+					 font-bold
+					 text-sm
+					 uppercase
+					 tracking-wider
+					 text-gray-500;
+	}
+
+	.c-presskit__action {
+		@apply font-heading
+					 font-bold
+					 text-sm
+					 uppercase
+					 tracking-wider
+					 text-gray-500
+					 hover:text-black
+					 transition-colors
+					 whitespace-nowrap;
+	}
+
+	.c-presskit__text {
+		@apply block
+					 mt-2
+					 text-lg
+					 leading-relaxed
+					 max-w-screen-md;
+	}
+
+	.c-presskit__media {
+		@apply flex
+					 items-end
+					 gap-4
+					 mt-3;
+	}
+
+	.c-presskit__image {
 		@apply rounded-md
-					 w-full
-					 max-w-[10rem]
+					 w-24
 					 object-cover
 					 aspect-[3/4];
-	}
-
-	.c-panel__note {
-		@apply mt-3
-					 text-sm
-					 text-gray-500
-					 leading-relaxed;
-
-		a {
-			@apply text-black
-						 underline
-						 hover:text-brand-highlight;
-		}
-	}
-
-	.c-panel__body {
-		@apply text-lg
-					 leading-relaxed;
-
-		h3 {
-			@apply font-heading
-						 font-bold
-						 text-sm
-						 uppercase
-						 tracking-wider
-						 text-gray-500
-						 mt-6
-						 mb-1
-						 first:mt-0;
-		}
-
-		p + p {
-			@apply mt-3;
-		}
 	}
 
 	.c-callout {
