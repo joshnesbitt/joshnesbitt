@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import { Image } from 'astro:assets';
 
 import Application from '../layouts/Application.astro';
@@ -11,8 +13,58 @@ import headshot from '../assets/images/headshot.jpg';
 
 const description = 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.';
 
+function decodeEntities(text) {
+	return text
+		.replace(/&amp;/g, '&')
+		.replace(/&lt;/g, '<')
+		.replace(/&gt;/g, '>')
+		.replace(/&quot;/g, '"')
+		.replace(/&#39;/g, "'");
+}
+
+async function getLatestEpisode() {
+	try {
+		const response = await fetch('https://feeds.fireside.fm/off-script/rss');
+
+		if (!response.ok) return null;
+
+		const xml = await response.text();
+		const item = xml.match(/<item>([\s\S]*?)<\/item>/)?.[1] ?? '';
+		const title = item.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '';
+		const link = item.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? '';
+		const pubDate = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1];
+		const episodeId = title.match(/^Episode (\d+):/)?.[1];
+
+		if (!title || !link) return null;
+
+		return {
+			name: decodeEntities(title.replace(/^Episode (\d+): /, '#$1: ')),
+			href: episodeId ? `https://heypresents.com/podcast/${episodeId}` : link,
+			meta: pubDate
+				? new Date(pubDate).toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })
+				: ''
+		};
+	} catch {
+		return null;
+	}
+}
+
+const latestEpisode = await getLatestEpisode();
+
+const bios = [
+	{
+		label: 'One-liner',
+		text: 'Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.'
+	},
+	{
+		label: 'Short bio',
+		text: "Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI."
+	}
+];
+
 const hosting = [
 	{ name: 'All Day Hey! — founder and host, ten editions', href: 'https://heypresents.com/conference', meta: '2017–2026' },
+	{ name: 'Off Script — co-host, with James Hall', href: 'https://heypresents.com/podcast', meta: '2019–present' },
 	{ name: 'The reality of AI in software engineering leadership', href: 'https://www.linkedin.com/events/softwareengineeringleadership-w7366370929024581633/', meta: '2025' },
 	{ name: 'Empathy at work with Sharon Steed', href: 'https://heypresents.com/talks/empathy-at-work', meta: '2020' },
 	{ name: 'An evening with Helen Sharman, Britain’s first astronaut', href: 'https://stac.works/notes/hosting-a-talk-by-helen-sharman-the-first-british-astronaut', meta: '2019' }
@@ -78,6 +130,18 @@ const talks = [
 
 	<Directory items={hosting} />
 
+	{latestEpisode && (
+		<Fragment>
+			<Spacer />
+
+			<a class="c-callout" href={latestEpisode.href}>
+				<span class="c-callout__eyebrow"><span class="c-callout__dot"></span>Latest Off Script episode</span>
+				<span class="c-callout__title">{latestEpisode.name}</span>
+				<span class="c-callout__meta">{latestEpisode.meta} &middot; Listen on heypresents.com<span class="c-directory__arrow">&nearr;</span></span>
+			</a>
+		</Fragment>
+	)}
+
 	<Spacer />
 
 	<h2 class="c-sub-heading">Talks and panels</h2>
@@ -86,25 +150,47 @@ const talks = [
 
 	<Spacer />
 
-	<div class="c-panel">
-		<h2 class="c-sub-heading">Press kit</h2>
+	<h2 class="c-sub-heading">Press kit</h2>
 
-		<div class="c-panel__grid">
-			<div>
-				<Image class="c-panel__image" src={headshot} alt="Headshot of Josh Nesbitt" width={160} densities={[1, 2]} />
+	<div class="c-presskit">
+		{bios.map((bio) => (
+			<div class="c-presskit__item">
+				<div class="c-presskit__row">
+					<h3 class="c-presskit__label">{bio.label}</h3>
+					<button class="c-presskit__action" type="button" data-copy={bio.text} aria-live="polite">Copy</button>
+				</div>
 
-				<p class="c-panel__note"><a href="/headshot.jpg">Download headshot</a><br />JPEG, 1365&times;2048</p>
+				<p class="c-presskit__text">{bio.text}</p>
+			</div>
+		))}
+
+		<div class="c-presskit__item">
+			<div class="c-presskit__row">
+				<h3 class="c-presskit__label">Headshot</h3>
+				<a class="c-presskit__action" href="/headshot.jpg" download="josh-nesbitt-headshot.jpg">Download</a>
 			</div>
 
-			<div class="c-panel__body">
-				<h3>One-liner</h3>
-				<p>Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.</p>
-
-				<h3>Short bio</h3>
-				<p>Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI.</p>
+			<div class="c-presskit__media">
+				<Image class="c-presskit__image" src={headshot} alt="Headshot of Josh Nesbitt" width={96} densities={[1, 2]} />
 			</div>
 		</div>
 	</div>
 </Application>
 
 <TrackView key="speaking" />
+
+<script>
+	document.addEventListener('click', async (event) => {
+		const button = event.target.closest('[data-copy]');
+
+		if (!button) return;
+
+		await navigator.clipboard.writeText(button.dataset.copy);
+
+		button.textContent = 'Copied';
+
+		setTimeout(() => {
+			button.textContent = 'Copy';
+		}, 2000);
+	});
+</script>

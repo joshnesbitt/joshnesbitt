@@ -469,62 +469,124 @@ $color-spacer: #DCDCDC;
 					 max-w-[11rem];
 	}
 
-	.c-panel {
-		@apply border
-					 rounded-md
-					 p-6
-					 sm:p-10;
+	.c-presskit {
+		@apply mt-8;
+	}
+
+	.c-presskit__item {
+		@apply py-5;
+	}
+
+	.c-presskit__item + .c-presskit__item {
+		@apply border-t;
 
 		border-color: $color-spacer;
 	}
 
-	.c-panel__grid {
-		@apply grid
-					 gap-8
-					 sm:grid-cols-[10rem_1fr]
-					 sm:gap-12;
+	.c-presskit__row {
+		@apply flex
+					 items-baseline
+					 justify-between
+					 gap-4;
 	}
 
-	.c-panel__image {
+	.c-presskit__label {
+		@apply font-heading
+					 font-bold
+					 text-sm
+					 uppercase
+					 tracking-wider
+					 text-gray-500;
+	}
+
+	.c-presskit__action {
+		@apply font-heading
+					 font-bold
+					 text-sm
+					 uppercase
+					 tracking-wider
+					 text-gray-500
+					 hover:text-black
+					 transition-colors
+					 whitespace-nowrap;
+	}
+
+	.c-presskit__text {
+		@apply block
+					 mt-2
+					 text-lg
+					 leading-relaxed
+					 max-w-screen-md;
+	}
+
+	.c-presskit__media {
+		@apply flex
+					 items-end
+					 gap-4
+					 mt-3;
+	}
+
+	.c-presskit__image {
 		@apply rounded-md
-					 w-full
-					 max-w-[10rem]
+					 w-24
 					 object-cover
 					 aspect-[3/4];
 	}
 
-	.c-panel__note {
-		@apply mt-3
-					 text-sm
-					 text-gray-500
-					 leading-relaxed;
+	.c-callout {
+		@apply block
+					 border
+					 rounded-md
+					 p-6
+					 sm:p-8
+					 transition-colors
+					 duration-150
+					 hover:bg-black/[0.02];
 
-		a {
-			@apply text-black
-						 underline
-						 hover:text-brand-highlight;
+		border-color: $color-spacer;
+	}
+
+	.c-callout__eyebrow {
+		@apply flex
+					 items-center
+					 gap-2
+					 mb-3
+					 font-heading
+					 font-bold
+					 text-sm
+					 uppercase
+					 tracking-wider
+					 text-gray-500;
+	}
+
+	.c-callout__dot {
+		@apply w-2
+					 h-2
+					 rounded-full;
+
+		background: $color-primary;
+		animation: callout-pulse 2.5s ease-in-out infinite;
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
 		}
 	}
 
-	.c-panel__body {
-		@apply text-lg
-					 leading-relaxed;
+	.c-callout__title {
+		@apply block
+					 font-heading
+					 font-bold
+					 text-2xl
+					 sm:text-3xl
+					 leading-snug;
+	}
 
-		h3 {
-			@apply font-heading
-						 font-bold
-						 text-sm
-						 uppercase
-						 tracking-wider
-						 text-gray-500
-						 mt-6
-						 mb-1
-						 first:mt-0;
-		}
-
-		p + p {
-			@apply mt-3;
-		}
+	.c-callout__meta {
+		@apply block
+					 mt-3
+					 text-base
+					 sm:text-lg
+					 text-gray-500;
 	}
 
 	.c-directory {
@@ -557,6 +619,7 @@ $color-spacer: #DCDCDC;
 					 sm:text-lg
 					 text-gray-500
 					 text-right
+					 whitespace-nowrap
 					 transition-colors
 					 duration-150;
 
@@ -586,5 +649,11 @@ $color-spacer: #DCDCDC;
 					 w-6;
 
 		border-color: $color-spacer;
+	}
+}
+
+@keyframes callout-pulse {
+	50% {
+		opacity: 0.25;
 	}
 }
