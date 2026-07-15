@@ -1,0 +1,68 @@
+---
+title: "Pixel Pioneers 2023"
+description: "Last week I thoroughly enjoyed attending Pixel Pioneers 2023 in Bristol. After years of running events myself, I always appreciate the effort others put into making everyone feel welcome — and the talks, Jeremy Keith's on declarative design especially, gave me plenty to bring home."
+pubDate: "19 Jun 2023 11:26:42"
+---
+
+![Pixel Pioneers 2023](/thoughts/pixel-pioneers-2023/cover.jpg)
+
+<small>Photo by <a href="https://twitter.com/labfoo">Adam Butler</a>.</small>
+
+Last week I thoroughly enjoyed attending [Pixel Pioneers 2023](https://pixelpioneers.co/) in Bristol. Not only did I get the chance to hang out with an [old school friend](https://twitter.com/pboxall86) while I was there, but I also enjoyed meeting Oliver, who runs Pixel Pioneers, and the lovely community surrounding the conference. After years of running events myself, I always appreciate the effort others go through to put themselves out there to run a conference. It is not easy to do, which makes it even more special when you see someone going above and beyond to try and make everyone feel as comfortable as possible.
+
+Not only that, but I got to see my buddy [Phil](https://twitter.com/philhawksworth) host the conference, which is always a pleasure. All the talks were fantastic, but a few stood out to me.
+
+## Jeremy Keith - Declarative Design
+
+Jeremy is always fantastic to see talk. The way he delivers his years of wisdom from working in the industry is world-class. His talk focused on leaning into the more declarative side of the web instead of explicitly describing every detail of what you’re building and relying on the latest CSS and browser features to do more with less. He talked about forgetting about designing for specific viewports but instead embracing the varied and messy web which we create for.
+
+A good example is by [using features](https://twitter.com/lurkmoophy/status/1669630905244168192?s=46&t=VSw6NrZZHnt3VGFpnoT-Fw) like `padding-inline-start`, we can tell the browser how much we can pad the start of a specific element. This removes the assumption that the padding may start on the element’s left when right-to-left languages are used instead of left-to-right.
+
+Andy’s talk from [All Day Hey! 2022](https://www.youtube.com/watch?v=5uhIiI9Ld5M) also got a shout-out, which, if you haven’t seen it already, is worth a watch.
+
+## Ire Aderinokun - CSS, JavaScript & Accessibility
+
+Ire’s talk was a fascinating dive into accessibility, from socioeconomic factors, to how we use technology to build better solutions for our users. It was all about how we need to think more about what conditions people use our products under.
+
+She highlighted issues like data-heavy websites being inaccessible to those who pay for their data per megabyte and how we may rely too much on colour for error and success states, making it even harder for screen readers and other assistive technology to help users interact with our web apps.
+
+The primary theme was to rely on the web’s fundamental technologies and not reinvent the wheel. HTML is already interactive by default, so consider whether you need to add that fancy JavaScript or use the vast array of features already considering accessibility.
+
+## Cassie Evans - Animating the Impossible
+
+If you’re into animation, you know who Cassie is already. Having worked for GreenSock for the last few years, Cassie has worked with the community to make animation fun, accessible and performant. With great power comes great responsibility; animation needs to be used sparingly and not get in the way of the purpose of the page you’re on. In her talk, Cassie dug into some clever tricks to get the most out of animation in our apps.
+
+One of the main things I took away from her talk was how our eyes see stuff. Central vs peripheral vision means we can do some clever things to make animations feel smoother, and she explained this through a great demo using card trickery (using [inattentional blindness](https://en.wikipedia.org/wiki/Inattentional_blindness) as an example).
+
+This talk was so much fun and inspired me to [tinker around on the train](https://twitter.com/joshnesbitt/status/1670034925364428801?s=20) ride home with animation and the Web Audio API.
+
+## Chui Chui Tan - Designing for Your International Audiences
+
+As part of the well-programmed line-up, Chui Chui’s talk made us question how we approach internationalisation and localisation in the apps we build (amongst many other things). Opening her talk by discussing how some attempts at localisation fail to recognise different cultural sensitivities helped me understand how much more localisation was than just direct translation of copy.
+
+> Respect your customers and your relationship with them.
+
+A good example she highlighted was Call of Duty’s use of an Islamic hadith (a sacred saying of the Prophet Muhammad) on a [bathroom mirror](https://www.newarab.com/news/gamers-blast-call-duty-over-islamophobic-content?amp) in 2012. This caused widespread offence due to its positioning, and it was later removed from the game.
+
+She also went into how the medium of delivering information is also essential. In some countries, parents may be more likely to have control over devices used by teenagers, and they can’t be relied upon to deliver sensitive information to individuals, and other mediums should be considered (such as results from medical tests, for example).
+
+So from name formatting in different territories to how we communicate with our users in general, I took lots of learnings from Chui Chui’s talk.
+
+import Gallery from '../../components/Gallery.astro';
+
+<Gallery items={[
+	{
+		path: '/thoughts/pixel-pioneers-2023/1.jpg',
+		alt: 'Pixel Pioneers 2023'
+	},
+	{
+		path: '/thoughts/pixel-pioneers-2023/2.jpg',
+		alt: 'Pixel Pioneers 2023'
+	},
+	{
+		path: '/thoughts/pixel-pioneers-2023/3.jpg',
+		alt: 'Pixel Pioneers 2023'
+	}
+]} />
+
+I thoroughly enjoyed my trip, and it was lovely to reconnect with some familiar faces and meet plenty of new ones. I’ll see you next year, Pixel Pioneers!
