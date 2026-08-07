@@ -1,16 +1,16 @@
 # Hey! 👋
 
-I'm Josh, a software engineer and technical leader. My work spans from hands-on projects building large platforms to leading some of the best-performing teams in our industry.
+I'm Josh, a CTO based in Leeds with over a decade leading engineering in product-led businesses.
 
-I also run internationally recognised conferences and events, which bring people from all over the world to the heart of Leeds to learn, inspire and share stories.
+I also founded All Day Hey!, one of the UK's longest-running independent technology conferences, and host Off Script, a podcast on engineering leadership and AI.
 
 ## Focus
 
-* <a href="https://glean.co">Company</a>
+* <a href="https://joshnesbitt.dev">Home</a>
 * <a href="https://stac.works">Consultancy</a>
 * <a href="https://heypresents.com/conference">Conference</a>
 * <a href="https://heypresents.com/podcast">Podcast</a>
-* <a href="https://stac.works/speaking">Speaking</a>
+* <a href="https://joshnesbitt.dev/speaking">Speaking</a>
 * <a href="https://joshnesbitt.cooking">Cooking</a>
 
 ## Networks
