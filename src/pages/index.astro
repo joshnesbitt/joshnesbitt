@@ -4,7 +4,6 @@ import { getThoughts } from '../utils/finders';
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
-import PostCards from '../components/PostCards.astro';
 import Directory from '../components/Directory.astro';
 
 const thoughts = await getThoughts(3);
@@ -27,6 +26,12 @@ const schema = {
 		'https://bsky.app/profile/joshnesbitt.dev',
 	],
 };
+
+const thoughtRows = thoughts.map((post) => ({
+	name: post.data.title,
+	href: `/thoughts/${post.id}`,
+	meta: post.data.pubDate.getFullYear()
+}));
 
 const focus = [
 	{ name: 'Consultancy', href: 'https://stac.works' },
@@ -55,9 +60,7 @@ const focus = [
 
 	<h2 class="c-sub-heading">Thoughts</h2>
 
-	<div class="-mt-6">
-		<PostCards posts={thoughts} path="thoughts" />
-	</div>
+	<Directory items={thoughtRows} />
 </Application>
 
 <TrackView key="home" />

@@ -159,13 +159,11 @@ $color-spacer: #DCDCDC;
 	}
 
 	.c-container {
-		@apply container
-					 max-w-screen-lg
-					 mx-auto
-					 mt-24
-					 sm:mt-28
+		@apply mt-24
+					 sm:mt-36
 					 mb-6
 					 px-6
+					 lg:px-12
 					 text-xl
 					 sm:text-2xl;
 	}
@@ -186,6 +184,7 @@ $color-spacer: #DCDCDC;
 
 	.c-nav__inner {
 		@apply px-6
+					 lg:px-12
 					 py-4
 					 sm:py-5
 					 flex
@@ -307,6 +306,7 @@ $color-spacer: #DCDCDC;
 
 	.c-nav__overlay-inner {
 		@apply px-6
+					 lg:px-12
 					 h-full
 					 flex
 					 flex-col;
@@ -394,6 +394,7 @@ $color-spacer: #DCDCDC;
 					 gap-x-6
 					 gap-y-2
 					 px-6
+					 lg:px-12
 					 py-6
 					 sm:py-8
 					 mt-12
@@ -423,12 +424,13 @@ $color-spacer: #DCDCDC;
 
 	.c-heading {
 		@apply font-heading
-					 text-5xl
-					 sm:text-7xl
-					 inline-block
-					 font-black
-					 mb-4
-					 sm:mb-0;
+					 font-medium
+					 max-w-[18ch];
+
+		font-size: clamp(3rem, 7.5vw, 6.5rem);
+		line-height: 0.9;
+		letter-spacing: -0.045em;
+		text-wrap: balance;
 	}
 
 	.u-highlight {
@@ -437,27 +439,30 @@ $color-spacer: #DCDCDC;
 
 	.c-sub-heading {
 		@apply font-heading
-					 font-bold
-					 text-2xl
-					 md:text-3xl
-					 mb-2
-					 sm:mb-4;
+					 font-medium;
+
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		line-height: 0.9;
+		letter-spacing: -0.055em;
+		margin-bottom: clamp(1.25rem, 3vw, 2.5rem);
 	}
 
 	.c-lede {
 		p {
 			@apply font-heading
 						 font-medium
-						 text-[1.75rem]
-						 leading-[1.3]
-						 sm:text-[2.5rem]
-						 sm:leading-[1.25]
-						 tracking-[-0.01em];
+						 max-w-[20em];
+
+			font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+			line-height: 1.12;
+			letter-spacing: -0.025em;
+			text-wrap: pretty;
 		}
 	}
 
 	.c-hero {
-		@apply flex
+		@apply max-w-screen-lg
+					 flex
 					 flex-col
 					 gap-8
 					 sm:gap-12;
@@ -487,9 +492,11 @@ $color-spacer: #DCDCDC;
 
 	.c-stats__value {
 		@apply font-heading
-					 font-black
-					 text-4xl
-					 sm:text-5xl;
+					 font-medium;
+
+		font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+		line-height: 0.9;
+		letter-spacing: -0.055em;
 	}
 
 	.c-stats__label {
@@ -635,13 +642,24 @@ $color-spacer: #DCDCDC;
 						 items-baseline
 						 justify-between
 						 gap-4
-						 py-3
 						 px-2
 						 -mx-2
 						 transition-colors
 						 duration-150
 						 hover:bg-black/[0.02];
+
+			padding-block: clamp(0.875rem, 1.6vw, 1.5rem);
 		}
+	}
+
+	.c-directory__name {
+		@apply font-heading
+					 font-normal;
+
+		font-size: clamp(1.5rem, 3vw, 2.5rem);
+		line-height: 1.1;
+		letter-spacing: -0.035em;
+		text-wrap: balance;
 	}
 
 	.c-directory__destination {
@@ -673,12 +691,9 @@ $color-spacer: #DCDCDC;
 	}
 
 	.c-spacer {
-		@apply my-4
-					 sm:my-10
-					 border-y
-					 w-6;
+		@apply border-0;
 
-		border-color: $color-spacer;
+		margin-block: clamp(3.5rem, 7vw, 6.5rem);
 	}
 }
 
