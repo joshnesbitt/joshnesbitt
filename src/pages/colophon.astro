@@ -1,0 +1,58 @@
+---
+export const prerender = true;
+
+import Application from '../layouts/Application.astro';
+import Spacer from '../components/Spacer.astro';
+import TrackView from '../components/TrackView.astro';
+import Directory from '../components/Directory.astro';
+
+const description = 'How this site is built — the framework, type, colour and hosting behind joshnesbitt.dev.';
+
+const stack = [
+	{ name: 'Built with Astro', href: 'https://astro.build', meta: 'Astro 7' },
+	{ name: 'Styled with Tailwind and Sass', href: 'https://v3.tailwindcss.com', meta: 'Tailwind 3' },
+	{ name: 'Set in DM Sans, self-hosted', href: 'https://fonts.google.com/specimen/DM+Sans', meta: 'Variable font' },
+	{ name: 'Hosted on Netlify', href: 'https://www.netlify.com' },
+	{ name: 'View counts kept in Netlify Blobs', href: 'https://docs.netlify.com/build/data-and-storage/netlify-blobs/', meta: 'Netlify Blobs' },
+	{ name: 'Share cards drawn with Satori and resvg', href: 'https://github.com/vercel/satori', meta: 'Satori' },
+	{ name: 'Source code', href: 'https://github.com/joshnesbitt/joshnesbitt', meta: 'GitHub' }
+];
+
+const feeds = [
+	{ name: 'RSS feed', href: '/rss.xml', meta: 'rss.xml' },
+	{ name: 'Sitemap', href: '/sitemap-index.xml', meta: 'sitemap-index.xml' }
+];
+---
+
+<Application title="Colophon" description={description}>
+	<h1 class="c-heading">Colophon</h1>
+
+	<Spacer />
+
+	<div class="markdown-container c-lede">
+		<p>This site is deliberately quiet: paper-coloured ground, near-black type and a single bright green, used sparingly.</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Stack</h2>
+
+	<Directory items={stack} />
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Details</h2>
+
+	<div class="markdown-container">
+		<p>Type is DM Sans throughout, served from this domain rather than a font service. The palette is warm paper and ink, with brand green kept for the smallest accents. Pages move between each other with view transitions, and the site has been audited with axe for accessibility.</p>
+		<p>I redesigned the site in 2026, working through the design and build with Claude Code as a collaborator.</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Feeds</h2>
+
+	<Directory items={feeds} />
+</Application>
+
+<TrackView key="colophon" />

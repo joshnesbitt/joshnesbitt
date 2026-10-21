@@ -415,6 +415,11 @@ $color-spacer: rgb(var(--color-rule));
 		@apply text-sm
 					 sm:text-base
 					 text-muted;
+
+		a {
+			@apply text-muted
+						 hover:text-accent;
+		}
 	}
 
 	.c-footer__links {

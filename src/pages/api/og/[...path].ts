@@ -77,6 +77,15 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
     };
   }
 
+  // Colophon page
+  if (basePath === 'colophon') {
+    return {
+      title: 'Colophon',
+      description: 'How this site is built — the framework, type, colour and hosting behind joshnesbitt.dev.',
+      url: 'joshnesbitt.dev/colophon',
+    };
+  }
+
   // Individual thought
   if (basePath.startsWith('thoughts/')) {
     const slug = basePath.replace('thoughts/', '');
@@ -244,6 +253,7 @@ export async function getStaticPaths() {
     { params: { path: 'speaking.png' } },
     { params: { path: 'thoughts.png' } },
     { params: { path: 'reviews.png' } },
+    { params: { path: 'colophon.png' } },
     ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.id}.png` } })),
     ...reviews.map((review) => ({ params: { path: `reviews/${review.id}.png` } })),
   ];
