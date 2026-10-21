@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+  accessibility:
+    name: Accessibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      # The Netlify adapter has no preview server, and the home, index and
+      # 404 pages render on demand, so audit the dev server instead.
+      - name: Start dev server
+        run: |
+          npx astro dev --background --port 4321
+          curl --silent --fail --retry 60 --retry-delay 2 --retry-all-errors --output /dev/null http://localhost:4321/
+
+      - run: npm run check:a11y
+        env:
+          BASE_URL: http://localhost:4321
+
+      - name: Dev server logs
+        if: failure()
+        run: npx astro dev logs
