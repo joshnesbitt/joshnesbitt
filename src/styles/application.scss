@@ -510,12 +510,8 @@ $color-spacer: rgb(var(--color-rule));
 					 max-w-[11rem];
 	}
 
-	.c-presskit {
-		@apply mt-8;
-	}
-
 	.c-presskit__item {
-		@apply py-5;
+		@apply py-4;
 	}
 
 	.c-presskit__item + .c-presskit__item {
@@ -532,20 +528,12 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-presskit__label {
-		@apply font-heading
-					 font-bold
-					 text-sm
-					 uppercase
-					 tracking-wider
-					 text-muted;
+		@apply font-light;
 	}
 
 	.c-presskit__action {
-		@apply font-heading
-					 font-bold
-					 text-sm
-					 uppercase
-					 tracking-wider
+		@apply text-base
+					 sm:text-lg
 					 text-muted
 					 hover:text-ink
 					 transition-colors
@@ -555,9 +543,10 @@ $color-spacer: rgb(var(--color-rule));
 	.c-presskit__text {
 		@apply block
 					 mt-2
-					 text-lg
-					 leading-relaxed
+					 leading-8
 					 max-w-screen-md;
+
+		color: rgb(var(--color-copy));
 	}
 
 	.c-presskit__media {
