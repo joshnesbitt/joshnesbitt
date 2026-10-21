@@ -681,21 +681,12 @@ $color-spacer: rgb(var(--color-rule));
 					 text-balance;
 	}
 
-	.c-read-next__description {
-		@apply block
-					 mt-2
-					 max-w-2xl
-					 text-base
-					 sm:text-lg
-					 text-muted;
-	}
-
 	.c-read-next__footer {
 		@apply flex
 					 justify-between
 					 items-baseline
 					 gap-4
-					 mt-4
+					 mt-2
 					 text-base
 					 text-muted;
 	}
