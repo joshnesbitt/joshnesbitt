@@ -649,39 +649,59 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-read-next {
-		@apply mt-12
-					 pt-6
-					 border-t;
-
-		border-color: $color-spacer;
-	}
-
-	.c-read-next__label {
-		@apply text-base
-					 text-muted
-					 mb-1;
+		@apply mt-12;
 	}
 
 	.c-read-next__link {
 		@apply block
-					 no-underline;
+					 no-underline
+					 rounded-md
+					 bg-ink/[0.035]
+					 p-5
+					 sm:px-7
+					 sm:py-6
+					 hover:bg-ink/[0.05];
+	}
+
+	.c-read-next__label {
+		@apply block
+					 text-base
+					 text-muted;
 	}
 
 	.c-read-next__title {
 		@apply block
+					 mt-1
 					 font-heading
 					 font-bold
 					 text-ink
 					 text-2xl
-					 md:text-3xl
 					 leading-tight
 					 tracking-[-0.01em]
 					 text-balance;
 	}
 
+	.c-read-next__description {
+		@apply block
+					 mt-2
+					 max-w-2xl
+					 text-base
+					 sm:text-lg
+					 text-muted;
+	}
+
+	.c-read-next__footer {
+		@apply flex
+					 justify-between
+					 items-baseline
+					 gap-4
+					 mt-4
+					 text-base
+					 text-muted;
+	}
+
 	.c-read-next__arrow {
-		@apply ml-2
-					 inline-block
+		@apply inline-block
 					 transition-transform
 					 duration-150
 					 motion-reduce:transition-none;
@@ -691,13 +711,6 @@ $color-spacer: rgb(var(--color-rule));
 
 			color: $color-primary;
 		}
-	}
-
-	.c-read-next__meta {
-		@apply block
-					 mt-1
-					 text-base
-					 text-muted;
 	}
 
 	.c-directory {
