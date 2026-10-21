@@ -165,10 +165,14 @@ const talks = [
 			</div>
 		))}
 
-		<div class="c-presskit__headshot">
-			<Image class="c-presskit__image" src={headshot} alt="Headshot of Josh Nesbitt" width={64} densities={[1, 2]} />
-			<h3 class="c-presskit__name">Headshot</h3>
-			<a class="c-presskit__action c-presskit__download" href="/headshot.jpg" download="josh-nesbitt-headshot.jpg">Download<span class="c-presskit__arrow" aria-hidden="true">&darr;</span></a>
+		<div class="c-presskit__item">
+			<div class="c-presskit__meta">
+				<h3 class="c-presskit__label">Headshot</h3>
+				<span class="c-presskit__separator" aria-hidden="true">/</span>
+				<a class="c-presskit__action" href="/headshot.jpg" download="josh-nesbitt-headshot.jpg">Download</a>
+			</div>
+
+			<Image class="c-presskit__image" src={headshot} alt="Headshot of Josh Nesbitt" width={192} densities={[1, 2]} />
 		</div>
 	</div>
 </Application>

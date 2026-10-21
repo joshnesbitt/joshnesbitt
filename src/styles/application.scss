@@ -569,35 +569,12 @@ $color-spacer: rgb(var(--color-rule));
 		}
 	}
 
-	.c-presskit__headshot {
-		@apply flex
-					 items-center
-					 gap-5
-					 pt-6
-					 border-t;
-
-		border-color: $color-spacer;
-	}
-
 	.c-presskit__image {
 		@apply rounded-md
-					 w-16
+					 w-36
+					 sm:w-48
 					 object-cover
 					 aspect-[3/4];
-	}
-
-	.c-presskit__download {
-		@apply ml-auto
-					 text-base
-					 sm:text-lg;
-	}
-
-	.c-presskit__arrow {
-		@apply -ml-1;
-
-		a:hover & {
-			color: $color-primary;
-		}
 	}
 
 	.c-callout {
