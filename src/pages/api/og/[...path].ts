@@ -27,8 +27,8 @@ try {
 
 // Colors matching the site
 const colors = {
-  background: '#FFFFFF',
-  text: '#000103',
+  background: '#F6F4EF',
+  text: '#1A1917',
   accent: '#46FF10',
 };
 
