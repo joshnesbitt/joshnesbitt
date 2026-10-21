@@ -648,6 +648,62 @@ $color-spacer: rgb(var(--color-rule));
 					 text-muted;
 	}
 
+	.c-read-next {
+		@apply mt-12;
+	}
+
+	.c-read-next__link {
+		@apply block
+					 no-underline
+					 rounded-md
+					 bg-ink/[0.035]
+					 p-5
+					 sm:px-7
+					 sm:py-6
+					 hover:bg-ink/[0.05];
+	}
+
+	.c-read-next__label {
+		@apply block
+					 text-base
+					 text-muted;
+	}
+
+	.c-read-next__title {
+		@apply block
+					 mt-1
+					 font-heading
+					 font-bold
+					 text-ink
+					 text-2xl
+					 leading-tight
+					 tracking-[-0.01em]
+					 text-balance;
+	}
+
+	.c-read-next__footer {
+		@apply flex
+					 justify-between
+					 items-baseline
+					 gap-4
+					 mt-2
+					 text-base
+					 text-muted;
+	}
+
+	.c-read-next__arrow {
+		@apply inline-block
+					 transition-transform
+					 duration-150
+					 motion-reduce:transition-none;
+
+		.c-read-next__link:hover & {
+			@apply translate-x-1;
+
+			color: $color-primary;
+		}
+	}
+
 	.c-directory {
 		li {
 			@apply list-none;

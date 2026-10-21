@@ -3,12 +3,19 @@ import { render } from 'astro:content';
 import getReadingTime from 'reading-time';
 import Application from './Application.astro';
 import Spacer from '../components/Spacer.astro';
+import { getNextThought } from '../utils/finders';
 
 const item = Astro.props
 const { Content } = await render(item);
 const readingTime = getReadingTime(item.body);
 const data = Astro.props.data;
 const date = data.pubDate;
+
+const next = item.collection === 'thought' ? await getNextThought(item) : undefined;
+const nextMeta = next && [
+	next.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
+	getReadingTime(next.body).text
+].join(' · ');
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(`/api/og${Astro.url.pathname.replace(/\/$/, '')}.png`, Astro.site);
@@ -51,4 +58,17 @@ const schema = {
 
 		<Content />
 	</div>
+
+	{next && (
+		<aside class="c-read-next" aria-labelledby="read-next">
+			<a class="c-read-next__link" href={`/thoughts/${next.id}`}>
+				<span class="c-read-next__label" id="read-next">Read next</span>
+				<span class="c-read-next__title">{next.data.title}</span>
+				<span class="c-read-next__footer">
+					<span>{nextMeta}</span>
+					<span class="c-read-next__arrow" aria-hidden="true">&rarr;</span>
+				</span>
+			</a>
+		</aside>
+	)}
 </Application>

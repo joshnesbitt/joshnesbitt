@@ -1,6 +1,7 @@
 ---
 title: "The conference dream team"
 description: "Last year I learned that making yourself redundant is vital to scaling events. Create processes and systems that mean you are replaceable. Not because you want to be replaced but because if you want to create something of permanence, it’s a requirement."
+tags: ["events", "teams"]
 pubDate: "26 Jul 2024 13:00:00"
 ---
 

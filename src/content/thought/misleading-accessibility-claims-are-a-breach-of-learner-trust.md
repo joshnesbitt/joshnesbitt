@@ -1,6 +1,7 @@
 ---
 title: "Misleading accessibility claims are a breach of learner trust"
 description: "The Title II requirements are a timely reminder to make sure your accessible design is up to scratch. But the gold standard for accessible design isn’t that it’s ‘compliant’, it’s that you’re thoughtful and transparent about what users can expect (and trust) from their experience with your products."
+tags: ["product", "inclusion"]
 pubDate: "06 Jan 2026 15:00:00"
 ---
 
