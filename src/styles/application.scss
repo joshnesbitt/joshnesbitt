@@ -431,9 +431,7 @@ $color-spacer: rgb(var(--color-rule));
 
 		a {
 			@apply text-ink
-						 hover:text-accent
-						 transition-colors
-						 duration-150;
+						 hover:text-accent;
 		}
 	}
 
@@ -446,8 +444,6 @@ $color-spacer: rgb(var(--color-rule));
 		a:hover & {
 			@apply -translate-y-0.5
 						 translate-x-0.5;
-
-			color: $color-primary;
 		}
 	}
 
