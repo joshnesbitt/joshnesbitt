@@ -399,36 +399,51 @@ $color-spacer: rgb(var(--color-rule));
 
 	.c-footer {
 		@apply flex
-					 flex-wrap
-					 items-baseline
-					 justify-between
-					 gap-x-6
-					 gap-y-2
+					 flex-col
+					 items-center
+					 gap-4
 					 px-6
-					 py-6
-					 sm:py-8
+					 py-10
+					 sm:py-14
 					 mt-12
 					 sm:mt-16
-					 border-t
-					 text-base
-					 sm:text-lg
-					 text-muted;
+					 text-lg
+					 sm:text-xl;
+	}
 
-		border-color: $color-spacer;
+	.c-footer__copyright {
+		@apply text-sm
+					 sm:text-base
+					 text-muted;
 	}
 
 	.c-footer__links {
 		@apply flex
-					 gap-x-6;
+					 flex-wrap
+					 justify-center
+					 gap-x-8
+					 sm:gap-x-12
+					 gap-y-3;
 
 		li {
 			@apply list-none;
 		}
 
 		a {
-			@apply text-muted
-						 hover:text-ink
-						 transition-colors;
+			@apply text-ink
+						 hover:text-accent;
+		}
+	}
+
+	.c-footer__arrow {
+		@apply ml-1
+					 inline-block
+					 transition-transform
+					 duration-150;
+
+		a:hover & {
+			@apply -translate-y-0.5
+						 translate-x-0.5;
 		}
 	}
 
