@@ -430,7 +430,10 @@ $color-spacer: rgb(var(--color-rule));
 		}
 
 		a {
-			@apply text-ink;
+			@apply text-ink
+						 hover:text-accent
+						 transition-colors
+						 duration-150;
 		}
 	}
 
