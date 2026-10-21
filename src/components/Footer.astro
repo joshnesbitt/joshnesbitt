@@ -1,8 +1,10 @@
 ---
+const year = new Date().getFullYear();
+
 const links = [
-	{ label: 'github', href: 'https://github.com/joshnesbitt' },
-	{ label: 'linkedin', href: 'https://www.linkedin.com/in/josh-nesbitt' },
-	{ label: 'bluesky', href: 'https://bsky.app/profile/joshnesbitt.dev' },
+	{ label: 'GitHub', href: 'https://github.com/joshnesbitt' },
+	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/josh-nesbitt' },
+	{ label: 'Bluesky', href: 'https://bsky.app/profile/joshnesbitt.dev' },
 ];
 ---
 
@@ -12,4 +14,6 @@ const links = [
 			<li><a href={href}>{label}<span class="c-footer__arrow" aria-hidden="true">&nearr;</span></a></li>
 		))}
 	</ul>
+
+	<p class="c-footer__copyright">&copy; {year} Josh Nesbitt</p>
 </footer>

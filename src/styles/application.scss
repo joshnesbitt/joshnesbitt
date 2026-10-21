@@ -398,13 +398,23 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-footer {
-		@apply px-6
+		@apply flex
+					 flex-col
+					 items-center
+					 gap-4
+					 px-6
 					 py-10
 					 sm:py-14
 					 mt-12
 					 sm:mt-16
 					 text-lg
 					 sm:text-xl;
+	}
+
+	.c-footer__copyright {
+		@apply text-sm
+					 sm:text-base
+					 text-muted;
 	}
 
 	.c-footer__links {
