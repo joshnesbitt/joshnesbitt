@@ -59,6 +59,15 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
     };
   }
 
+  // Now page
+  if (basePath === 'now') {
+    return {
+      title: 'Now',
+      description: 'What Josh Nesbitt is focused on right now — leading engineering at Genio, a growing family, Off Script and life after All Day Hey!',
+      url: 'joshnesbitt.dev/now',
+    };
+  }
+
   // Thoughts list page
   if (basePath === 'thoughts') {
     return {
@@ -243,6 +252,7 @@ export async function getStaticPaths() {
     { params: { path: 'index.png' } },
     { params: { path: 'speaking.png' } },
     { params: { path: 'thoughts.png' } },
+    { params: { path: 'now.png' } },
     { params: { path: 'reviews.png' } },
     ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.id}.png` } })),
     ...reviews.map((review) => ({ params: { path: `reviews/${review.id}.png` } })),
