@@ -3,8 +3,7 @@ import { render } from 'astro:content';
 import getReadingTime from 'reading-time';
 import Application from './Application.astro';
 import Spacer from '../components/Spacer.astro';
-import Directory from '../components/Directory.astro';
-import { getRelatedThoughts } from '../utils/finders';
+import { getNextThought } from '../utils/finders';
 
 const item = Astro.props
 const { Content } = await render(item);
@@ -12,13 +11,7 @@ const readingTime = getReadingTime(item.body);
 const data = Astro.props.data;
 const date = data.pubDate;
 
-const related = item.collection === 'thought' ? await getRelatedThoughts(item) : [];
-
-const relatedItems = related.map((rec) => ({
-	name: rec.data.title,
-	href: `/thoughts/${rec.id}`,
-	meta: rec.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })
-}));
+const next = item.collection === 'thought' ? await getNextThought(item) : undefined;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(`/api/og${Astro.url.pathname.replace(/\/$/, '')}.png`, Astro.site);
@@ -62,13 +55,13 @@ const schema = {
 		<Content />
 	</div>
 
-	{related.length > 0 && (
-		<Fragment>
-			<Spacer />
-
-			<h2 class="c-sub-heading">Keep reading</h2>
-
-			<Directory items={relatedItems} />
-		</Fragment>
+	{next && (
+		<aside class="c-read-next" aria-labelledby="read-next">
+			<p class="c-read-next__label" id="read-next">Read next</p>
+			<a class="c-read-next__link" href={`/thoughts/${next.id}`}>
+				<span class="c-read-next__title">{next.data.title}<span class="c-read-next__arrow" aria-hidden="true">&rarr;</span></span>
+				<span class="c-read-next__description">{next.data.description}</span>
+			</a>
+		</aside>
 	)}
 </Application>
