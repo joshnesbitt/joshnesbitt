@@ -12,6 +12,10 @@ const data = Astro.props.data;
 const date = data.pubDate;
 
 const next = item.collection === 'thought' ? await getNextThought(item) : undefined;
+const nextMeta = next && [
+	next.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
+	getReadingTime(next.body).text
+].join(' · ');
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(`/api/og${Astro.url.pathname.replace(/\/$/, '')}.png`, Astro.site);
@@ -60,7 +64,7 @@ const schema = {
 			<p class="c-read-next__label" id="read-next">Read next</p>
 			<a class="c-read-next__link" href={`/thoughts/${next.id}`}>
 				<span class="c-read-next__title">{next.data.title}<span class="c-read-next__arrow" aria-hidden="true">&rarr;</span></span>
-				<span class="c-read-next__description">{next.data.description}</span>
+				<span class="c-read-next__meta">{nextMeta}</span>
 			</a>
 		</aside>
 	)}
