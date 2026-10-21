@@ -50,6 +50,15 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
     };
   }
 
+  // About page
+  if (basePath === 'about') {
+    return {
+      title: 'About',
+      description: 'Josh Nesbitt is a CTO in Leeds who has spent twenty years building for the web, leading engineering teams and bringing the tech community together.',
+      url: 'joshnesbitt.dev/about',
+    };
+  }
+
   // Speaking page
   if (basePath === 'speaking') {
     return {
@@ -241,6 +250,7 @@ export async function getStaticPaths() {
 
   return [
     { params: { path: 'index.png' } },
+    { params: { path: 'about.png' } },
     { params: { path: 'speaking.png' } },
     { params: { path: 'thoughts.png' } },
     { params: { path: 'reviews.png' } },
