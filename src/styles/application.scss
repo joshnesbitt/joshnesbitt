@@ -510,57 +510,94 @@ $color-spacer: rgb(var(--color-rule));
 					 max-w-[11rem];
 	}
 
-	.c-presskit__item {
-		@apply py-4;
+	.c-presskit {
+		@apply flex
+					 flex-col
+					 gap-10
+					 sm:gap-12
+					 mt-6;
 	}
 
-	.c-presskit__item + .c-presskit__item {
-		@apply border-t;
-
-		border-color: $color-spacer;
-	}
-
-	.c-presskit__row {
+	.c-presskit__meta {
 		@apply flex
 					 items-baseline
-					 justify-between
-					 gap-4;
+					 gap-3
+					 mb-3
+					 text-base
+					 sm:text-lg
+					 text-muted;
 	}
 
-	.c-presskit__label {
-		@apply font-light;
+	.c-presskit__separator {
+		color: $color-spacer;
 	}
 
 	.c-presskit__action {
-		@apply text-base
-					 sm:text-lg
+		@apply inline-flex
+					 items-center
+					 gap-2
 					 text-muted
 					 hover:text-ink
 					 transition-colors
 					 whitespace-nowrap;
+
+		&.is-copied::before {
+			@apply w-2
+						 h-2
+						 rounded-full;
+
+			content: '';
+			background: $color-primary;
+		}
 	}
 
 	.c-presskit__text {
-		@apply block
-					 mt-2
-					 leading-8
-					 max-w-screen-md;
+		@apply font-heading
+					 font-medium
+					 text-[1.375rem]
+					 leading-[1.3]
+					 sm:text-[1.75rem]
+					 tracking-[-0.01em]
+					 max-w-[52rem];
 
-		color: rgb(var(--color-copy));
+		color: $color-text;
+
+		.c-presskit__item:first-child & {
+			@apply text-[1.75rem]
+						 leading-[1.2]
+						 sm:text-[2.25rem];
+		}
 	}
 
-	.c-presskit__media {
+	.c-presskit__headshot {
 		@apply flex
-					 items-end
-					 gap-4
-					 mt-3;
+					 items-center
+					 gap-5
+					 pt-6
+					 border-t;
+
+		border-color: $color-spacer;
 	}
 
 	.c-presskit__image {
 		@apply rounded-md
-					 w-24
+					 w-16
 					 object-cover
 					 aspect-[3/4];
+	}
+
+	.c-presskit__download {
+		@apply ml-auto
+					 text-base
+					 sm:text-lg;
+	}
+
+	.c-presskit__arrow {
+		@apply -ml-1;
+
+		a:hover & {
+			color: $color-primary;
+		}
 	}
 
 	.c-callout {
