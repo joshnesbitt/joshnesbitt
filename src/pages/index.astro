@@ -1,5 +1,6 @@
 ---
 import { getThoughts } from '../utils/finders';
+import { NOW_UPDATED } from '../consts';
 
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
@@ -34,6 +35,10 @@ const focus = [
 	{ name: 'Podcast', href: 'https://heypresents.com/podcast' },
 	{ name: 'Cooking', href: 'https://joshnesbitt.cooking' }
 ];
+
+const now = [
+	{ name: 'What I’m up to', href: '/now', meta: NOW_UPDATED }
+];
 ---
 
 <Application title="Hello">
@@ -50,6 +55,12 @@ const focus = [
 	<h2 class="c-sub-heading">Focus</h2>
 
 	<Directory items={focus} />
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Now</h2>
+
+	<Directory items={now} />
 
 	<Spacer />
 

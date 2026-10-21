@@ -1,0 +1,60 @@
+---
+export const prerender = true;
+
+import { NOW_UPDATED } from '../consts';
+
+import Application from '../layouts/Application.astro';
+import Spacer from '../components/Spacer.astro';
+import TrackView from '../components/TrackView.astro';
+
+const description = 'What Josh Nesbitt is focused on right now — leading engineering at Genio, a growing family, Off Script and life after All Day Hey!';
+---
+
+<Application title="Now" description={description}>
+	<h1 class="c-heading">Now</h1>
+
+	<Spacer />
+
+	<div class="markdown-container c-lede">
+		<p>Right now I'm leading engineering as CTO at Genio, raising a growing family in Leeds, and working out what comes after ten years of All Day Hey!</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Work</h2>
+
+	<div class="markdown-container">
+		<p>I'm over two years into the CTO role at <a href="https://genio.co">Genio</a>. Most of my energy goes into operating at the level the role demands: thinking strategically about where the business needs to be as the technology landscape shifts, rather than only running a mature engineering function.</p>
+		<p>To keep all the threads in check I've been building <a href="/thoughts/building-my-own-llm-operating-system-ctos">ctOS</a>, a personal operating system on top of Claude and my Obsidian notes. It's changed how I work more than any tool I've picked up in years.</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Conferences</h2>
+
+	<div class="markdown-container">
+		<p>2026 was the last edition of <a href="https://heypresents.com/conference">All Day Hey!</a>, ten editions after the first. I wanted to go out on a high rather than fizzle out. I still believe in grassroots events as one of the best ways for people to learn, and I'm thinking about what a new conference could look like, with a clearer purpose from the start.</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Podcast</h2>
+
+	<div class="markdown-container">
+		<p>I'm still co-hosting <a href="https://heypresents.com/podcast">Off Script</a> with James Hall, talking engineering leadership and AI. We're past sixty episodes.</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Life</h2>
+
+	<div class="markdown-container">
+		<p>Our family is growing, with Rudy about to become a big brother, and Louie the dog doing his best to keep up. It's a real test of how well Ailsa and I organise ourselves in and out of work. When there's time, I'm <a href="https://joshnesbitt.cooking">cooking</a>.</p>
+	</div>
+
+	<Spacer />
+
+	<p class="text-base sm:text-lg text-muted">Updated {NOW_UPDATED}. This is a <a class="underline hover:text-ink" href="https://nownownow.com/about">now page</a>.</p>
+</Application>
+
+<TrackView key="now" />
