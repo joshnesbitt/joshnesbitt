@@ -46,10 +46,21 @@
 // Settings
 //
 
-$color-background: #FFFFFF;
-$color-text: #000103;
-$color-primary: #46FF10;
-$color-spacer: #DCDCDC;
+// Colour tokens are RGB channels so Tailwind can apply opacity (e.g. bg-paper/80).
+:root {
+	--color-paper: 246 244 239;      // #F6F4EF
+	--color-ink: 26 25 23;           // #1A1917
+	--color-copy: 45 43 39;          // #2D2B27
+	--color-muted: 110 105 96;       // #6E6960
+	--color-muted-strong: 87 83 75;  // #57534B
+	--color-rule: 224 220 211;       // #E0DCD3
+	--color-accent: 70 255 16;
+}
+
+$color-background: rgb(var(--color-paper));
+$color-text: rgb(var(--color-ink));
+$color-primary: rgb(var(--color-accent));
+$color-spacer: rgb(var(--color-rule));
 
 //
 // App
@@ -81,7 +92,7 @@ $color-spacer: #DCDCDC;
 					 break-words
 					 md:break-normal
 					 leading-8
-					 hover:markdown-a:text-brand-highlight
+					 hover:markdown-a:text-accent
            markdown-h1:font-medium
            markdown-h2:font-medium
            markdown-h3:font-medium
@@ -90,17 +101,17 @@ $color-spacer: #DCDCDC;
            markdown-code:before:hidden
            markdown-code:after:hidden
            markdown-code:font-normal
-           markdown-hr:border-[$color-spacer]
+           markdown-hr:border-rule
            markdown-hr:border-y
            markdown-hr:w-6
            markdown-img:rounded-md;
 
 		:not(pre) > code {
-		  @apply px-1 py-0.5 rounded-sm bg-gray-100;
+		  @apply px-1 py-0.5 rounded-sm bg-ink/5;
 		}
 
 		a:hover::selection {
-		  color: white;
+		  color: $color-background;
 		}
   }
 
@@ -141,12 +152,12 @@ $color-spacer: #DCDCDC;
 					 focus:top-4
 					 focus:left-4
 					 focus:z-[60]
-					 focus:bg-white
+					 focus:bg-paper
 					 focus:px-4
 					 focus:py-2
 					 focus:rounded-md
 					 focus:border
-					 focus:border-black
+					 focus:border-ink
 					 focus:underline;
 	}
 
@@ -177,10 +188,10 @@ $color-spacer: #DCDCDC;
 					 z-50;
 
 		&.is-scrolled:not(.is-open) {
-			@apply bg-white/80
+			@apply bg-paper/80
 						 backdrop-blur-md
 						 border-b
-						 border-black/5;
+						 border-ink/5;
 		}
 	}
 
@@ -292,7 +303,7 @@ $color-spacer: #DCDCDC;
 		@apply motion-reduce:transition-none
 					 fixed
 					 inset-0
-					 bg-white
+					 bg-paper
 					 invisible
 					 opacity-0
 					 transition-all
@@ -374,8 +385,8 @@ $color-spacer: #DCDCDC;
 					 duration-300;
 
 		a {
-			@apply text-gray-500
-						 hover:text-black
+			@apply text-muted
+						 hover:text-ink
 						 transition-colors;
 		}
 
@@ -401,7 +412,7 @@ $color-spacer: #DCDCDC;
 					 border-t
 					 text-base
 					 sm:text-lg
-					 text-gray-500;
+					 text-muted;
 
 		border-color: $color-spacer;
 	}
@@ -415,8 +426,8 @@ $color-spacer: #DCDCDC;
 		}
 
 		a {
-			@apply text-gray-500
-						 hover:text-black
+			@apply text-muted
+						 hover:text-ink
 						 transition-colors;
 		}
 	}
@@ -432,7 +443,7 @@ $color-spacer: #DCDCDC;
 	}
 
 	.u-highlight {
-		@apply text-brand-highlight;
+		@apply text-accent;
 	}
 
 	.c-sub-heading {
@@ -495,7 +506,7 @@ $color-spacer: #DCDCDC;
 	.c-stats__label {
 		@apply text-base
 					 sm:text-lg
-					 text-gray-500
+					 text-muted
 					 max-w-[11rem];
 	}
 
@@ -526,7 +537,7 @@ $color-spacer: #DCDCDC;
 					 text-sm
 					 uppercase
 					 tracking-wider
-					 text-gray-500;
+					 text-muted;
 	}
 
 	.c-presskit__action {
@@ -535,8 +546,8 @@ $color-spacer: #DCDCDC;
 					 text-sm
 					 uppercase
 					 tracking-wider
-					 text-gray-500
-					 hover:text-black
+					 text-muted
+					 hover:text-ink
 					 transition-colors
 					 whitespace-nowrap;
 	}
@@ -571,7 +582,7 @@ $color-spacer: #DCDCDC;
 					 sm:p-8
 					 transition-colors
 					 duration-150
-					 hover:bg-black/[0.02];
+					 hover:bg-ink/[0.02];
 
 		border-color: $color-spacer;
 	}
@@ -586,7 +597,7 @@ $color-spacer: #DCDCDC;
 					 text-sm
 					 uppercase
 					 tracking-wider
-					 text-gray-500;
+					 text-muted;
 	}
 
 	.c-callout__dot {
@@ -616,7 +627,7 @@ $color-spacer: #DCDCDC;
 					 mt-3
 					 text-base
 					 sm:text-lg
-					 text-gray-500;
+					 text-muted;
 	}
 
 	.c-directory {
@@ -640,21 +651,21 @@ $color-spacer: #DCDCDC;
 						 -mx-2
 						 transition-colors
 						 duration-150
-						 hover:bg-black/[0.02];
+						 hover:bg-ink/[0.02];
 		}
 	}
 
 	.c-directory__destination {
 		@apply text-base
 					 sm:text-lg
-					 text-gray-500
+					 text-muted
 					 text-right
 					 whitespace-nowrap
 					 transition-colors
 					 duration-150;
 
 		a:hover & {
-			@apply text-gray-600;
+			@apply text-muted-strong;
 		}
 	}
 
