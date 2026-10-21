@@ -7,14 +7,22 @@ import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
 
 const reviews = await getReviews();
+
+const description = 'A yearly look back on work, events and life, written every year since 2018.';
 ---
 
-<Application title="Reviews" description="Annual reflections on work and life.">
+<Application title="Reviews" description={description}>
 	<h1 class="c-heading">Reviews</h1>
 
 	<Spacer />
 
-  <PostCards posts={reviews} path="reviews" level={2} />
+	<div class="markdown-container c-lede">
+		<p>Every year since 2018 I've looked back on the twelve months before — the work, the events and the life around them. It's how I notice progress that didn't feel like progress at the time.</p>
+	</div>
+
+	<Spacer />
+
+	<PostCards posts={reviews} path="reviews" level={2} />
 </Application>
 
 <TrackView namespace="reviews" key="index" />
