@@ -648,6 +648,86 @@ $color-spacer: rgb(var(--color-rule));
 					 text-muted;
 	}
 
+	.c-timeline {
+		@apply max-w-screen-md;
+	}
+
+	.c-timeline__item {
+		@apply grid
+					 grid-cols-[3.5rem_1fr]
+					 sm:grid-cols-[5.5rem_1fr]
+					 list-none;
+	}
+
+	.c-timeline__year {
+		@apply text-base
+					 sm:text-lg
+					 text-muted
+					 tabular-nums
+					 pt-px;
+
+		.is-continued & {
+			@apply invisible;
+		}
+	}
+
+	.c-timeline__body {
+		@apply relative
+					 border-l
+					 pl-6
+					 sm:pl-8
+					 pb-8;
+
+		border-color: $color-spacer;
+
+		&::before {
+			@apply absolute
+						 top-[0.55em]
+						 -left-[4.5px]
+						 w-2
+						 h-2
+						 rounded-full
+						 border
+						 border-muted
+						 bg-paper;
+
+			content: '';
+		}
+
+		.is-current & {
+			@apply pb-0;
+
+			&::before {
+				@apply border-transparent;
+
+				background: $color-primary;
+			}
+		}
+	}
+
+	.c-timeline__title {
+		@apply font-heading
+					 font-bold
+					 text-lg
+					 sm:text-xl
+					 leading-snug;
+
+		a {
+			@apply transition-none;
+
+			&:hover {
+				color: $color-primary;
+			}
+		}
+	}
+
+	.c-timeline__text {
+		@apply mt-1
+					 text-base
+					 sm:text-lg
+					 text-muted;
+	}
+
 	.c-directory {
 		li {
 			@apply list-none;
