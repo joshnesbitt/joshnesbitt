@@ -1,5 +1,3 @@
-export const prerender = true;
-
 import type { APIRoute } from 'astro';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
