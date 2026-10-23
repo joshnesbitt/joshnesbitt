@@ -648,6 +648,157 @@ $color-spacer: rgb(var(--color-rule));
 					 text-muted;
 	}
 
+	// Timeline as a Tube line: --lh is the title's line height, so the year,
+	// station and line ends all centre on the first line of the title.
+	.c-timeline {
+		@apply max-w-screen-md;
+	}
+
+	.c-timeline__item {
+		--lh: 1.7rem;
+
+		@apply grid
+					 grid-cols-[3rem_2.75rem_1fr]
+					 sm:grid-cols-[4.5rem_3.5rem_1fr]
+					 list-none;
+
+		&.is-major {
+			--lh: 1.9rem;
+
+			@media (min-width: 640px) {
+				--lh: 2.3rem;
+			}
+		}
+	}
+
+	.c-timeline__year {
+		@apply text-sm
+					 sm:text-lg
+					 text-muted
+					 tabular-nums;
+
+		line-height: var(--lh);
+
+		.is-major & {
+			@apply font-bold
+						 text-ink;
+		}
+
+		.is-continued & {
+			@apply invisible;
+		}
+	}
+
+	.c-timeline__track {
+		@apply relative;
+
+		&::before {
+			@apply absolute
+						 inset-y-0
+						 left-1/2
+						 w-2
+						 sm:w-2.5
+						 -translate-x-1/2;
+
+			content: '';
+			background: $color-text;
+		}
+
+		.c-timeline__item:first-child &::before {
+			top: calc(var(--lh) / 2);
+		}
+
+		.is-current &::before {
+			bottom: auto;
+			height: calc(var(--lh) / 2);
+		}
+	}
+
+	.c-timeline__station {
+		@apply absolute
+					 left-1/2;
+
+		top: calc(var(--lh) / 2);
+
+		.is-major & {
+			@apply w-7
+						 h-7
+						 sm:w-[2.125rem]
+						 sm:h-[2.125rem]
+						 rounded-full
+						 border-[6px]
+						 sm:border-[7px]
+						 -translate-x-1/2
+						 -translate-y-1/2;
+
+			border-color: $color-text;
+			background: $color-background;
+		}
+
+		.is-minor & {
+			@apply w-4
+						 h-1.5
+						 sm:w-[1.375rem]
+						 sm:h-2
+						 -translate-y-1/2;
+
+			background: $color-text;
+		}
+
+		.is-current & {
+			background: $color-primary;
+		}
+	}
+
+	.c-timeline__body {
+		@apply pb-6;
+
+		.is-major & {
+			@apply pb-10
+						 sm:pb-11;
+		}
+
+		.is-current & {
+			@apply pb-0;
+		}
+	}
+
+	.c-timeline__title {
+		@apply font-heading
+					 font-medium
+					 text-lg
+					 sm:text-xl;
+
+		line-height: var(--lh);
+
+		.is-major & {
+			@apply font-bold
+						 text-2xl
+						 sm:text-[2rem]
+						 tracking-[-0.01em];
+		}
+
+		a {
+			@apply transition-none;
+
+			&:hover {
+				color: $color-primary;
+			}
+		}
+	}
+
+	.c-timeline__text {
+		@apply mt-1
+					 text-sm
+					 sm:text-base
+					 text-muted;
+
+		.is-major & {
+			@apply text-base
+						 sm:text-lg;
+		}
+	}
+
 	.c-directory {
 		li {
 			@apply list-none;

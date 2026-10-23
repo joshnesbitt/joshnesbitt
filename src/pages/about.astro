@@ -1,0 +1,56 @@
+---
+export const prerender = true;
+
+import Application from '../layouts/Application.astro';
+import Spacer from '../components/Spacer.astro';
+import TrackView from '../components/TrackView.astro';
+import Timeline from '../components/Timeline.astro';
+
+const description = 'Josh Nesbitt is a CTO in Leeds who has spent twenty years building for the web, leading engineering teams and bringing the tech community together.';
+
+const timeline = [
+	{ year: '2009', name: 'Started consulting', major: true, text: 'Set up on my own, building products and teams with clients under Stac.' },
+	{ year: '2013', name: 'Started Hey!', major: true, text: 'Community talks and events, which grew into everything that followed.' },
+	{ year: '2017', name: 'Founded All Day Hey!', major: true, text: 'An independent technology conference, sold out by its second year.', href: 'https://heypresents.com/conference' },
+	{ year: '2018', name: 'Relaunched Stac as a consultancy', text: 'A simpler brand built around what I actually do for companies.' },
+	{ year: '2018', name: 'Interim Head of Software Engineering, LADbible', text: 'Built an engineering team from scratch and helped through the UNILAD acquisition.' },
+	{ year: '2019', name: 'Launched Off Script', major: true, text: 'A podcast that challenges ideas in tech, soon co-hosted with James Hall.', href: 'https://heypresents.com/podcast' },
+	{ year: '2019', name: 'Hosted Helen Sharman', text: 'An evening with Britain’s first astronaut, for the Festival of the Moon.', href: '/thoughts/hosting-a-talk-by-helen-sharman-the-first-british-astronaut' },
+	{ year: '2020', name: 'Head of Engineering, Covéa Digital', text: 'An engineering transformation across a function of over two hundred people.' },
+	{ year: '2020', name: 'Took the conference online', text: 'All Day Hey! Live, streamed from my desk through the pandemic.', href: '/thoughts/how-to-run-an-online-conference' },
+	{ year: '2022', name: 'Joined Logically', text: 'Back to a startup, setting up processes, teams and technology from the ground up.' },
+	{ year: '2023', name: 'CTO, Glean', major: true, text: 'Left fourteen years of consultancy for a longer-term role leading product and technology.' },
+	{ year: '2025', name: 'Glean became Genio', text: 'A rebrand shipped without compromising what learners rely on.', href: '/thoughts/an-experienced-team-sails-calmly-through-uncertainty' },
+	{ year: '2026', name: 'The final All Day Hey!', major: true, text: 'Ten editions, and going out on a high.' }
+];
+---
+
+<Application title="About" description={description}>
+	<h1 class="c-heading">About</h1>
+
+	<Spacer />
+
+	<div class="markdown-container c-lede">
+		<p>I'm Josh. I've spent twenty years building for the web, most of them leading engineering teams, and much of my spare time bringing people together to talk about it.</p>
+	</div>
+
+	<Spacer />
+
+	<div class="markdown-container">
+		<p>I started out running my own consultancy, working with companies like LADbible and Covéa Digital to build engineering teams and the culture around them. It taught me that most technical problems are people problems first, and that the best teams are the ones that feel safe enough to do their best work.</p>
+
+		<p>In 2023 I swapped consultancy for something longer term and became CTO at Glean, now <a href="https://genio.co">Genio</a>. I lead the product and technology team there, and I'm still learning what it means to operate well at that level.</p>
+
+		<p>Alongside work, I've spent over a decade running <a href="https://heypresents.com">Hey! Presents</a>: community events, ten editions of <a href="https://heypresents.com/conference">All Day Hey!</a> and <a href="https://heypresents.com/podcast">Off Script</a>, the podcast I host with James Hall. I write about leadership, AI and running events in <a href="/thoughts">thoughts</a>, and I <a href="/speaking">speak and host</a> at events when I can.</p>
+
+		<p>I live in Leeds with Ailsa, our son Rudy and Louie the dog. When I'm not working I'm usually <a href="https://joshnesbitt.cooking">cooking</a>.</p>
+	</div>
+
+	<Spacer />
+
+	<h2 class="c-sub-heading">Timeline</h2>
+
+	<Timeline items={timeline} />
+</Application>
+
+<TrackView key="about" />
