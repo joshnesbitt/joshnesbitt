@@ -1,4 +1,6 @@
 ---
+import '../styles/application.scss';
+
 import Meta from '../components/Meta.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -7,7 +9,7 @@ const { title, description, type, pubDate } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 	<head>
 		<Meta title={title} description={description} type={type} pubDate={pubDate} />
 	</head>
