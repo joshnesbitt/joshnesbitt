@@ -2,11 +2,13 @@
   "name": "joshnesbitt",
   "description": "The site for Josh Nesbitt.",
   "type": "module",
-  "version": "1.0.0",
+  "private": true,
   "author": "Josh Nesbitt",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -19,7 +21,6 @@
     "@astrojs/sitemap": "^3.7.4",
     "@netlify/blobs": "^11.1.5",
     "@resvg/resvg-js": "^2.6.2",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "astro": "^7.4.1",
     "autoprefixer": "^10.6.1",
