@@ -1,13 +1,19 @@
 ---
-// Items run oldest first. Consecutive items in the same year share one year
-// label, and the last item is marked as where things are now.
+// Drawn as a single Tube line, oldest first. Items marked `major` are
+// interchange stations with large titles; the rest are minor stations shown
+// as ticks. Consecutive items in the same year share one year label, and the
+// last station is where things are now.
 const { items } = Astro.props;
 ---
 
 <ol class="c-timeline">
 	{items.map((item, index) => (
-		<li class:list={['c-timeline__item', { 'is-continued': items[index - 1]?.year === item.year, 'is-current': index === items.length - 1 }]}>
+		<li class:list={['c-timeline__item', item.major ? 'is-major' : 'is-minor', { 'is-continued': items[index - 1]?.year === item.year, 'is-current': index === items.length - 1 }]}>
 			<span class="c-timeline__year">{item.year}</span>
+
+			<span class="c-timeline__track" aria-hidden="true">
+				<span class="c-timeline__station"></span>
+			</span>
 
 			<div class="c-timeline__body">
 				<h3 class="c-timeline__title">
