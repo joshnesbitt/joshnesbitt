@@ -1,5 +1,3 @@
-export const prerender = true;
-
 import rss from '@astrojs/rss';
 import type { APIRoute } from 'astro';
 import { getPosts } from '../utils/finders';

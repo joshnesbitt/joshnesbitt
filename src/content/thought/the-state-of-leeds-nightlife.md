@@ -1,7 +1,7 @@
 ---
 title: "The state of Leeds nightlife"
 description: "Last night I had the pleasure of hosting a panel at the Leeds Night Time Economy Group launch. The panel highlighted clear failures where support just isn't there, or friction is being introduced in areas where support is obvious and much easier to provide (over financial backing or licencing challenges)."
-pubDate: "20 Mar 2025 12:00:00"
+pubDate: 2025-03-20T12:00:00Z
 ---
 
 Last night I had the pleasure of hosting a panel at the Leeds Night Time Economy Group launch, titled "Has Leeds lost its nightlife crown? How do we win it back?" at [Testbed](https://www.testbedleeds.com/).
