@@ -2,7 +2,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: ['./src/**/*.{astro,js,md,mdx,ts}'],
 	theme: {
     extend: {
       fontFamily: {
@@ -42,7 +42,6 @@ module.exports = {
     },
 	},
 	plugins: [
-    require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography')({
       className: 'markdown',
     }),
