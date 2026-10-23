@@ -2,12 +2,12 @@ export const prerender = true;
 
 import rss from '@astrojs/rss';
 import type { APIRoute } from 'astro';
-import { getThoughts, getReviews } from '../utils/finders';
+import { getPosts } from '../utils/finders';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export const GET: APIRoute = async (context) => {
-	const thoughts = await getThoughts();
-	const reviews = await getReviews();
+	const thoughts = await getPosts('thought');
+	const reviews = await getPosts('review');
 
 	const items = [
 		...thoughts.map((thought) => ({

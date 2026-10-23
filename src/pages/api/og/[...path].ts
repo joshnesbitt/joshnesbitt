@@ -3,34 +3,28 @@ export const prerender = true;
 import type { APIRoute } from 'astro';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { getCollection } from 'astro:content';
 import fs from 'node:fs';
 import path from 'node:path';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
+import { getPosts } from '../../../utils/finders';
+import { PAGES, SITE_HOST, SITE_TITLE } from '../../../consts';
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 
-// Load fonts
-const fontBoldPath = path.join(process.cwd(), 'src/assets/fonts/DMSans-Bold.woff');
-const fontRegularPath = path.join(process.cwd(), 'src/assets/fonts/DMSans-Regular.woff');
+// Prerendered, so a missing font fails the build rather than a share card.
+const fontBold = fs.readFileSync(path.join(process.cwd(), 'src/assets/fonts/DMSans-Bold.woff'));
+const fontRegular = fs.readFileSync(path.join(process.cwd(), 'src/assets/fonts/DMSans-Regular.woff'));
 
-let fontBold: ArrayBuffer;
-let fontRegular: ArrayBuffer;
-
-try {
-  fontBold = fs.readFileSync(fontBoldPath);
-  fontRegular = fs.readFileSync(fontRegularPath);
-} catch (e) {
-  console.error('Failed to load fonts:', e);
-}
-
-// Colors matching the site
+// Satori can't read CSS custom properties, so these mirror the Paper palette
+// tokens at the top of src/styles/application.scss.
 const colors = {
   background: '#F6F4EF',
   text: '#1A1917',
   accent: '#46FF10',
 };
+
+// URL prefix for each post collection.
+const COLLECTIONS = { thoughts: 'thought', reviews: 'review' } as const;
 
 interface PageData {
   title: string;
@@ -38,76 +32,26 @@ interface PageData {
   url: string;
 }
 
-async function getPageData(pathSegments: string[]): Promise<PageData | null> {
-  const basePath = pathSegments.join('/').replace(/\.png$/, '');
+async function getPageData(basePath: string): Promise<PageData | null> {
+  if (basePath in PAGES) {
+    const page = PAGES[basePath as keyof typeof PAGES];
 
-  // Homepage
-  if (!basePath || basePath === 'index') {
     return {
-      title: "Hello",
-      description: SITE_DESCRIPTION,
-      url: 'joshnesbitt.dev',
+      ...page,
+      url: basePath === 'index' ? SITE_HOST : `${SITE_HOST}/${basePath}`,
     };
   }
 
-  // Speaking page
-  if (basePath === 'speaking') {
-    return {
-      title: 'Speaking',
-      description: 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.',
-      url: 'joshnesbitt.dev/speaking',
-    };
-  }
+  const [prefix, slug] = basePath.split('/');
+  const collection = COLLECTIONS[prefix as keyof typeof COLLECTIONS];
 
-  // Thoughts list page
-  if (basePath === 'thoughts') {
-    return {
-      title: 'Thoughts',
-      description: 'A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.',
-      url: 'joshnesbitt.dev/thoughts',
-    };
-  }
+  if (!collection || !slug) return null;
 
-  // Reviews list page
-  if (basePath === 'reviews') {
-    return {
-      title: 'Reviews',
-      description: 'Annual reflections on work and life.',
-      url: 'joshnesbitt.dev/reviews',
-    };
-  }
+  const post = (await getPosts(collection)).find((p) => p.id === slug);
 
-  // Individual thought
-  if (basePath.startsWith('thoughts/')) {
-    const slug = basePath.replace('thoughts/', '');
-    const thoughts = await getCollection('thought');
-    const thought = thoughts.find(t => t.id === slug);
-
-    if (thought) {
-      return {
-        title: thought.data.title,
-        description: thought.data.description,
-        url: `joshnesbitt.dev/thoughts/${slug}`,
-      };
-    }
-  }
-
-  // Individual review
-  if (basePath.startsWith('reviews/')) {
-    const slug = basePath.replace('reviews/', '');
-    const reviews = await getCollection('review');
-    const review = reviews.find(r => r.id === slug);
-
-    if (review) {
-      return {
-        title: review.data.title,
-        description: review.data.description,
-        url: `joshnesbitt.dev/reviews/${slug}`,
-      };
-    }
-  }
-
-  return null;
+  return post
+    ? { title: post.data.title, description: post.data.description, url: `${SITE_HOST}/${basePath}` }
+    : null;
 }
 
 function truncate(text: string, maxLength: number): string {
@@ -195,7 +139,7 @@ function generateSvgMarkup(data: PageData) {
                     {
                       type: 'span',
                       props: {
-                        children: 'Josh Nesbitt',
+                        children: SITE_TITLE,
                       },
                     },
                     {
@@ -236,25 +180,20 @@ function generateSvgMarkup(data: PageData) {
 }
 
 export async function getStaticPaths() {
-  const thoughts = await getCollection('thought');
-  const reviews = await getCollection('review');
+  const posts = await Promise.all(
+    Object.entries(COLLECTIONS).map(async ([prefix, collection]) =>
+      (await getPosts(collection)).map((post) => `${prefix}/${post.id}`)
+    )
+  );
 
-  return [
-    { params: { path: 'index.png' } },
-    { params: { path: 'speaking.png' } },
-    { params: { path: 'thoughts.png' } },
-    { params: { path: 'reviews.png' } },
-    ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.id}.png` } })),
-    ...reviews.map((review) => ({ params: { path: `reviews/${review.id}.png` } })),
-  ];
+  return [...Object.keys(PAGES), ...posts.flat()].map((page) => ({ params: { path: `${page}.png` } }));
 }
 
 export const GET: APIRoute = async ({ params }) => {
-  const pathParam = params.path || 'index';
-  const pathSegments = Array.isArray(pathParam) ? pathParam : pathParam.split('/');
+  const basePath = (params.path || 'index').replace(/\.png$/, '');
 
   try {
-    const pageData = await getPageData(pathSegments);
+    const pageData = await getPageData(basePath);
 
     if (!pageData) {
       return new Response('Not found', { status: 404 });
