@@ -7,11 +7,10 @@ import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
 import Directory from '../components/Directory.astro';
+import { PAGES } from '../consts';
 
 import stageshot from '../assets/images/stageshot.jpg';
 import headshot from '../assets/images/headshot.jpg';
-
-const description = 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.';
 
 function decodeEntities(text) {
 	return text
@@ -77,7 +76,7 @@ const talks = [
 ];
 ---
 
-<Application title="Speaking" description={description}>
+<Application {...PAGES.speaking}>
 	<h1 class="c-heading">Speaking</h1>
 
 	<Spacer />
