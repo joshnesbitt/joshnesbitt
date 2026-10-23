@@ -1,7 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 
-import '../styles/application.scss';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export interface Props {
@@ -23,7 +22,6 @@ const ogImageURL = new URL(`/api/og/${ogImagePath}.png`, Astro.site);
 <ClientRouter />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 <meta name="generator" content={Astro.generator} />
 
@@ -38,7 +36,6 @@ const ogImageURL = new URL(`/api/og/${ogImagePath}.png`, Astro.site);
 
 <!-- Primary Meta Tags -->
 <title>{fullTitle}</title>
-<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
