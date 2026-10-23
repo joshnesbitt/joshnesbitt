@@ -10,10 +10,7 @@
 # Redirects
 #
 
-[[redirects]]
-  from = "/thoughts/what-the-f-is-going-on-with-leeds-nightlife/"
-  to = "/thoughts/the-state-of-leeds-nightlife"
-
+# Netlify matches with or without a trailing slash, so one rule covers both.
 [[redirects]]
   from = "/thoughts/what-the-f-is-going-on-with-leeds-nightlife"
   to = "/thoughts/the-state-of-leeds-nightlife"
