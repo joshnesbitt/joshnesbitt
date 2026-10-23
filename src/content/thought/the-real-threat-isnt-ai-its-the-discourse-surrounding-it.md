@@ -1,7 +1,7 @@
 ---
 title: "The real threat isn’t AI—it’s the discourse surrounding it"
 description: "It’s possible to believe AI is one of the most transformative tools of our time and that most of what’s being sold as AI is smoke and mirrors, or worse, complete bollocks. Both can be true."
-pubDate: "06 Jun 2025 13:00:00"
+pubDate: 2025-06-06T13:00:00Z
 ---
 
 For a while now, I've struggled to hold uncomfortable feelings about AI in tension with the reality of AI within our industry and world today. Thanks to a post by [Steve](https://steveklabnik.com/writing/i-am-disappointed-in-the-ai-discourse/), I feel compelled to try and articulate my current stance on the subject.

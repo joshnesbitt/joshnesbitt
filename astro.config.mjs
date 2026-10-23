@@ -5,18 +5,11 @@ import netlify from "@astrojs/netlify";
 
 export default defineConfig({
   site: 'https://joshnesbitt.dev',
-  output: 'server',
+  // Pages are built ahead of time. Routes that need a server (the view
+  // counts API) opt out with `export const prerender = false`.
   integrations: [
     mdx(),
-    sitemap({
-      // Server-rendered routes aren't discovered automatically
-      customPages: [
-        'https://joshnesbitt.dev/',
-        'https://joshnesbitt.dev/thoughts/',
-        'https://joshnesbitt.dev/reviews/',
-        'https://joshnesbitt.dev/speaking/',
-      ],
-    }),
+    sitemap(),
   ],
   adapter: netlify(),
   build: {

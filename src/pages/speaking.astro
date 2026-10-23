@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import { Image } from 'astro:assets';
 
 import Application from '../layouts/Application.astro';
@@ -40,7 +38,7 @@ async function getLatestEpisode() {
 			name: decodeEntities(title.replace(/^Episode (\d+): /, '#$1: ')),
 			href: episodeId ? `https://heypresents.com/podcast/${episodeId}` : link,
 			meta: pubDate
-				? new Date(pubDate).toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })
+				? new Date(pubDate).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' })
 				: ''
 		};
 	} catch {
