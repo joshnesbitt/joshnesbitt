@@ -36,17 +36,10 @@ const schema = {
 	<Spacer />
 
 	<div class="markdown-container">
-		<p class="text-lg font-bold">
-			<time datetime={date.toISOString()} >
-				{date.toLocaleDateString('en-uk', {
-			    year: 'numeric',
-			    month: 'short'
-			  })}
-				&nbsp;
-				·
-				&nbsp;
-				{readingTime.text}
-			</time>
+		<p class="c-meta">
+			<time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time>
+			&nbsp;·&nbsp;
+			{Math.max(1, Math.round(readingTime.minutes))} min read
 		</p>
 
 		<Content />

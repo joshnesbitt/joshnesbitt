@@ -34,6 +34,11 @@ const focus = [
 	{ name: 'Podcast', href: 'https://heypresents.com/podcast' },
 	{ name: 'Cooking', href: 'https://joshnesbitt.cooking' }
 ];
+
+const building = [
+	{ name: 'ctOS, an LLM operating system for my work as a CTO', href: '/thoughts/building-my-own-llm-operating-system-ctos', meta: '2026' },
+	{ name: 'Open source and side projects', href: 'https://github.com/joshnesbitt' }
+];
 ---
 
 <Application title="Hello">
@@ -53,11 +58,15 @@ const focus = [
 
 	<Spacer />
 
+	<h2 class="c-sub-heading">Building</h2>
+
+	<Directory items={building} />
+
+	<Spacer />
+
 	<h2 class="c-sub-heading">Thoughts</h2>
 
-	<div class="-mt-6">
-		<PostCards posts={thoughts} path="thoughts" />
-	</div>
+	<PostCards posts={thoughts} path="thoughts" />
 </Application>
 
 <TrackView key="home" />

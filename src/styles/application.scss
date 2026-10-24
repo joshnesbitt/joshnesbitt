@@ -42,6 +42,24 @@
 	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 100 800;
+	font-display: swap;
+	src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 100 800;
+	font-display: swap;
+	src: url('/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 //
 // Settings
 //
@@ -102,12 +120,12 @@ $color-spacer: rgb(var(--color-rule));
            markdown-code:after:hidden
            markdown-code:font-normal
            markdown-hr:border-rule
-           markdown-hr:border-y
-           markdown-hr:w-6
-           markdown-img:rounded-md;
+           markdown-hr:border-t
+           markdown-hr:w-full
+           markdown-pre:rounded-none;
 
 		:not(pre) > code {
-		  @apply px-1 py-0.5 rounded-sm bg-ink/5;
+		  @apply px-1 py-0.5 bg-ink/5;
 		}
 
 		a:hover::selection {
@@ -127,7 +145,6 @@ $color-spacer: rgb(var(--color-rule));
 
 		img {
 			@apply w-full
-						 rounded-md
 						 m-0;
 		}
 	}
@@ -155,21 +172,21 @@ $color-spacer: rgb(var(--color-rule));
 					 focus:bg-paper
 					 focus:px-4
 					 focus:py-2
-					 focus:rounded-md
 					 focus:border
 					 focus:border-ink
 					 focus:underline;
 	}
 
 	.c-body {
-		@apply font-body
-					 font-light;
+		@apply font-body;
 
 		background: $color-background;
 		color: $color-text;
 	}
 
 	.c-container {
+		counter-reset: section;
+
 		@apply container
 					 max-w-screen-lg
 					 mx-auto
@@ -412,9 +429,28 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-footer__copyright {
-		@apply text-sm
-					 sm:text-base
+		@apply flex
+					 flex-wrap
+					 justify-center
+					 gap-x-3
+					 font-mono
+					 text-xs
+					 sm:text-sm
 					 text-muted;
+
+		span + span::before {
+			@apply mr-3;
+
+			content: "·";
+			content: "·" / "";
+		}
+
+		a {
+			@apply underline
+						 decoration-rule
+						 underline-offset-4
+						 hover:text-ink;
+		}
 	}
 
 	.c-footer__links {
@@ -468,6 +504,23 @@ $color-spacer: rgb(var(--color-rule));
 					 md:text-3xl
 					 mb-2
 					 sm:mb-4;
+
+		// Numbered like a spec ("01 / Focus"); the alt text keeps the
+		// number out of the accessible name.
+		counter-increment: section;
+
+		&::before {
+			@apply block
+						 mb-2
+						 font-mono
+						 font-normal
+						 text-sm
+						 sm:text-base
+						 text-muted;
+
+			content: counter(section, decimal-leading-zero) " /";
+			content: counter(section, decimal-leading-zero) " /" / "";
+		}
 	}
 
 	.c-lede {
@@ -490,8 +543,7 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-hero__image {
-		@apply rounded-md
-					 w-full
+		@apply w-full
 					 object-cover
 					 aspect-[3/2]
 					 sm:aspect-[2/1];
@@ -519,8 +571,9 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-stats__label {
-		@apply text-base
-					 sm:text-lg
+		@apply font-mono
+					 text-sm
+					 sm:text-base
 					 text-muted
 					 max-w-[11rem];
 	}
@@ -538,8 +591,9 @@ $color-spacer: rgb(var(--color-rule));
 					 items-baseline
 					 gap-3
 					 mb-3
-					 text-base
-					 sm:text-lg
+					 font-mono
+					 text-sm
+					 sm:text-base
 					 text-muted;
 	}
 
@@ -585,8 +639,7 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-presskit__image {
-		@apply rounded-md
-					 w-36
+		@apply w-36
 					 sm:w-48
 					 object-cover
 					 aspect-[3/4];
@@ -595,7 +648,6 @@ $color-spacer: rgb(var(--color-rule));
 	.c-callout {
 		@apply block
 					 border
-					 rounded-md
 					 p-6
 					 sm:p-8
 					 transition-colors
@@ -610,11 +662,10 @@ $color-spacer: rgb(var(--color-rule));
 					 items-center
 					 gap-2
 					 mb-3
-					 font-heading
-					 font-bold
+					 font-mono
 					 text-sm
 					 uppercase
-					 tracking-wider
+					 tracking-wide
 					 text-muted;
 	}
 
@@ -643,8 +694,9 @@ $color-spacer: rgb(var(--color-rule));
 	.c-callout__meta {
 		@apply block
 					 mt-3
-					 text-base
-					 sm:text-lg
+					 font-mono
+					 text-sm
+					 sm:text-base
 					 text-muted;
 	}
 
@@ -674,8 +726,9 @@ $color-spacer: rgb(var(--color-rule));
 	}
 
 	.c-directory__destination {
-		@apply text-base
-					 sm:text-lg
+		@apply font-mono
+					 text-sm
+					 sm:text-base
 					 text-muted
 					 text-right
 					 whitespace-nowrap
@@ -695,17 +748,52 @@ $color-spacer: rgb(var(--color-rule));
 		}
 	}
 
+	.c-post-cards {
+		@apply mt-6;
+	}
+
 	.c-post-card {
+		@apply grid
+					 gap-1
+					 sm:grid-cols-[8rem_1fr]
+					 sm:gap-6
+					 py-6
+					 border-t;
+
+		border-color: $color-spacer;
+
+		&:first-child {
+			@apply border-t-0
+						 pt-0;
+		}
+	}
+
+	.c-post-card__date {
+		@apply font-mono
+					 text-sm
+					 sm:text-base
+					 text-muted
+					 sm:pt-2.5;
+	}
+
+	.c-post-card__body {
 		@apply markdown-container
-					 mb-6
 					 max-w-screen-md;
 	}
 
+	// Article metadata line (date and reading time)
+	.c-meta {
+		@apply font-mono
+					 text-sm
+					 sm:text-base
+					 text-muted;
+	}
+
 	.c-spacer {
-		@apply my-4
-					 sm:my-10
-					 border-y
-					 w-6;
+		@apply my-8
+					 sm:my-12
+					 border-t
+					 w-full;
 
 		border-color: $color-spacer;
 	}

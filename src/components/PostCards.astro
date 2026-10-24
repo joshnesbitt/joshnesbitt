@@ -1,18 +1,26 @@
 ---
 const { posts, path, level = 3 } = Astro.props;
 const Heading = `h${level}`;
+
+function month(date) {
+	return date.toISOString().slice(0, 7);
+}
 ---
 
-<div>
+<div class="c-post-cards">
 	{
 		posts.map((post) => (
-			<div class="c-post-card">
-				<Heading class="!text-[1em] !font-medium">
-					<a href={`/${path}/${post.id}`}>{post.data.title}</a>
-				</Heading>
+			<article class="c-post-card">
+				<time class="c-post-card__date" datetime={post.data.pubDate.toISOString()}>{month(post.data.pubDate)}</time>
 
-				<p>{post.data.description}</p>
-			</div>
+				<div class="c-post-card__body">
+					<Heading class="!text-[1em] !font-medium !mt-0">
+						<a href={`/${path}/${post.id}`}>{post.data.title}</a>
+					</Heading>
+
+					<p class="!mb-0">{post.data.description}</p>
+				</div>
+			</article>
 		))
 	}
 </div>
