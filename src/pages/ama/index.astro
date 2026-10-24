@@ -1,0 +1,69 @@
+---
+export const prerender = true;
+
+import { getAnswers } from '../../utils/finders';
+
+import Application from '../../layouts/Application.astro';
+import Spacer from '../../components/Spacer.astro';
+import TrackView from '../../components/TrackView.astro';
+
+const answers = await getAnswers();
+
+const description = 'Questions on engineering leadership, AI, running conferences and building teams, answered in public.';
+---
+
+<Application title="Ask me anything" description={description}>
+	<h1 class="c-heading">Ask me anything</h1>
+
+	<Spacer />
+
+	<div class="markdown-container c-lede">
+		<p>Engineering leadership, AI, hiring, running a conference, cooking. Ask whatever you like and I'll answer the good ones here, in public.</p>
+	</div>
+
+	<Spacer />
+
+	<!-- Netlify picks this form up from the prerendered HTML at deploy time. -->
+	<form class="c-form" name="ama" method="POST" action="/ama/thanks" data-netlify="true" netlify-honeypot="bot-field" data-astro-reload>
+		<input type="hidden" name="form-name" value="ama" />
+
+		<p class="hidden">
+			<label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+		</p>
+
+		<div class="c-form__field">
+			<label class="c-form__label" for="ama-question">Your question</label>
+			<textarea class="c-form__input" id="ama-question" name="question" rows="4" maxlength="500" required></textarea>
+		</div>
+
+		<div class="c-form__field">
+			<label class="c-form__label" for="ama-name">Name or handle <span class="c-form__hint">(optional, leave blank to stay anonymous)</span></label>
+			<input class="c-form__input" id="ama-name" name="name" type="text" maxlength="80" autocomplete="name" />
+		</div>
+
+		<button class="c-form__submit" type="submit">Ask<span class="u-highlight">.</span></button>
+	</form>
+
+	{answers.length > 0 && (
+		<Fragment>
+			<Spacer />
+
+			<h2 class="c-sub-heading">Answered</h2>
+
+			<ul class="c-directory">
+				{answers.map((answer) => (
+					<li>
+						<a href={`/ama/${answer.id}`}>
+							<span class="c-directory__name">{answer.data.question}</span>
+							<span class="c-directory__destination">
+								{answer.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })}
+							</span>
+						</a>
+					</li>
+				))}
+			</ul>
+		</Fragment>
+	)}
+</Application>
+
+<TrackView namespace="ama" key="index" />

@@ -18,7 +18,17 @@ async function getReviews(limit) {
 		.slice(0, limit);
 }
 
+async function getAnswers(limit) {
+	const collection = await getCollection('ama')
+
+	return collection
+		.filter((rec) => rec.data.published)
+		.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+		.slice(0, limit);
+}
+
 export {
 	getThoughts,
-	getReviews
+	getReviews,
+	getAnswers
 }

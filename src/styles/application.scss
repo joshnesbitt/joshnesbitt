@@ -457,6 +457,14 @@ $color-spacer: rgb(var(--color-rule));
 					 sm:mb-0;
 	}
 
+	.c-heading--question {
+		@apply block
+					 text-4xl
+					 sm:text-6xl
+					 leading-[1.1]
+					 max-w-[52rem];
+	}
+
 	.u-highlight {
 		@apply text-accent;
 	}
@@ -693,6 +701,69 @@ $color-spacer: rgb(var(--color-rule));
 		a:hover & {
 			color: $color-primary;
 		}
+	}
+
+	.c-form {
+		@apply flex
+					 flex-col
+					 gap-6
+					 max-w-screen-md;
+	}
+
+	.c-form__field {
+		@apply flex
+					 flex-col
+					 gap-2;
+	}
+
+	.c-form__label {
+		@apply font-heading
+					 font-bold
+					 text-lg
+					 sm:text-xl;
+	}
+
+	.c-form__hint {
+		@apply font-normal
+					 text-muted;
+	}
+
+	.c-form__input {
+		@apply w-full
+					 rounded-md
+					 border
+					 bg-transparent
+					 px-4
+					 py-3
+					 text-lg
+					 sm:text-xl
+					 transition-colors
+					 duration-150;
+
+		border-color: $color-spacer;
+
+		&:focus {
+			@apply outline-none;
+
+			border-color: $color-text;
+		}
+	}
+
+	.c-form__submit {
+		@apply self-start
+					 rounded-md
+					 px-6
+					 py-3
+					 font-heading
+					 font-bold
+					 text-lg
+					 sm:text-xl
+					 transition-colors
+					 duration-150
+					 hover:bg-ink/80;
+
+		background: $color-text;
+		color: $color-background;
 	}
 
 	.c-post-card {

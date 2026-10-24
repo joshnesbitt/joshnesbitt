@@ -1,0 +1,112 @@
+---
+export const prerender = true;
+
+import { render } from 'astro:content';
+import { getAnswers } from '../../utils/finders';
+import { excerpt } from '../../utils/excerpt';
+
+import Application from '../../layouts/Application.astro';
+import Spacer from '../../components/Spacer.astro';
+import TrackView from '../../components/TrackView.astro';
+
+export async function getStaticPaths() {
+	const answers = await getAnswers();
+
+	return answers.map((answer) => ({
+		params: { slug: answer.id },
+		props: answer,
+	}));
+}
+
+const answer = Astro.props;
+const { Content } = await render(answer);
+const { question, asker, pubDate } = answer.data;
+const description = excerpt(answer.body);
+
+const canonicalURL = new URL(`/ama/${answer.id}`, Astro.site);
+const cardURL = `/api/cards/ama/${answer.id}.png`;
+
+const share = [
+	{ label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalURL.toString())}` },
+	{ label: 'Bluesky', href: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${question} ${canonicalURL}`)}` },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'QAPage',
+	mainEntity: {
+		'@type': 'Question',
+		name: question,
+		text: question,
+		answerCount: 1,
+		datePublished: pubDate.toISOString(),
+		author: { '@type': 'Person', name: asker ?? 'Anonymous' },
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: description,
+			url: canonicalURL.toString(),
+			datePublished: pubDate.toISOString(),
+			author: { '@type': 'Person', name: 'Josh Nesbitt', url: 'https://joshnesbitt.dev' },
+		},
+	},
+};
+---
+
+<Application title={question} description={description} type="article" pubDate={pubDate}>
+	<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+	<p class="c-callout__eyebrow"><span class="c-callout__dot"></span><a href="/ama">Ask me anything</a></p>
+
+	<h1 class="c-heading c-heading--question">{question}</h1>
+
+	<Spacer />
+
+	<div class="markdown-container">
+		<p class="text-lg font-bold">
+			<time datetime={pubDate.toISOString()}>
+				{pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })}
+			</time>
+			&nbsp;·&nbsp;
+			Asked by {asker ?? 'anonymous'}
+		</p>
+
+		<Content />
+	</div>
+
+	<Spacer />
+
+	<div class="c-presskit__meta">
+		<span>Share</span>
+		{share.map(({ label, href }) => (
+			<Fragment>
+				<span class="c-presskit__separator" aria-hidden="true">/</span>
+				<a class="c-presskit__action" href={href}>{label}</a>
+			</Fragment>
+		))}
+		<span class="c-presskit__separator" aria-hidden="true">/</span>
+		<button class="c-presskit__action" type="button" data-copy-link={canonicalURL.toString()}>Copy link</button>
+		<span class="c-presskit__separator" aria-hidden="true">/</span>
+		<a class="c-presskit__action" href={cardURL} download={`josh-nesbitt-ama-${answer.id}.png`}>Download card</a>
+	</div>
+</Application>
+
+<TrackView namespace="ama" key={answer.id} />
+
+<script>
+	document.addEventListener('click', async (event) => {
+		const button = event.target.closest('[data-copy-link]');
+
+		if (!button) return;
+
+		await navigator.clipboard.writeText(button.dataset.copyLink);
+
+		const label = button.textContent;
+		button.textContent = 'Copied';
+		button.classList.add('is-copied');
+
+		setTimeout(() => {
+			button.textContent = label;
+			button.classList.remove('is-copied');
+		}, 2000);
+	});
+</script>
