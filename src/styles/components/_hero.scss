@@ -1,0 +1,16 @@
+@layer components {
+	.c-hero {
+		@apply flex
+					 flex-col
+					 gap-8
+					 sm:gap-12;
+	}
+
+	.c-hero__image {
+		@apply rounded-md
+					 w-full
+					 object-cover
+					 aspect-[3/2]
+					 sm:aspect-[2/1];
+	}
+}

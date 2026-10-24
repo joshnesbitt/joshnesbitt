@@ -1,0 +1,12 @@
+@use '../settings' as *;
+
+@layer components {
+	.c-spacer {
+		@apply my-4
+					 sm:my-10
+					 border-y
+					 w-6;
+
+		border-color: $color-spacer;
+	}
+}

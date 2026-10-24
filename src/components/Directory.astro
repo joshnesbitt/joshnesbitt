@@ -1,4 +1,6 @@
 ---
+import Arrow from './Arrow.astro';
+
 const { items } = Astro.props;
 
 function destination(href) {
@@ -18,7 +20,7 @@ function isExternal(href) {
 			<a href={item.href}>
 				<span class="c-directory__name">{item.name}</span>
 				<span class="c-directory__destination">
-					{item.meta ?? destination(item.href)}{isExternal(item.href) && <span class="c-directory__arrow">&nearr;</span>}
+					{item.meta ?? destination(item.href)}{isExternal(item.href) && <Arrow />}
 				</span>
 			</a>
 		</li>

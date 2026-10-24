@@ -5,11 +5,17 @@ import { Image } from 'astro:assets';
 
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
+import PageHeading from '../components/PageHeading.astro';
+import Section from '../components/Section.astro';
+import Prose from '../components/Prose.astro';
 import TrackView from '../components/TrackView.astro';
 import Directory from '../components/Directory.astro';
+import Stats from '../components/Stats.astro';
+import Callout from '../components/Callout.astro';
+import PressKit from '../components/PressKit.astro';
+import { formatMonth } from '../utils/format';
 
 import stageshot from '../assets/images/stageshot.jpg';
-import headshot from '../assets/images/headshot.jpg';
 
 const description = 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.';
 
@@ -40,9 +46,7 @@ async function getLatestEpisode() {
 		return {
 			name: decodeEntities(title.replace(/^Episode (\d+): /, '#$1: ')),
 			href: episodeId ? `https://heypresents.com/podcast/${episodeId}` : link,
-			meta: pubDate
-				? new Date(pubDate).toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })
-				: ''
+			meta: pubDate ? formatMonth(pubDate) : ''
 		};
 	} catch {
 		return null;
@@ -62,6 +66,13 @@ const bios = [
 	}
 ];
 
+const stats = [
+	{ value: '30+', label: 'engagements since 2013' },
+	{ value: '20', label: 'years working on the web' },
+	{ value: '10', label: 'editions of All Day Hey! hosted' },
+	{ value: '60+', label: 'episodes of Off Script' }
+];
+
 const hosting = [
 	{ name: 'All Day Hey! — founder and host, ten editions', href: 'https://heypresents.com/conference', meta: '2017–2026' },
 	{ name: 'Off Script — co-host, with James Hall', href: 'https://heypresents.com/podcast', meta: '2019–present' },
@@ -78,121 +89,55 @@ const talks = [
 ---
 
 <Application title="Speaking" description={description}>
-	<h1 class="c-heading">Speaking</h1>
-
-	<Spacer />
+	<PageHeading>Speaking</PageHeading>
 
 	<div class="c-hero">
-		<div class="markdown-container c-lede">
+		<Prose class="c-lede">
 			<p>I speak, host and moderate at technology events — on engineering leadership, AI and building communities. If that sounds like a fit for your event, <a href="mailto:speaking@joshnesbitt.dev">get in touch</a>.</p>
-		</div>
+		</Prose>
 
 		<Image class="c-hero__image" src={stageshot} alt="Josh Nesbitt on stage hosting All Day Hey!, beneath a slide reading 'A conference is a physical network of incredible people'" width={976} densities={[1, 2]} />
 	</div>
 
 	<Spacer />
 
-	<ul class="c-stats">
-		<li>
-			<span class="c-stats__value">30+</span>
-			<span class="c-stats__label">engagements since 2013</span>
-		</li>
-		<li>
-			<span class="c-stats__value">20</span>
-			<span class="c-stats__label">years working on the web</span>
-		</li>
-		<li>
-			<span class="c-stats__value">10</span>
-			<span class="c-stats__label">editions of All Day Hey! hosted</span>
-		</li>
-		<li>
-			<span class="c-stats__value">60+</span>
-			<span class="c-stats__label">episodes of Off Script</span>
-		</li>
-	</ul>
+	<Stats items={stats} />
 
-	<Spacer />
+	<Section title="Topics">
+		<Prose>
+			<ul>
+				<li><strong>Engineering leadership</strong> — building and leading high-performing product engineering teams, from startups to scale.</li>
+				<li><strong>AI in software engineering</strong> — the reality of adoption, the discourse surrounding it, and what it means for how teams work.</li>
+				<li><strong>Conferences and community</strong> — lessons from founding and running All Day Hey! for ten editions.</li>
+				<li><strong>Hosting and moderation</strong> — MCing conferences, chairing panels and interviewing, honed across Off Script and live events.</li>
+			</ul>
+		</Prose>
+	</Section>
 
-	<h2 class="c-sub-heading">Topics</h2>
-
-	<div class="markdown-container">
-		<ul>
-			<li><strong>Engineering leadership</strong> — building and leading high-performing product engineering teams, from startups to scale.</li>
-			<li><strong>AI in software engineering</strong> — the reality of adoption, the discourse surrounding it, and what it means for how teams work.</li>
-			<li><strong>Conferences and community</strong> — lessons from founding and running All Day Hey! for ten editions.</li>
-			<li><strong>Hosting and moderation</strong> — MCing conferences, chairing panels and interviewing, honed across Off Script and live events.</li>
-		</ul>
-	</div>
-
-	<Spacer />
-
-	<h2 class="c-sub-heading">Hosting</h2>
-
-	<Directory items={hosting} />
+	<Section title="Hosting">
+		<Directory items={hosting} />
+	</Section>
 
 	{latestEpisode && (
 		<Fragment>
 			<Spacer />
 
-			<a class="c-callout" href={latestEpisode.href}>
-				<span class="c-callout__eyebrow"><span class="c-callout__dot"></span>Latest Off Script episode</span>
-				<span class="c-callout__title">{latestEpisode.name}</span>
-				<span class="c-callout__meta">{latestEpisode.meta} &middot; Listen on heypresents.com<span class="c-directory__arrow">&nearr;</span></span>
-			</a>
+			<Callout
+				href={latestEpisode.href}
+				eyebrow="Latest Off Script episode"
+				title={latestEpisode.name}
+				meta={`${latestEpisode.meta} · Listen on heypresents.com`}
+			/>
 		</Fragment>
 	)}
 
-	<Spacer />
+	<Section title="Talks and panels">
+		<Directory items={talks} />
+	</Section>
 
-	<h2 class="c-sub-heading">Talks and panels</h2>
-
-	<Directory items={talks} />
-
-	<Spacer />
-
-	<h2 class="c-sub-heading">Press kit</h2>
-
-	<div class="c-presskit">
-		{bios.map((bio) => (
-			<div class="c-presskit__item">
-				<div class="c-presskit__meta">
-					<h3 class="c-presskit__label">{bio.label}</h3>
-					<span class="c-presskit__separator" aria-hidden="true">/</span>
-					<button class="c-presskit__action" type="button" data-copy={bio.text} aria-live="polite">Copy</button>
-				</div>
-
-				<p class="c-presskit__text">{bio.text}</p>
-			</div>
-		))}
-
-		<div class="c-presskit__item">
-			<div class="c-presskit__meta">
-				<h3 class="c-presskit__label">Headshot</h3>
-				<span class="c-presskit__separator" aria-hidden="true">/</span>
-				<a class="c-presskit__action" href="/headshot.jpg" download="josh-nesbitt-headshot.jpg">Download</a>
-			</div>
-
-			<Image class="c-presskit__image" src={headshot} alt="Headshot of Josh Nesbitt" width={192} densities={[1, 2]} />
-		</div>
-	</div>
+	<Section title="Press kit">
+		<PressKit bios={bios} />
+	</Section>
 </Application>
 
 <TrackView key="speaking" />
-
-<script>
-	document.addEventListener('click', async (event) => {
-		const button = event.target.closest('[data-copy]');
-
-		if (!button) return;
-
-		await navigator.clipboard.writeText(button.dataset.copy);
-
-		button.textContent = 'Copied';
-		button.classList.add('is-copied');
-
-		setTimeout(() => {
-			button.textContent = 'Copy';
-			button.classList.remove('is-copied');
-		}, 2000);
-	});
-</script>

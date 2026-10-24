@@ -1,0 +1,50 @@
+@layer components {
+	.c-footer {
+		@apply flex
+					 flex-col
+					 items-center
+					 gap-4
+					 px-6
+					 py-10
+					 sm:py-14
+					 mt-12
+					 sm:mt-16
+					 text-lg
+					 sm:text-xl;
+	}
+
+	.c-footer__copyright {
+		@apply text-sm
+					 sm:text-base
+					 text-muted;
+	}
+
+	.c-footer__links {
+		@apply flex
+					 flex-wrap
+					 justify-center
+					 gap-x-8
+					 sm:gap-x-12
+					 gap-y-3;
+
+		li {
+			@apply list-none;
+		}
+
+		a {
+			@apply text-ink
+						 hover:text-accent;
+		}
+	}
+
+	.c-footer__arrow {
+		@apply inline-block
+					 transition-transform
+					 duration-150;
+
+		a:hover & {
+			@apply -translate-y-0.5
+						 translate-x-0.5;
+		}
+	}
+}

@@ -2,7 +2,11 @@
 import { render } from 'astro:content';
 import getReadingTime from 'reading-time';
 import Application from './Application.astro';
-import Spacer from '../components/Spacer.astro';
+import PageHeading from '../components/PageHeading.astro';
+import Prose from '../components/Prose.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { AUTHOR } from '../consts';
+import { formatMonth } from '../utils/format';
 
 const item = Astro.props
 const { Content } = await render(item);
@@ -23,25 +27,19 @@ const schema = {
 	image: ogImageURL.toString(),
 	author: {
 		'@type': 'Person',
-		name: 'Josh Nesbitt',
-		url: 'https://joshnesbitt.dev',
+		...AUTHOR,
 	},
 };
 ---
 
 <Application {...data} type="article" container="large">
-	<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
-	<h1 class="c-heading">{data.title}</h1>
+	<JsonLd schema={schema} />
+	<PageHeading>{data.title}</PageHeading>
 
-	<Spacer />
-
-	<div class="markdown-container">
+	<Prose>
 		<p class="text-lg font-bold">
 			<time datetime={date.toISOString()} >
-				{date.toLocaleDateString('en-uk', {
-			    year: 'numeric',
-			    month: 'short'
-			  })}
+				{formatMonth(date)}
 				&nbsp;
 				·
 				&nbsp;
@@ -50,5 +48,5 @@ const schema = {
 		</p>
 
 		<Content />
-	</div>
+	</Prose>
 </Application>

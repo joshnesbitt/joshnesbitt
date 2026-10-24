@@ -1,0 +1,23 @@
+@use '../settings' as *;
+
+@layer components {
+	.c-body {
+		@apply font-body
+					 font-light;
+
+		background: $color-background;
+		color: $color-text;
+	}
+
+	.c-container {
+		@apply container
+					 max-w-screen-lg
+					 mx-auto
+					 mt-24
+					 sm:mt-28
+					 mb-6
+					 px-6
+					 text-xl
+					 sm:text-2xl;
+	}
+}

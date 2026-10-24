@@ -1,0 +1,7 @@
+@layer components {
+	.c-post-card {
+		@apply markdown-container
+					 mb-6
+					 max-w-screen-md;
+	}
+}

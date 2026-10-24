@@ -1,0 +1,11 @@
+---
+import Arrow from './Arrow.astro';
+
+const { href, eyebrow, title, meta } = Astro.props;
+---
+
+<a class="c-callout" href={href}>
+	<span class="c-callout__eyebrow"><span class="c-callout__dot"></span>{eyebrow}</span>
+	<span class="c-callout__title">{title}</span>
+	<span class="c-callout__meta">{meta}<Arrow /></span>
+</a>
