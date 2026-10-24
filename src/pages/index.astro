@@ -66,14 +66,17 @@ const focus = [
 
 			<h2 class="c-sub-heading">Ask me anything</h2>
 
-			<Directory items={[
-				...answers.map((answer) => ({
-					name: answer.data.question,
-					href: `/ama/${answer.id}`,
-					meta: answer.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
-				})),
-				{ name: 'Ask your own question', href: '/ama', meta: '' },
-			]} />
+			<Directory items={answers.map((answer) => ({
+				name: answer.data.question,
+				href: `/ama/${answer.id}`,
+				meta: answer.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
+			}))} />
+
+			<a class="c-callout mt-8" href="/ama">
+				<span class="c-callout__eyebrow"><span class="c-callout__dot"></span>Your turn</span>
+				<span class="c-callout__title">Got a question on leadership, AI or running events? Ask it.</span>
+				<span class="c-callout__meta">The good ones get answered here, in public<span class="c-directory__arrow">&rarr;</span></span>
+			</a>
 		</Fragment>
 	)}
 </Application>
