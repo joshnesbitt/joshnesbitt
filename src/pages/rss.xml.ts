@@ -2,12 +2,14 @@ export const prerender = true;
 
 import rss from '@astrojs/rss';
 import type { APIRoute } from 'astro';
-import { getThoughts, getReviews } from '../utils/finders';
+import { getThoughts, getReviews, getAnswers } from '../utils/finders';
+import { excerpt } from '../utils/excerpt';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export const GET: APIRoute = async (context) => {
 	const thoughts = await getThoughts();
 	const reviews = await getReviews();
+	const answers = await getAnswers();
 
 	const items = [
 		...thoughts.map((thought) => ({
@@ -23,6 +25,13 @@ export const GET: APIRoute = async (context) => {
 			pubDate: review.data.pubDate,
 			link: `/reviews/${review.id}/`,
 			categories: ['reviews'],
+		})),
+		...answers.map((answer) => ({
+			title: answer.data.question,
+			description: excerpt(answer.body),
+			pubDate: answer.data.pubDate,
+			link: `/ama/${answer.id}/`,
+			categories: ['ama'],
 		})),
 	].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 

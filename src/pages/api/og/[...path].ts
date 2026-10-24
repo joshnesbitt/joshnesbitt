@@ -1,41 +1,27 @@
 export const prerender = true;
 
 import type { APIRoute } from 'astro';
-import satori from 'satori';
-import { Resvg } from '@resvg/resvg-js';
 import { getCollection } from 'astro:content';
-import fs from 'node:fs';
-import path from 'node:path';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../../consts';
+import { colors, renderPng, truncate } from '../../../utils/cards';
+import { getAnswers } from '../../../utils/finders';
+import { excerpt } from '../../../utils/excerpt';
 
 const WIDTH = 1200;
 const HEIGHT = 630;
-
-// Load fonts
-const fontBoldPath = path.join(process.cwd(), 'src/assets/fonts/DMSans-Bold.woff');
-const fontRegularPath = path.join(process.cwd(), 'src/assets/fonts/DMSans-Regular.woff');
-
-let fontBold: ArrayBuffer;
-let fontRegular: ArrayBuffer;
-
-try {
-  fontBold = fs.readFileSync(fontBoldPath);
-  fontRegular = fs.readFileSync(fontRegularPath);
-} catch (e) {
-  console.error('Failed to load fonts:', e);
-}
-
-// Colors matching the site
-const colors = {
-  background: '#F6F4EF',
-  text: '#1A1917',
-  accent: '#46FF10',
-};
 
 interface PageData {
   title: string;
   description: string;
   url: string;
+  eyebrow?: string;
+}
+
+// Questions run longer than titles, so step the size down to keep them on the card.
+function titleSize(title: string) {
+  if (title.length > 120) return 48;
+  if (title.length > 60) return 60;
+  return 72;
 }
 
 async function getPageData(pathSegments: string[]): Promise<PageData | null> {
@@ -77,6 +63,31 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
     };
   }
 
+  // AMA list page
+  if (basePath === 'ama') {
+    return {
+      title: 'Ask me anything',
+      description: 'Questions on engineering leadership, AI, running conferences and building teams, answered in public.',
+      url: 'joshnesbitt.dev/ama',
+    };
+  }
+
+  // Individual AMA answer
+  if (basePath.startsWith('ama/')) {
+    const slug = basePath.replace('ama/', '');
+    const answers = await getAnswers();
+    const answer = answers.find(a => a.id === slug);
+
+    if (answer) {
+      return {
+        eyebrow: 'Ask me anything',
+        title: answer.data.question,
+        description: excerpt(answer.body, 210),
+        url: `joshnesbitt.dev/ama/${slug}`,
+      };
+    }
+  }
+
   // Individual thought
   if (basePath.startsWith('thoughts/')) {
     const slug = basePath.replace('thoughts/', '');
@@ -110,11 +121,6 @@ async function getPageData(pathSegments: string[]): Promise<PageData | null> {
   return null;
 }
 
-function truncate(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength).trim() + '...';
-}
-
 function generateSvgMarkup(data: PageData) {
   const truncatedDescription = truncate(data.description, 210);
   const truncatedUrl = truncate(data.url, 50);
@@ -143,12 +149,28 @@ function generateSvgMarkup(data: PageData) {
               justifyContent: 'flex-start',
             },
             children: [
+              ...(data.eyebrow ? [{
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: 24,
+                    fontWeight: 700,
+                    letterSpacing: 2,
+                    textTransform: 'uppercase',
+                    color: colors.text,
+                    opacity: 0.6,
+                    marginBottom: 20,
+                  },
+                  children: data.eyebrow,
+                },
+              }] : []),
               {
                 type: 'div',
                 props: {
                   style: {
                     display: 'flex',
-                    fontSize: 72,
+                    fontSize: titleSize(data.title),
                     fontWeight: 700,
                     color: colors.text,
                     lineHeight: 1.1,
@@ -238,14 +260,17 @@ function generateSvgMarkup(data: PageData) {
 export async function getStaticPaths() {
   const thoughts = await getCollection('thought');
   const reviews = await getCollection('review');
+  const answers = await getAnswers();
 
   return [
     { params: { path: 'index.png' } },
     { params: { path: 'speaking.png' } },
     { params: { path: 'thoughts.png' } },
     { params: { path: 'reviews.png' } },
+    { params: { path: 'ama.png' } },
     ...thoughts.map((thought) => ({ params: { path: `thoughts/${thought.id}.png` } })),
     ...reviews.map((review) => ({ params: { path: `reviews/${review.id}.png` } })),
+    ...answers.map((answer) => ({ params: { path: `ama/${answer.id}.png` } })),
   ];
 }
 
@@ -262,34 +287,7 @@ export const GET: APIRoute = async ({ params }) => {
 
     const markup = generateSvgMarkup(pageData);
 
-    const svg = await satori(markup, {
-      width: WIDTH,
-      height: HEIGHT,
-      fonts: [
-        {
-          name: 'DM Sans',
-          data: fontBold,
-          weight: 700,
-          style: 'normal',
-        },
-        {
-          name: 'DM Sans',
-          data: fontRegular,
-          weight: 400,
-          style: 'normal',
-        },
-      ],
-    });
-
-    const resvg = new Resvg(svg, {
-      fitTo: {
-        mode: 'width',
-        value: WIDTH,
-      },
-    });
-
-    const pngData = resvg.render();
-    const pngBuffer = pngData.asPng();
+    const pngBuffer = await renderPng(markup, WIDTH, HEIGHT);
 
     return new Response(pngBuffer, {
       status: 200,

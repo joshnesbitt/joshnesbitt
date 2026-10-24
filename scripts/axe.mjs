@@ -11,6 +11,8 @@ const pages = [
 	'/thoughts',
 	'/thoughts/consistency',
 	'/speaking',
+	'/ama',
+	'/ama/thanks',
 	'/reviews',
 	'/reviews/2025',
 	'/this-page-does-not-exist',

@@ -1,5 +1,5 @@
 ---
-import { getThoughts } from '../utils/finders';
+import { getThoughts, getAnswers } from '../utils/finders';
 
 import Application from '../layouts/Application.astro';
 import Spacer from '../components/Spacer.astro';
@@ -8,6 +8,7 @@ import PostCards from '../components/PostCards.astro';
 import Directory from '../components/Directory.astro';
 
 const thoughts = await getThoughts(3);
+const answers = await getAnswers(3);
 
 const schema = {
 	'@context': 'https://schema.org',
@@ -58,6 +59,26 @@ const focus = [
 	<div class="-mt-6">
 		<PostCards posts={thoughts} path="thoughts" />
 	</div>
+
+	{answers.length > 0 && (
+		<Fragment>
+			<Spacer />
+
+			<h2 class="c-sub-heading">Ask me anything</h2>
+
+			<Directory items={answers.map((answer) => ({
+				name: answer.data.question,
+				href: `/ama/${answer.id}`,
+				meta: answer.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
+			}))} />
+
+			<a class="c-callout mt-8" href="/ama">
+				<span class="c-callout__eyebrow"><span class="c-callout__dot"></span>Your turn</span>
+				<span class="c-callout__title">Got a question on leadership, AI or running events? Ask it.</span>
+				<span class="c-callout__meta">The good ones get answered here, in public<span class="c-directory__arrow">&rarr;</span></span>
+			</a>
+		</Fragment>
+	)}
 </Application>
 
 <TrackView key="home" />

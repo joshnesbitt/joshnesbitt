@@ -1,0 +1,16 @@
+---
+export const prerender = true;
+
+import Application from '../../layouts/Application.astro';
+import Spacer from '../../components/Spacer.astro';
+---
+
+<Application title="Question received" description="Thanks for asking.">
+	<h1 class="c-heading">Thanks<span class="u-highlight">.</span></h1>
+
+	<Spacer />
+
+	<div class="markdown-container c-lede">
+		<p>Your question is in. If I answer it, it'll show up on the <a href="/ama">AMA page</a>.</p>
+	</div>
+</Application>

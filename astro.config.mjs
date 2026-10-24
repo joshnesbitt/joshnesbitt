@@ -15,6 +15,7 @@ export default defineConfig({
         'https://joshnesbitt.dev/thoughts/',
         'https://joshnesbitt.dev/reviews/',
         'https://joshnesbitt.dev/speaking/',
+        'https://joshnesbitt.dev/ama/',
       ],
     }),
   ],
