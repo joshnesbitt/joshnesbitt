@@ -6,6 +6,8 @@ const links = [
 	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/josh-nesbitt' },
 	{ label: 'Bluesky', href: 'https://bsky.app/profile/joshnesbitt.dev' },
 ];
+
+const { commit, builtAt } = __BUILD__;
 ---
 
 <footer class="c-footer">
@@ -15,5 +17,11 @@ const links = [
 		))}
 	</ul>
 
-	<p class="c-footer__copyright">&copy; {year} Josh Nesbitt</p>
+	<p class="c-footer__copyright">
+		<span>&copy; {year} Josh Nesbitt</span>
+		{commit && (
+			<span>build <a href={`https://github.com/joshnesbitt/joshnesbitt/commit/${commit}`}>{commit.slice(0, 7)}</a></span>
+		)}
+		<span>deployed <time datetime={builtAt}>{builtAt.slice(0, 10)}</time></span>
+	</p>
 </footer>

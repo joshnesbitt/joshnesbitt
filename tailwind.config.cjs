@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         heading: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
-        body: ['"DM Sans"', ...defaultTheme.fontFamily.sans]
+        body: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
+        mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono]
       },
       colors: {
         paper: 'rgb(var(--color-paper) / <alpha-value>)',
