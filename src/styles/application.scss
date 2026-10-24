@@ -656,6 +656,24 @@ $color-spacer: rgb(var(--color-rule));
 					 text-muted;
 	}
 
+	.c-notice {
+		@apply border
+					 rounded-md
+					 px-5
+					 py-4
+					 mb-8
+					 text-base
+					 sm:text-lg
+					 text-muted-strong
+					 max-w-screen-md;
+
+		border-color: $color-spacer;
+
+		&[hidden] {
+			@apply hidden;
+		}
+	}
+
 	.c-directory {
 		li {
 			@apply list-none;

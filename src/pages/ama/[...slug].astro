@@ -23,6 +23,12 @@ const { Content } = await render(answer);
 const { question, asker, pubDate } = answer.data;
 const description = excerpt(answer.body);
 
+// Answers are prerendered, so the build sets the notice and a script
+// re-checks it in the browser in case the site hasn't been rebuilt since.
+const staleAfter = new Date(pubDate);
+staleAfter.setMonth(staleAfter.getMonth() + 6);
+const isStale = new Date() >= staleAfter;
+
 const canonicalURL = new URL(`/ama/${answer.id}`, Astro.site);
 const cardURL = `/api/cards/ama/${answer.id}.png`;
 
@@ -60,6 +66,18 @@ const schema = {
 	<h1 class="c-heading c-heading--question">{question}</h1>
 
 	<Spacer />
+
+	<p class="c-notice" data-stale-after={staleAfter.toISOString()} hidden={!isStale}>
+		This answer is over six months old. My thinking may have moved on since, so treat it as a snapshot from {pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'long' })}.
+	</p>
+
+	<script is:inline data-astro-rerun>
+		(() => {
+			const notice = document.querySelector('[data-stale-after]');
+
+			if (notice) notice.hidden = new Date() < new Date(notice.dataset.staleAfter);
+		})();
+	</script>
 
 	<div class="markdown-container">
 		<p class="text-lg font-bold">
