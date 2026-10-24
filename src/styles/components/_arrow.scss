@@ -1,0 +1,11 @@
+@use '../settings' as *;
+
+@layer components {
+	.c-arrow {
+		@apply ml-1;
+
+		a:hover & {
+			color: $color-primary;
+		}
+	}
+}
