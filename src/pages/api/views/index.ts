@@ -2,6 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { getStore } from '@netlify/blobs';
+import { parseCount } from '../../../utils/views';
 
 const headers = {
   'Content-Type': 'application/json'
@@ -15,8 +16,7 @@ export const GET: APIRoute = async () => {
     const views: Record<string, number> = {};
 
     for (const blob of blobs) {
-      const value = await store.get(blob.key) || '0';
-      views[blob.key] = parseInt(value, 10);
+      views[blob.key] = parseCount(await store.get(blob.key));
     }
 
     return new Response(JSON.stringify({ views }), {
