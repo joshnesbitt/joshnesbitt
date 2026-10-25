@@ -1,0 +1,100 @@
+name: Syndicate
+
+# Cross-posts newly published thoughts and reviews to LinkedIn and Bluesky.
+# The draft job writes the copy and shows it in the run summary; the publish
+# jobs run in the `social` environment, so adding required reviewers there
+# turns this into draft, approve, post.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/thought/**'
+      - 'src/content/review/**'
+  workflow_dispatch:
+    inputs:
+      file:
+        description: Post to syndicate, e.g. src/content/thought/consistency.md
+        required: true
+      dry_run:
+        description: Draft the copy without posting it
+        type: boolean
+        default: true
+
+concurrency:
+  group: syndicate
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  draft:
+    name: Draft
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{ steps.draft.outputs.count }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Draft copy
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BEFORE: ${{ github.event.before }}
+          FILE: ${{ inputs.file }}
+        run: |
+          if [ -n "$FILE" ]; then
+            node scripts/syndicate.mjs draft --file "$FILE"
+          elif [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo '[]' > drafts.json
+          else
+            node scripts/syndicate.mjs draft --base "$BEFORE" --head "$GITHUB_SHA"
+          fi
+          echo "count=$(node -p 'require("./drafts.json").length')" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: drafts
+          path: drafts.json
+
+  publish:
+    name: Publish to ${{ matrix.platform }}
+    needs: draft
+    if: needs.draft.outputs.count != '0' && !inputs.dry_run
+    runs-on: ubuntu-latest
+    environment: social
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [linkedin, bluesky]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: drafts
+
+      - run: node scripts/syndicate.mjs publish ${{ matrix.platform }}
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
+          LINKEDIN_VERSION: ${{ vars.LINKEDIN_VERSION }}
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE || 'joshnesbitt.dev' }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
