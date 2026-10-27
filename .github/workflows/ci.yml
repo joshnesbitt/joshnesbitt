@@ -26,6 +26,10 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run format:check
+
+      - run: npm run check
+
       - run: npm run build
 
   accessibility:
@@ -43,8 +47,7 @@ jobs:
 
       - run: npx playwright install --with-deps chromium
 
-      # The Netlify adapter has no preview server, and the home, index and
-      # 404 pages render on demand, so audit the dev server instead.
+      # The Netlify adapter has no preview server, so audit the dev server.
       - name: Start dev server
         run: |
           npx astro dev --background --port 4321
