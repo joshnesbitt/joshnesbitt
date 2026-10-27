@@ -1,6 +1,15 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	posts: CollectionEntry<'thought' | 'review'>[];
+	// URL prefix for each post, e.g. 'thoughts'.
+	path: string;
+	level?: 2 | 3;
+}
+
 const { posts, path, level = 3 } = Astro.props;
-const Heading = `h${level}`;
+const Heading = level === 2 ? 'h2' : 'h3';
 ---
 
 <div>

@@ -10,7 +10,7 @@ import { PAGES } from '../consts';
 import stageshot from '../assets/images/stageshot.jpg';
 import headshot from '../assets/images/headshot.jpg';
 
-function decodeEntities(text) {
+function decodeEntities(text: string) {
 	return text
 		.replace(/&amp;/g, '&')
 		.replace(/&lt;/g, '<')
@@ -178,19 +178,19 @@ const talks = [
 
 <script>
 	document.addEventListener('click', async (event) => {
-		const button = event.target.closest('[data-copy]');
+		const button = (event.target as Element).closest<HTMLButtonElement>('[data-copy]');
 
 		if (!button) return;
 
 		try {
-			await navigator.clipboard.writeText(button.dataset.copy);
+			await navigator.clipboard.writeText(button.dataset.copy ?? '');
 
 			button.textContent = 'Copied';
 		} catch {
 			// Clipboard access can be refused, so select the bio for a manual copy.
-			const text = button.closest('.c-presskit__item').querySelector('.c-presskit__text');
+			const text = button.closest('.c-presskit__item')?.querySelector('.c-presskit__text');
 
-			getSelection().selectAllChildren(text);
+			if (text) getSelection()?.selectAllChildren(text);
 			button.textContent = 'Selected';
 		}
 

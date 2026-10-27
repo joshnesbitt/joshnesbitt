@@ -1,19 +1,12 @@
 ---
+interface Props {
+	items: { path: string; alt: string }[];
+}
+
 const { items } = Astro.props;
 
-let variant;
-
-switch(items.length) {
-	case 1:
-		variant = '';
-	break;
-	case 3:
-		variant = 'c-gallery--three';
-	break;
-	default:
-		variant = 'c-gallery--two';
-	break;
-}
+const variants: Record<number, string> = { 1: '', 3: 'c-gallery--three' };
+const variant = variants[items.length] ?? 'c-gallery--two';
 ---
 
 <div class={`not-markdown c-gallery ${variant}`}>

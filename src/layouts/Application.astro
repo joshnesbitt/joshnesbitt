@@ -1,9 +1,11 @@
 ---
 import '../styles/application.scss';
 
-import Meta from '../components/Meta.astro';
+import Meta, { type Props as MetaProps } from '../components/Meta.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+type Props = MetaProps;
 
 const { title, description, type, pubDate } = Astro.props;
 ---

@@ -42,12 +42,13 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 </header>
 
 <script>
-	const nav = document.querySelector('[data-nav]');
-	const toggle = nav.querySelector('[data-nav-toggle]');
+	// Both are in this component's markup, so they always exist.
+	const nav = document.querySelector<HTMLElement>('[data-nav]')!;
+	const toggle = nav.querySelector<HTMLButtonElement>('[data-nav-toggle]')!;
 
 	const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
 
-	const setOpen = (open) => {
+	const setOpen = (open: boolean) => {
 		toggle.setAttribute('aria-expanded', String(open));
 		toggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
 		nav.classList.toggle('is-open', open);
@@ -66,7 +67,7 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 	document.addEventListener('keydown', (event) => {
 		if (event.key !== 'Tab' || !isOpen()) return;
 
-		const focusables = [...nav.querySelectorAll('a, button')].filter((el) => el.offsetParent !== null || el === toggle);
+		const focusables = [...nav.querySelectorAll<HTMLElement>('a, button')].filter((el) => el.offsetParent !== null || el === toggle);
 		const first = focusables[0];
 		const last = focusables[focusables.length - 1];
 
