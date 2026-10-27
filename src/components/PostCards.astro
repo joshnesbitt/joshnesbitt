@@ -13,15 +13,13 @@ const Heading = level === 2 ? 'h2' : 'h3';
 ---
 
 <div>
-	{
-		posts.map((post) => (
-			<div class="c-post-card">
-				<Heading>
-					<a href={`/${path}/${post.id}`}>{post.data.title}</a>
-				</Heading>
+	{posts.map((post) => (
+		<div class="c-post-card">
+			<Heading>
+				<a href={`/${path}/${post.id}`}>{post.data.title}</a>
+			</Heading>
 
-				<p>{post.data.description}</p>
-			</div>
-		))
-	}
+			<p>{post.data.description}</p>
+		</div>
+	))}
 </div>

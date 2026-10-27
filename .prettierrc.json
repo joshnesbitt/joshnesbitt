@@ -7,7 +7,7 @@
 	"overrides": [
 		{
 			"files": "*.astro",
-			"options": { "parser": "astro" }
+			"options": { "parser": "astro", "htmlWhitespaceSensitivity": "strict" }
 		},
 		{
 			"files": ["*.yml", "*.yaml"],

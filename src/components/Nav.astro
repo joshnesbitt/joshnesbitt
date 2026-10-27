@@ -7,24 +7,48 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 		<div class="c-nav__overlay-inner">
 			<nav class="c-nav__links">
 				<ul>
-					<li><a href="/">Home<span class="u-highlight">.</span></a></li>
-					<li><a href="/thoughts">Thoughts<span class="u-highlight">.</span></a></li>
-					<li><a href="/speaking">Speaking<span class="u-highlight">.</span></a></li>
+					<li>
+						<a href="/">
+							Home<span class="u-highlight">.</span>
+						</a>
+					</li>
+					<li>
+						<a href="/thoughts">
+							Thoughts<span class="u-highlight">.</span>
+						</a>
+					</li>
+					<li>
+						<a href="/speaking">
+							Speaking<span class="u-highlight">.</span>
+						</a>
+					</li>
 				</ul>
 			</nav>
 
 			<ul class="c-nav__networks">
 				{SOCIAL_LINKS.map(({ label, href }) => (
-					<li><a href={href}>{label}</a></li>
+					<li>
+						<a href={href}>{label}</a>
+					</li>
 				))}
 			</ul>
 		</div>
 	</div>
 
 	<div class="c-nav__inner">
-		<a href="/" class="c-nav__mark">{SITE_TITLE}<span class="u-highlight">.</span></a>
+		<a href="/" class="c-nav__mark">
+			{SITE_TITLE}
+			<span class="u-highlight">.</span>
+		</a>
 
-		<button class="c-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-overlay" aria-label="Menu" data-nav-toggle>
+		<button
+			class="c-nav__toggle"
+			type="button"
+			aria-expanded="false"
+			aria-controls="nav-overlay"
+			aria-label="Menu"
+			data-nav-toggle
+		>
 			<span class="c-nav__icon" aria-hidden="true">
 				<span class="c-nav__icon-dots">
 					<span></span>
@@ -67,7 +91,9 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 	document.addEventListener('keydown', (event) => {
 		if (event.key !== 'Tab' || !isOpen()) return;
 
-		const focusables = [...nav.querySelectorAll<HTMLElement>('a, button')].filter((el) => el.offsetParent !== null || el === toggle);
+		const focusables = [...nav.querySelectorAll<HTMLElement>('a, button')].filter(
+			(el) => el.offsetParent !== null || el === toggle
+		);
 		const first = focusables[0];
 		const last = focusables[focusables.length - 1];
 
@@ -80,9 +106,13 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 		}
 	});
 
-	window.addEventListener('scroll', () => {
-		nav.classList.toggle('is-scrolled', window.scrollY > 8);
-	}, { passive: true });
+	window.addEventListener(
+		'scroll',
+		() => {
+			nav.classList.toggle('is-scrolled', window.scrollY > 8);
+		},
+		{ passive: true }
+	);
 
 	document.addEventListener('astro:after-swap', () => {
 		if (isOpen()) setOpen(false);

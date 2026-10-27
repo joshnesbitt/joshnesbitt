@@ -10,11 +10,9 @@ const variant = variants[items.length] ?? 'c-gallery--two';
 ---
 
 <div class={`not-markdown c-gallery ${variant}`}>
-	{
-		items.map((item) => (
-			<div>
-				<img src={item.path} alt={item.alt} loading="lazy" />
-			</div>
-		))
-	}
+	{items.map((item) => (
+		<div>
+			<img src={item.path} alt={item.alt} loading="lazy" />
+		</div>
+	))}
 </div>

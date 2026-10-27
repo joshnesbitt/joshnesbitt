@@ -41,14 +41,12 @@ const schema = {
 
 	<div class="markdown-container">
 		<p class="c-post-meta">
-			<time datetime={date.toISOString()} >
+			<time datetime={date.toISOString()}>
 				{date.toLocaleDateString('en-GB', {
-			    year: 'numeric',
-			    month: 'short'
-			  })}
-				&nbsp;
-				·
-				&nbsp;
+					year: 'numeric',
+					month: 'short',
+				})}
+				&nbsp; · &nbsp;
 				{readingTime.text}
 			</time>
 		</p>

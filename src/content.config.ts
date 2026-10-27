@@ -8,7 +8,7 @@ const schema = z.object({
 	title: z.string(),
 	description: z.string(),
 	published: z.boolean().default(true),
-	pubDate: z.coerce.date()
+	pubDate: z.coerce.date(),
 });
 
 const thought = defineCollection({
@@ -23,5 +23,5 @@ const review = defineCollection({
 
 export const collections = {
 	thought,
-	review
+	review,
 };

@@ -6,6 +6,4 @@ function ogImagePath(pathname: string) {
 	return `/api/og/${path || 'index'}.png`;
 }
 
-export {
-	ogImagePath
-}
+export { ogImagePath };
