@@ -92,7 +92,6 @@ $color-spacer: rgb(var(--color-rule));
 					 break-words
 					 md:break-normal
 					 leading-8
-					 hover:markdown-a:text-accent
            markdown-h1:font-medium
            markdown-h2:font-medium
            markdown-h3:font-medium
@@ -110,13 +109,21 @@ $color-spacer: rgb(var(--color-rule));
 		  @apply px-1 py-0.5 rounded-sm bg-ink/5;
 		}
 
+		// The green is too light to read as text on paper, so hovered links
+		// keep ink text and take a thick green underline instead.
+		a:hover {
+			text-decoration-color: $color-primary;
+			text-decoration-thickness: 0.15em;
+		}
+
 		a:hover::selection {
 		  color: $color-background;
 		}
   }
 
 	.podcast-player-container {
-		@apply w-full;
+		@apply w-full
+					 mb-4;
 	}
 
 	.c-gallery {
@@ -431,7 +438,11 @@ $color-spacer: rgb(var(--color-rule));
 
 		a {
 			@apply text-ink
-						 hover:text-accent;
+						 underline-offset-[0.3em]
+						 hover:underline;
+
+			text-decoration-color: $color-primary;
+			text-decoration-thickness: 0.15em;
 		}
 	}
 
@@ -699,6 +710,18 @@ $color-spacer: rgb(var(--color-rule));
 		@apply markdown-container
 					 mb-6
 					 max-w-screen-md;
+
+		// Titles sit at body size, overriding the prose heading scale.
+		h2,
+		h3 {
+			@apply text-[1em]
+						 font-medium;
+		}
+	}
+
+	.c-post-meta {
+		@apply text-lg
+					 font-bold;
 	}
 
 	.c-spacer {

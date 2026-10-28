@@ -185,9 +185,18 @@ const talks = [
 
 		if (!button) return;
 
-		await navigator.clipboard.writeText(button.dataset.copy);
+		try {
+			await navigator.clipboard.writeText(button.dataset.copy);
 
-		button.textContent = 'Copied';
+			button.textContent = 'Copied';
+		} catch {
+			// Clipboard access can be refused, so select the bio for a manual copy.
+			const text = button.closest('.c-presskit__item').querySelector('.c-presskit__text');
+
+			getSelection().selectAllChildren(text);
+			button.textContent = 'Selected';
+		}
+
 		button.classList.add('is-copied');
 
 		setTimeout(() => {
