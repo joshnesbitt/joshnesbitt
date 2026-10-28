@@ -1,4 +1,6 @@
 ---
+import Arrow from './Arrow.astro';
+
 interface Props {
 	items: {
 		name: string;
@@ -28,7 +30,7 @@ function isExternal(href: string) {
 				<span class="c-directory__name">{item.name}</span>
 				<span class="c-directory__destination">
 					{item.meta ?? destination(item.href)}
-					{isExternal(item.href) && <span class="c-directory__arrow">&nearr;</span>}
+					{isExternal(item.href) && <Arrow />}
 				</span>
 			</a>
 		</li>

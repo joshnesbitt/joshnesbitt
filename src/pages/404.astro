@@ -1,20 +1,19 @@
 ---
 import Application from '../layouts/Application.astro';
-import Spacer from '../components/Spacer.astro';
+import PageHeading from '../components/PageHeading.astro';
+import Prose from '../components/Prose.astro';
 import TrackView from '../components/TrackView.astro';
 ---
 
 <Application title="404" description="The thing you're looking for doesn't exist (404).">
-	<h1 class="c-heading">404</h1>
+	<PageHeading>404</PageHeading>
 
-	<Spacer />
-
-	<div class="markdown-container">
+	<Prose>
 		<p>The thing you're looking for doesn't exist.</p>
 		<p>
 			<a href="/">Go back</a>
 		</p>
-	</div>
+	</Prose>
 </Application>
 
 <TrackView key="not-found" />

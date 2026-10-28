@@ -4,9 +4,11 @@ export const prerender = false;
 import { getPosts } from '../../utils/finders';
 import { getMostViewed } from '../../utils/views';
 import { PAGES } from '../../consts';
+import { formatMonth } from '../../utils/format';
 
 import Application from '../../layouts/Application.astro';
-import Spacer from '../../components/Spacer.astro';
+import PageHeading from '../../components/PageHeading.astro';
+import Section from '../../components/Section.astro';
 import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
 import Directory from '../../components/Directory.astro';
@@ -16,7 +18,7 @@ const thoughts = await getPosts('thought');
 const mostRead = (await getMostViewed('thoughts', thoughts)).map((post) => ({
 	name: post.data.title,
 	href: `/thoughts/${post.id}`,
-	meta: post.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
+	meta: formatMonth(post.data.pubDate),
 }));
 
 // Counts move slowly, so let the CDN hold the page rather than reading the
@@ -25,9 +27,7 @@ Astro.response.headers.set('Netlify-CDN-Cache-Control', 'public, durable, s-maxa
 ---
 
 <Application {...PAGES.thoughts}>
-	<h1 class="c-heading">Thoughts</h1>
-
-	<Spacer />
+	<PageHeading>Thoughts</PageHeading>
 
 	{mostRead.length > 0 && (
 		<Fragment>
@@ -35,9 +35,7 @@ Astro.response.headers.set('Netlify-CDN-Cache-Control', 'public, durable, s-maxa
 
 			<Directory items={mostRead} />
 
-			<Spacer />
-
-			<h2 class="c-sub-heading">All thoughts</h2>
+			<Section title="All thoughts" />
 		</Fragment>
 	)}
 

@@ -1,0 +1,10 @@
+// Colour tokens are RGB channels so Tailwind can apply opacity (e.g. bg-paper/80).
+:root {
+	--color-paper: 246 244 239;      // #F6F4EF
+	--color-ink: 26 25 23;           // #1A1917
+	--color-copy: 45 43 39;          // #2D2B27
+	--color-muted: 110 105 96;       // #6E6960
+	--color-muted-strong: 87 83 75;  // #57534B
+	--color-rule: 224 220 211;       // #E0DCD3
+	--color-accent: 70 255 16;
+}

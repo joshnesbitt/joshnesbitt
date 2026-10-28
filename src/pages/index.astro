@@ -3,7 +3,9 @@ import { getPosts } from '../utils/finders';
 import { PAGES, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
 
 import Application from '../layouts/Application.astro';
-import Spacer from '../components/Spacer.astro';
+import Section from '../components/Section.astro';
+import Prose from '../components/Prose.astro';
+import JsonLd from '../components/JsonLd.astro';
 import TrackView from '../components/TrackView.astro';
 import PostCards from '../components/PostCards.astro';
 import Directory from '../components/Directory.astro';
@@ -34,10 +36,11 @@ const focus = [
 ---
 
 <Application {...PAGES.index}>
-	<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+	<JsonLd schema={schema} />
+
 	<h1 class="sr-only">{SITE_TITLE}</h1>
 
-	<div class="markdown-container c-lede">
+	<Prose class="c-lede">
 		<p>
 			I'm Josh, a <a href="https://www.linkedin.com/in/josh-nesbitt">CTO</a> based in Leeds with over a decade leading
 			engineering in product-led businesses. I also founded{' '}
@@ -45,21 +48,17 @@ const focus = [
 			technology conferences, and host <a href="https://heypresents.com/podcast">Off Script</a>, a podcast on
 			engineering leadership and AI.
 		</p>
-	</div>
+	</Prose>
 
-	<Spacer />
+	<Section title="Focus">
+		<Directory items={focus} />
+	</Section>
 
-	<h2 class="c-sub-heading">Focus</h2>
-
-	<Directory items={focus} />
-
-	<Spacer />
-
-	<h2 class="c-sub-heading">Thoughts</h2>
-
-	<div class="-mt-6">
-		<PostCards posts={thoughts} path="thoughts" />
-	</div>
+	<Section title="Thoughts">
+		<div class="-mt-6">
+			<PostCards posts={thoughts} path="thoughts" />
+		</div>
+	</Section>
 </Application>
 
 <TrackView key="home" />

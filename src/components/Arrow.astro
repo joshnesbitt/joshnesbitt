@@ -1,0 +1,19 @@
+---
+interface Props {
+	class?: string;
+	// How the arrow answers its link's hover: turn green, or nudge up and out.
+	hover?: 'accent' | 'nudge';
+}
+
+// Spelled out in full so Tailwind finds them and keeps their styles.
+const hoverClasses = {
+	accent: 'c-arrow--accent',
+	nudge: 'c-arrow--nudge',
+};
+
+const { class: className, hover = 'accent' } = Astro.props;
+---
+
+<span class:list={['c-arrow', hoverClasses[hover], className]} aria-hidden="true">
+	&nearr;
+</span>
