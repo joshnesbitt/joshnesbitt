@@ -1,4 +1,5 @@
 ---
+import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 ---
 
 <header class="c-nav" data-nav transition:persist="nav">
@@ -13,15 +14,15 @@
 			</nav>
 
 			<ul class="c-nav__networks">
-				<li><a href="https://www.linkedin.com/in/josh-nesbitt">LinkedIn</a></li>
-				<li><a href="https://github.com/joshnesbitt">GitHub</a></li>
-				<li><a href="https://bsky.app/profile/joshnesbitt.dev">Bluesky</a></li>
+				{SOCIAL_LINKS.map(({ label, href }) => (
+					<li><a href={href}>{label}</a></li>
+				))}
 			</ul>
 		</div>
 	</div>
 
 	<div class="c-nav__inner">
-		<a href="/" class="c-nav__mark">Josh Nesbitt<span class="u-highlight">.</span></a>
+		<a href="/" class="c-nav__mark">{SITE_TITLE}<span class="u-highlight">.</span></a>
 
 		<button class="c-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-overlay" aria-label="Menu" data-nav-toggle>
 			<span class="c-nav__icon" aria-hidden="true">

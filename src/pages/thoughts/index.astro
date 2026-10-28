@@ -1,7 +1,8 @@
 ---
 import { getStore } from '@netlify/blobs';
 
-import { getThoughts } from '../../utils/finders';
+import { getPosts } from '../../utils/finders';
+import { PAGES } from '../../consts';
 
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
@@ -9,7 +10,7 @@ import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
 import Directory from '../../components/Directory.astro';
 
-const thoughts = await getThoughts();
+const thoughts = await getPosts('thought');
 
 // Ranks thoughts by the view counts TrackView keeps in Netlify Blobs. Returns
 // an empty list when the store is unavailable or too few posts have been read,
@@ -45,7 +46,7 @@ const mostRead = (await getMostRead(thoughts)).map((post) => ({
 Astro.response.headers.set('Netlify-CDN-Cache-Control', 'public, durable, s-maxage=3600, stale-while-revalidate=86400');
 ---
 
-<Application title="Thoughts" description="A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.">
+<Application {...PAGES.thoughts}>
   <h1 class="c-heading">Thoughts</h1>
 
   <Spacer />

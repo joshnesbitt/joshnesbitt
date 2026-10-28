@@ -1,12 +1,12 @@
 ---
 export const prerender = true;
 
-import { getCollection } from 'astro:content';
+import { getPosts } from '../../utils/finders';
 import Post from '../../layouts/Post.astro';
 import TrackView from '../../components/TrackView.astro';
 
 export async function getStaticPaths() {
-	const reviews = await getCollection('review');
+	const reviews = await getPosts('review');
 	return reviews.map((review) => ({
 		params: { slug: review.id },
 		props: review,
