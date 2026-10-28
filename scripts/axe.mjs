@@ -20,27 +20,32 @@ const browser = await chromium.launch();
 const context = await browser.newContext({ reducedMotion: 'reduce' });
 let failures = 0;
 
-for (const path of pages) {
-	const page = await context.newPage();
-	await page.goto(base + path, { waitUntil: 'networkidle' });
-
-	// Vite's error overlay means the page broke in the dev server, so report
-	// the error rather than auditing the overlay.
-	const overlay = await page.evaluate(
+// Vite's error overlay means the page broke in the dev server. It can arrive
+// after load, pushed from another request, so check for it after the audit too.
+const overlayText = (page) =>
+	page.evaluate(
 		() => document.querySelector('vite-error-overlay')?.shadowRoot?.querySelector('.window')?.textContent ?? null
 	);
 
-	if (overlay) {
-		failures += 1;
-		console.log(`✗ ${path}\n  The dev server showed an error:\n    ${overlay.trim().slice(0, 2000)}`);
-		await page.close();
-		continue;
-	}
+for (const path of pages) {
+	const page = await context.newPage();
+	const log = [];
+
+	page.on('console', (message) => log.push(`console.${message.type()}: ${message.text()}`));
+	page.on('pageerror', (error) => log.push(`pageerror: ${error.message}`));
+	page.on('response', (response) => response.status() >= 400 && log.push(`${response.status()} ${response.url()}`));
+
+	await page.goto(base + path, { waitUntil: 'networkidle' });
 
 	// The dev toolbar is Astro's, not the site's.
 	const { violations } = await new AxeBuilder({ page }).exclude('astro-dev-toolbar').analyze();
+	const overlay = await overlayText(page);
 
-	if (violations.length === 0) {
+	if (overlay) {
+		failures += 1;
+		console.log(`✗ ${path}\n  The dev server showed an error:\n    ${overlay.trim().slice(0, 3000)}`);
+		log.forEach((line) => console.log(`    ${line}`));
+	} else if (violations.length === 0) {
 		console.log(`✓ ${path}`);
 	} else {
 		failures += violations.length;
