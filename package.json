@@ -13,6 +13,8 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "astro check",
+		"test": "vitest run tests/unit",
+		"test:build": "vitest run tests/build",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"check:a11y": "node scripts/axe.mjs"
@@ -44,6 +46,7 @@
 		"playwright": "^1.64.1",
 		"prettier": "^3.9.10",
 		"prettier-plugin-astro": "^1.1.2",
-		"typescript": "^6.0.3"
+		"typescript": "^6.0.3",
+		"vitest": "^5.0.5"
 	}
 }

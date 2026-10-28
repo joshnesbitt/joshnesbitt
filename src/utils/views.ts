@@ -9,8 +9,29 @@ function viewsStore() {
 	return getStore({ name: 'views', consistency: 'strong' });
 }
 
+const SITE_KEYS = ['home', 'speaking', 'not-found'];
+
 function isViewKey(key: string | undefined): key is string {
 	return !!key && KEY_PATTERN.test(key);
+}
+
+// Only keys for pages that exist are counted, so the store can't be filled
+// with arbitrary entries.
+function trackableKeys({ thoughts, reviews }: { thoughts: string[]; reviews: string[] }): Set<string> {
+	return new Set([
+		...SITE_KEYS.map((key) => `site:${key}`),
+		'thoughts:index',
+		'reviews:index',
+		...thoughts.map((id) => `thoughts:${id}`),
+		...reviews.map((id) => `reviews:${id}`),
+	]);
+}
+
+// Missing or corrupt stored values count as zero rather than NaN.
+function parseCount(value: string | null | undefined): number {
+	const count = Number.parseInt(value ?? '', 10);
+
+	return Number.isSafeInteger(count) && count > 0 ? count : 0;
 }
 
 // The most viewed posts, ties going to the newer post. Counts are read here
@@ -25,7 +46,7 @@ async function getMostViewed<T extends { id: string; data: { pubDate: Date } }>(
 	try {
 		const store = viewsStore();
 		const counts = await Promise.all(
-			posts.map(async (post) => parseInt((await store.get(`${namespace}:${post.id}`, { type: 'text' })) || '0', 10))
+			posts.map(async (post) => parseCount(await store.get(`${namespace}:${post.id}`, { type: 'text' })))
 		);
 
 		const ranked = posts
@@ -49,14 +70,14 @@ async function incrementViews(key: string, store: Pick<Store, 'getWithMetadata' 
 		const entry = await store.getWithMetadata(key);
 
 		if (entry && !entry.etag) {
-			const next = parseInt(entry.data, 10) + 1;
+			const next = parseCount(entry.data) + 1;
 
 			await store.set(key, String(next));
 
 			return next;
 		}
 
-		const next = entry ? parseInt(entry.data, 10) + 1 : 1;
+		const next = parseCount(entry?.data) + 1;
 		const { modified } = entry
 			? await store.set(key, String(next), { onlyIfMatch: entry.etag })
 			: await store.set(key, String(next), { onlyIfNew: true });
@@ -70,4 +91,4 @@ async function incrementViews(key: string, store: Pick<Store, 'getWithMetadata' 
 	throw new Error(`Gave up incrementing ${key} after ${MAX_ATTEMPTS} attempts`);
 }
 
-export { isViewKey, getMostViewed, incrementViews };
+export { isViewKey, trackableKeys, parseCount, getMostViewed, incrementViews };

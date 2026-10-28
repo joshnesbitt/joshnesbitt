@@ -9,13 +9,16 @@ export interface Props {
 	description?: string;
 	type?: 'website' | 'article';
 	pubDate?: Date;
+	// For pages that aren't a real address, like the 404: no canonical URL,
+	// and the home page's share card.
+	noindex?: boolean;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description = SITE_DESCRIPTION, type = 'website', pubDate } = Astro.props;
+const { title, description = SITE_DESCRIPTION, type = 'website', pubDate, noindex = false } = Astro.props;
 const fullTitle = `${title} · ${SITE_TITLE}`;
 
-const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
+const pageURL = new URL(noindex ? '/' : Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImagePath(pageURL.pathname), Astro.site);
 ---
 
 <!-- Global Metadata -->
@@ -26,7 +29,7 @@ const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={pageURL} />}
 
 <!-- Fonts -->
 <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -40,7 +43,7 @@ const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={pageURL} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageURL} />
@@ -51,7 +54,7 @@ const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:url" content={pageURL} />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
