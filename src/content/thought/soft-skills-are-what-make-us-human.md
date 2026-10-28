@@ -1,7 +1,7 @@
 ---
 title: "Soft skills are what make us human"
 description: "For a long time, I've enjoyed working with teams to build exceptional products. A core part of that is facilitating clear communication and working practices to ensure we do the best job we can. Working on communication, organisation, and decision making structures is just as much of a creative act as the coding itself."
-pubDate: "08 Jan 2025 14:40:00"
+pubDate: 2025-01-08T14:40:00Z
 ---
 
 For a long time, I've enjoyed working with teams to build exceptional products. A core part of that is facilitating clear communication and working practices to ensure we do the best job we can. I really enjoy this aspect of working with teams in different environments (and I also appreciate not everyone enjoys this aspect).
