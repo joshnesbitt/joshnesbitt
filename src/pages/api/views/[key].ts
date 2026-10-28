@@ -1,26 +1,20 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getStore } from '@netlify/blobs';
+import { isViewKey, incrementViews } from '../../../utils/views';
 
-// Counts are write-only from the outside: the response never includes them,
-// so they're only ever read on the server.
+// Counts are write-only from the outside: no response includes them, so
+// they're only ever read on the server.
 export const POST: APIRoute = async ({ params }) => {
-  const key = params.key;
+	if (!isViewKey(params.key)) return new Response(null, { status: 400 });
 
-  if (!key) {
-    return new Response(null, { status: 400 });
-  }
+	try {
+		await incrementViews(params.key);
 
-  try {
-    const store = getStore({ name: 'views', consistency: 'strong' });
-    const current = await store.get(key) || '0';
-    const newCount = parseInt(current, 10) + 1;
+		return new Response(null, { status: 204 });
+	} catch (error) {
+		console.error('Blobs POST error:', error);
 
-    await store.set(key, newCount.toString());
-  } catch (error) {
-    console.error('Blobs POST error:', error);
-  }
-
-  return new Response(null, { status: 204 });
+		return new Response(null, { status: 503 });
+	}
 };
