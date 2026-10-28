@@ -1,15 +1,17 @@
 ---
-import { render } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import getReadingTime from 'reading-time';
 import Application from './Application.astro';
 import Spacer from '../components/Spacer.astro';
 import { ogImagePath } from '../utils/og';
 import { SITE_TITLE, SITE_URL } from '../consts';
 
-const item = Astro.props
+type Props = CollectionEntry<'thought' | 'review'>;
+
+const item = Astro.props;
 const { Content } = await render(item);
-const readingTime = getReadingTime(item.body);
-const data = Astro.props.data;
+const readingTime = getReadingTime(item.body ?? '');
+const data = item.data;
 const date = data.pubDate;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -39,14 +41,12 @@ const schema = {
 
 	<div class="markdown-container">
 		<p class="c-post-meta">
-			<time datetime={date.toISOString()} >
+			<time datetime={date.toISOString()}>
 				{date.toLocaleDateString('en-GB', {
-			    year: 'numeric',
-			    month: 'short'
-			  })}
-				&nbsp;
-				·
-				&nbsp;
+					year: 'numeric',
+					month: 'short',
+				})}
+				&nbsp; · &nbsp;
 				{readingTime.text}
 			</time>
 		</p>

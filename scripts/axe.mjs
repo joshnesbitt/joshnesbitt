@@ -25,9 +25,7 @@ for (const path of pages) {
 	await page.goto(base + path, { waitUntil: 'networkidle' });
 
 	// The dev toolbar is Astro's, not the site's.
-	const { violations } = await new AxeBuilder({ page })
-		.exclude('astro-dev-toolbar')
-		.analyze();
+	const { violations } = await new AxeBuilder({ page }).exclude('astro-dev-toolbar').analyze();
 
 	if (violations.length === 0) {
 		console.log(`✓ ${path}`);

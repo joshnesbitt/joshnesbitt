@@ -1,4 +1,9 @@
 ---
+interface Props {
+	key: string;
+	namespace?: 'site' | 'thoughts' | 'reviews';
+}
+
 const { key, namespace = 'site' } = Astro.props;
 ---
 

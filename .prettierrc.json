@@ -1,0 +1,17 @@
+{
+	"useTabs": true,
+	"singleQuote": true,
+	"printWidth": 120,
+	"trailingComma": "es5",
+	"plugins": ["prettier-plugin-astro"],
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": { "parser": "astro", "htmlWhitespaceSensitivity": "strict" }
+		},
+		{
+			"files": ["*.yml", "*.yaml"],
+			"options": { "useTabs": false }
+		}
+	]
+}

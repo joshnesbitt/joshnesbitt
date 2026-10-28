@@ -5,7 +5,8 @@
 export const SITE_TITLE = 'Josh Nesbitt';
 export const SITE_HOST = 'joshnesbitt.dev';
 export const SITE_URL = `https://${SITE_HOST}`;
-export const SITE_DESCRIPTION = "I'm Josh, a CTO based in Leeds with over a decade leading engineering in product-led businesses. I also founded All Day Hey!, one of the UK's longest-running independent technology conferences, and host Off Script, a podcast on engineering leadership and AI.";
+export const SITE_DESCRIPTION =
+	"I'm Josh, a CTO based in Leeds with over a decade leading engineering in product-led businesses. I also founded All Day Hey!, one of the UK's longest-running independent technology conferences, and host Off Script, a podcast on engineering leadership and AI.";
 
 export const SOCIAL_LINKS = [
 	{ label: 'GitHub', href: 'https://github.com/joshnesbitt' },
@@ -27,11 +28,13 @@ export const PAGES = {
 	},
 	speaking: {
 		title: 'Speaking',
-		description: 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.',
+		description:
+			'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.',
 	},
 	thoughts: {
 		title: 'Thoughts',
-		description: 'A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.',
+		description:
+			'A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.',
 	},
 	reviews: {
 		title: 'Reviews',

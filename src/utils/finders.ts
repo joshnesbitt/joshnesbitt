@@ -7,11 +7,7 @@ type PostCollection = 'thought' | 'review';
 async function getPosts(collection: PostCollection, limit?: number) {
 	const posts = await getCollection(collection, ({ data }) => data.published);
 
-	return posts
-		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-		.slice(0, limit);
+	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, limit);
 }
 
-export {
-	getPosts
-}
+export { getPosts };

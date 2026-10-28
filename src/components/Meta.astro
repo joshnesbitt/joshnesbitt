@@ -6,14 +6,14 @@ import { ogImagePath } from '../utils/og';
 
 export interface Props {
 	title: string;
-	description: string;
+	description?: string;
 	type?: 'website' | 'article';
 	pubDate?: Date;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description = SITE_DESCRIPTION, type = 'website', pubDate } = Astro.props;
-const fullTitle = `${title} · ${SITE_TITLE}`
+const fullTitle = `${title} · ${SITE_TITLE}`;
 
 const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
 ---
@@ -29,7 +29,7 @@ const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Fonts -->
-<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- Feeds -->
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('/rss.xml', Astro.site)} />

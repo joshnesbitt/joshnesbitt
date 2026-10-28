@@ -1,0 +1,14 @@
+# Generated or vendored
+dist/
+.astro/
+.netlify/
+node_modules/
+package-lock.json
+
+# Writing is formatted by hand, so Prettier never reflows a post or the
+# readme (which doubles as the GitHub profile).
+src/content/
+readme.md
+
+# The stylesheet aligns multi-line @apply lists, which Prettier would collapse.
+*.scss

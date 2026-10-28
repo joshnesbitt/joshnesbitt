@@ -75,38 +75,38 @@ $color-spacer: rgb(var(--color-rule));
 }
 
 ::selection {
-  background: $color-primary;
+	background: $color-primary;
 }
 
 ::-moz-selection {
-  background: $color-primary;
+	background: $color-primary;
 }
 
 @layer components {
-  .markdown-container {
-    @apply markdown
+	.markdown-container {
+		@apply markdown
 					 markdown-xl
-           sm:markdown-2xl
-           print:markdown-sm
+					 sm:markdown-2xl
+					 print:markdown-sm
 					 max-w-none
 					 break-words
 					 md:break-normal
 					 leading-8
-           markdown-h1:font-medium
-           markdown-h2:font-medium
-           markdown-h3:font-medium
-           markdown-h4:font-medium
-           markdown-h5:font-medium
-           markdown-code:before:hidden
-           markdown-code:after:hidden
-           markdown-code:font-normal
-           markdown-hr:border-rule
-           markdown-hr:border-y
-           markdown-hr:w-6
-           markdown-img:rounded-md;
+					 markdown-h1:font-medium
+					 markdown-h2:font-medium
+					 markdown-h3:font-medium
+					 markdown-h4:font-medium
+					 markdown-h5:font-medium
+					 markdown-code:before:hidden
+					 markdown-code:after:hidden
+					 markdown-code:font-normal
+					 markdown-hr:border-rule
+					 markdown-hr:border-y
+					 markdown-hr:w-6
+					 markdown-img:rounded-md;
 
 		:not(pre) > code {
-		  @apply px-1 py-0.5 rounded-sm bg-ink/5;
+			@apply px-1 py-0.5 rounded-sm bg-ink/5;
 		}
 
 		// The green is too light to read as text on paper, so hovered links
@@ -117,9 +117,9 @@ $color-spacer: rgb(var(--color-rule));
 		}
 
 		a:hover::selection {
-		  color: $color-background;
+			color: $color-background;
 		}
-  }
+	}
 
 	.podcast-player-container {
 		@apply w-full
