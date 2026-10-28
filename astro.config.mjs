@@ -8,7 +8,16 @@ export default defineConfig({
 	// Pages are built ahead of time. Routes that need a server (the view
 	// counts API) opt out with `export const prerender = false`.
 	integrations: [mdx(), sitemap()],
-	adapter: netlify(),
+	adapter: netlify({
+		devFeatures: {
+			images: true,
+			environmentVariables: false,
+			// There are no edge functions, and starting their Deno server in dev
+			// can time out, which surfaces as an error overlay on whatever page is
+			// open (and fails the a11y check).
+			edgeFunctions: false,
+		},
+	}),
 	build: {
 		inlineStylesheets: 'auto',
 	},

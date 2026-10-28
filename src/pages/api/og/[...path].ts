@@ -14,7 +14,7 @@ const fontBold = fs.readFileSync(path.join(process.cwd(), 'src/assets/fonts/DMSa
 const fontRegular = fs.readFileSync(path.join(process.cwd(), 'src/assets/fonts/DMSans-Regular.woff'));
 
 // Satori can't read CSS custom properties, so these mirror the Paper palette
-// tokens at the top of src/styles/application.scss.
+// tokens in src/styles/base/_tokens.scss.
 const colors = {
 	background: '#F6F4EF',
 	text: '#1A1917',

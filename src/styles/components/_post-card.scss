@@ -1,0 +1,19 @@
+@layer components {
+	.c-post-card {
+		@apply markdown-container
+					 mb-6
+					 max-w-screen-md;
+
+		// Titles sit at body size, overriding the prose heading scale.
+		h2,
+		h3 {
+			@apply text-[1em]
+						 font-medium;
+		}
+	}
+
+	.c-post-meta {
+		@apply text-lg
+					 font-bold;
+	}
+}

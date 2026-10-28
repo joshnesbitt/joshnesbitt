@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
+import Arrow from './Arrow.astro';
 
 const year = new Date().getFullYear();
 ---
@@ -10,9 +11,7 @@ const year = new Date().getFullYear();
 			<li>
 				<a href={href}>
 					{label}
-					<span class="c-link-arrow" aria-hidden="true">
-						&nearr;
-					</span>
+					<Arrow hover="nudge" />
 				</a>
 			</li>
 		))}

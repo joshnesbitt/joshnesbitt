@@ -1,0 +1,29 @@
+@layer components {
+	.c-stats {
+		@apply flex
+					 flex-wrap
+					 gap-x-14
+					 gap-y-6;
+
+		li {
+			@apply list-none
+						 flex
+						 flex-col
+						 gap-1;
+		}
+	}
+
+	.c-stats__value {
+		@apply font-heading
+					 font-black
+					 text-4xl
+					 sm:text-5xl;
+	}
+
+	.c-stats__label {
+		@apply text-base
+					 sm:text-lg
+					 text-muted
+					 max-w-[11rem];
+	}
+}
