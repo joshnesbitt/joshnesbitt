@@ -1,5 +1,5 @@
 ---
-import { AUTHOR, SOCIAL_LINKS } from '../consts';
+import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 import Arrow from './Arrow.astro';
 
 const year = new Date().getFullYear();
@@ -8,9 +8,16 @@ const year = new Date().getFullYear();
 <footer class="c-footer">
 	<ul class="c-footer__links">
 		{SOCIAL_LINKS.map(({ label, href }) => (
-			<li><a href={href}>{label}<Arrow class="c-footer__arrow" /></a></li>
+			<li>
+				<a href={href}>
+					{label}
+					<Arrow hover="nudge" />
+				</a>
+			</li>
 		))}
 	</ul>
 
-	<p class="c-footer__copyright">&copy; {year} {AUTHOR.name}</p>
+	<p class="c-footer__copyright">
+		&copy; {year} {SITE_TITLE}
+	</p>
 </footer>

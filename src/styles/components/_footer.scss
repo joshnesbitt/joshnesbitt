@@ -32,19 +32,7 @@
 		}
 
 		a {
-			@apply text-ink
-						 hover:text-accent;
-		}
-	}
-
-	.c-footer__arrow {
-		@apply inline-block
-					 transition-transform
-					 duration-150;
-
-		a:hover & {
-			@apply -translate-y-0.5
-						 translate-x-0.5;
+			@apply text-ink;
 		}
 	}
 }

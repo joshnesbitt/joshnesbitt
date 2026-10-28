@@ -1,7 +1,7 @@
 ---
 title: "Recipe data your mind can make sense of"
 description: "Long recipes are hard to decipher and hold in your head. I've added recipe tables to every recipe on my cooking site to show the path to the finished piece."
-pubDate: "12 Aug 2026 15:57:58"
+pubDate: 2026-08-12T15:57:58Z
 ---
 I've been publishing recipes at [joshnesbitt.cooking](https://joshnesbitt.cooking) for a while, and for some time I've been dissatisfied by how hard it can be to hold complex recipes together. The ingredients sit at the top, the method sits below, and the relationships between them live entirely in your head. Halfway through cooking you end up scrolling back to work out which bowl the zest went into and whether the butter should already be brown.
 

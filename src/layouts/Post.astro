@@ -1,21 +1,24 @@
 ---
-import { render } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import getReadingTime from 'reading-time';
 import Application from './Application.astro';
 import PageHeading from '../components/PageHeading.astro';
 import Prose from '../components/Prose.astro';
 import JsonLd from '../components/JsonLd.astro';
-import { AUTHOR } from '../consts';
+import { ogImagePath } from '../utils/og';
+import { SITE_TITLE, SITE_URL } from '../consts';
 import { formatMonth } from '../utils/format';
 
-const item = Astro.props
+type Props = CollectionEntry<'thought' | 'review'>;
+
+const item = Astro.props;
 const { Content } = await render(item);
-const readingTime = getReadingTime(item.body);
-const data = Astro.props.data;
+const readingTime = getReadingTime(item.body ?? '');
+const data = item.data;
 const date = data.pubDate;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = new URL(`/api/og${Astro.url.pathname.replace(/\/$/, '')}.png`, Astro.site);
+const ogImageURL = new URL(ogImagePath(Astro.url.pathname), Astro.site);
 
 const schema = {
 	'@context': 'https://schema.org',
@@ -27,22 +30,21 @@ const schema = {
 	image: ogImageURL.toString(),
 	author: {
 		'@type': 'Person',
-		...AUTHOR,
+		name: SITE_TITLE,
+		url: SITE_URL,
 	},
 };
 ---
 
-<Application {...data} type="article" container="large">
+<Application {...data} type="article">
 	<JsonLd schema={schema} />
 	<PageHeading>{data.title}</PageHeading>
 
 	<Prose>
-		<p class="text-lg font-bold">
-			<time datetime={date.toISOString()} >
+		<p class="c-post-meta">
+			<time datetime={date.toISOString()}>
 				{formatMonth(date)}
-				&nbsp;
-				·
-				&nbsp;
+				&nbsp; · &nbsp;
 				{readingTime.text}
 			</time>
 		</p>

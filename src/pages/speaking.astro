@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import { Image } from 'astro:assets';
 
 import Application from '../layouts/Application.astro';
@@ -14,12 +12,11 @@ import Stats from '../components/Stats.astro';
 import Callout from '../components/Callout.astro';
 import PressKit from '../components/PressKit.astro';
 import { formatMonth } from '../utils/format';
+import { PAGES } from '../consts';
 
 import stageshot from '../assets/images/stageshot.jpg';
 
-const description = 'Josh speaks, hosts and moderates at technology events — on engineering leadership, AI and building communities.';
-
-function decodeEntities(text) {
+function decodeEntities(text: string) {
 	return text
 		.replace(/&amp;/g, '&')
 		.replace(/&lt;/g, '<')
@@ -46,7 +43,7 @@ async function getLatestEpisode() {
 		return {
 			name: decodeEntities(title.replace(/^Episode (\d+): /, '#$1: ')),
 			href: episodeId ? `https://heypresents.com/podcast/${episodeId}` : link,
-			meta: pubDate ? formatMonth(pubDate) : ''
+			meta: pubDate ? formatMonth(new Date(pubDate)) : '',
 		};
 	} catch {
 		return null;
@@ -58,45 +55,78 @@ const latestEpisode = await getLatestEpisode();
 const bios = [
 	{
 		label: 'One-liner',
-		text: 'Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.'
+		text: 'Josh Nesbitt is a CTO, conference founder and podcast host based in Leeds, UK.',
 	},
 	{
 		label: 'Short bio',
-		text: "Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI."
-	}
+		text: "Josh Nesbitt is a CTO based in Leeds with over a decade leading engineering in product-led businesses. He founded All Day Hey!, one of the UK's longest-running independent technology conferences, and hosts Off Script, a podcast on engineering leadership and AI.",
+	},
 ];
 
 const stats = [
 	{ value: '30+', label: 'engagements since 2013' },
 	{ value: '20', label: 'years working on the web' },
 	{ value: '10', label: 'editions of All Day Hey! hosted' },
-	{ value: '60+', label: 'episodes of Off Script' }
+	{ value: '60+', label: 'episodes of Off Script' },
 ];
 
 const hosting = [
-	{ name: 'All Day Hey! — founder and host, ten editions', href: 'https://heypresents.com/conference', meta: '2017–2026' },
+	{
+		name: 'All Day Hey! — founder and host, ten editions',
+		href: 'https://heypresents.com/conference',
+		meta: '2017–2026',
+	},
 	{ name: 'Off Script — co-host, with James Hall', href: 'https://heypresents.com/podcast', meta: '2019–present' },
-	{ name: 'The reality of AI in software engineering leadership', href: 'https://www.linkedin.com/events/softwareengineeringleadership-w7366370929024581633/', meta: '2025' },
+	{
+		name: 'The reality of AI in software engineering leadership',
+		href: 'https://www.linkedin.com/events/softwareengineeringleadership-w7366370929024581633/',
+		meta: '2025',
+	},
 	{ name: 'Empathy at work with Sharon Steed', href: 'https://heypresents.com/talks/empathy-at-work', meta: '2020' },
-	{ name: 'An evening with Helen Sharman, Britain’s first astronaut', href: '/thoughts/hosting-a-talk-by-helen-sharman-the-first-british-astronaut', meta: '2019' }
+	{
+		name: 'An evening with Helen Sharman, Britain’s first astronaut',
+		href: '/thoughts/hosting-a-talk-by-helen-sharman-the-first-british-astronaut',
+		meta: '2019',
+	},
 ];
 
 const talks = [
-	{ name: 'No more excuses: the real power of culture and getting things done', href: 'https://www.youtube.com/playlist?list=PLJwhw5AkkoduXbcmEpd47h3WDBLHkY4Cj', meta: '2024' },
-	{ name: 'Another Idea: How creativity can be found anywhere', href: 'https://www.youtube.com/watch?v=ZiGwbdJQjls', meta: '2022' },
-	{ name: 'The Official CIO Summit: IT confronts climate change', href: 'https://www.cio.com/article/191630/it-confronts-climate-change.html', meta: '2021' },
+	{
+		name: 'No more excuses: the real power of culture and getting things done',
+		href: 'https://www.youtube.com/playlist?list=PLJwhw5AkkoduXbcmEpd47h3WDBLHkY4Cj',
+		meta: '2024',
+	},
+	{
+		name: 'Another Idea: How creativity can be found anywhere',
+		href: 'https://www.youtube.com/watch?v=ZiGwbdJQjls',
+		meta: '2022',
+	},
+	{
+		name: 'The Official CIO Summit: IT confronts climate change',
+		href: 'https://www.cio.com/article/191630/it-confronts-climate-change.html',
+		meta: '2021',
+	},
 ];
 ---
 
-<Application title="Speaking" description={description}>
+<Application {...PAGES.speaking}>
 	<PageHeading>Speaking</PageHeading>
 
 	<div class="c-hero">
 		<Prose class="c-lede">
-			<p>I speak, host and moderate at technology events — on engineering leadership, AI and building communities. If that sounds like a fit for your event, <a href="mailto:speaking@joshnesbitt.dev">get in touch</a>.</p>
+			<p>
+				I speak, host and moderate at technology events — on engineering leadership, AI and building communities. If
+				that sounds like a fit for your event, <a href="mailto:speaking@joshnesbitt.dev">get in touch</a>.
+			</p>
 		</Prose>
 
-		<Image class="c-hero__image" src={stageshot} alt="Josh Nesbitt on stage hosting All Day Hey!, beneath a slide reading 'A conference is a physical network of incredible people'" width={976} densities={[1, 2]} />
+		<Image
+			class="c-hero__image"
+			src={stageshot}
+			alt="Josh Nesbitt on stage hosting All Day Hey!, beneath a slide reading 'A conference is a physical network of incredible people'"
+			width={976}
+			densities={[1, 2]}
+		/>
 	</div>
 
 	<Spacer />
@@ -106,10 +136,21 @@ const talks = [
 	<Section title="Topics">
 		<Prose>
 			<ul>
-				<li><strong>Engineering leadership</strong> — building and leading high-performing product engineering teams, from startups to scale.</li>
-				<li><strong>AI in software engineering</strong> — the reality of adoption, the discourse surrounding it, and what it means for how teams work.</li>
-				<li><strong>Conferences and community</strong> — lessons from founding and running All Day Hey! for ten editions.</li>
-				<li><strong>Hosting and moderation</strong> — MCing conferences, chairing panels and interviewing, honed across Off Script and live events.</li>
+				<li>
+					<strong>Engineering leadership</strong> — building and leading high-performing product engineering teams, from
+					startups to scale.
+				</li>
+				<li>
+					<strong>AI in software engineering</strong> — the reality of adoption, the discourse surrounding it, and what
+					it means for how teams work.
+				</li>
+				<li>
+					<strong>Conferences and community</strong> — lessons from founding and running All Day Hey! for ten editions.
+				</li>
+				<li>
+					<strong>Hosting and moderation</strong> — MCing conferences, chairing panels and interviewing, honed across
+					Off Script and live events.
+				</li>
 			</ul>
 		</Prose>
 	</Section>

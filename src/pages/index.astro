@@ -1,5 +1,6 @@
 ---
-import { getThoughts } from '../utils/finders';
+import { getPosts } from '../utils/finders';
+import { PAGES, SITE_TITLE, SITE_URL, SOCIAL_LINKS } from '../consts';
 
 import Application from '../layouts/Application.astro';
 import Section from '../components/Section.astro';
@@ -8,39 +9,45 @@ import JsonLd from '../components/JsonLd.astro';
 import TrackView from '../components/TrackView.astro';
 import PostCards from '../components/PostCards.astro';
 import Directory from '../components/Directory.astro';
-import { AUTHOR, SOCIAL_LINKS } from '../consts';
 
-const thoughts = await getThoughts(3);
+const thoughts = await getPosts('thought', 3);
 
 const schema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
-	...AUTHOR,
+	name: SITE_TITLE,
+	url: SITE_URL,
 	jobTitle: 'Chief Technology Officer',
 	worksFor: {
 		'@type': 'Organization',
 		name: 'Stac Works',
 		url: 'https://stac.works',
 	},
-	image: 'https://joshnesbitt.dev/headshot.jpg',
-	sameAs: SOCIAL_LINKS.map(({ href }) => href),
+	image: `${SITE_URL}/headshot.jpg`,
+	sameAs: SOCIAL_LINKS.map((link) => link.href),
 };
 
 const focus = [
 	{ name: 'Consultancy', href: 'https://stac.works' },
 	{ name: 'Conference', href: 'https://heypresents.com/conference' },
 	{ name: 'Podcast', href: 'https://heypresents.com/podcast' },
-	{ name: 'Cooking', href: 'https://joshnesbitt.cooking' }
+	{ name: 'Cooking', href: 'https://joshnesbitt.cooking' },
 ];
 ---
 
-<Application title="Hello">
+<Application {...PAGES.index}>
 	<JsonLd schema={schema} />
 
-	<h1 class="sr-only">Josh Nesbitt</h1>
+	<h1 class="sr-only">{SITE_TITLE}</h1>
 
 	<Prose class="c-lede">
-		<p>I'm Josh, a <a href="https://www.linkedin.com/in/josh-nesbitt">CTO</a> based in Leeds with over a decade leading engineering in product-led businesses. I also founded <a href="https://heypresents.com/conference">All Day Hey!</a>, one of the UK's longest-running independent technology conferences, and host <a href="https://heypresents.com/podcast">Off Script</a>, a podcast on engineering leadership and AI.</p>
+		<p>
+			I'm Josh, a <a href="https://www.linkedin.com/in/josh-nesbitt">CTO</a> based in Leeds with over a decade leading
+			engineering in product-led businesses. I also founded{' '}
+			<a href="https://heypresents.com/conference">All Day Hey!</a>, one of the UK's longest-running independent
+			technology conferences, and host <a href="https://heypresents.com/podcast">Off Script</a>, a podcast on
+			engineering leadership and AI.
+		</p>
 	</Prose>
 
 	<Section title="Focus">

@@ -1,15 +1,24 @@
 ---
 import Arrow from './Arrow.astro';
 
+interface Props {
+	items: {
+		name: string;
+		href: string;
+		// Shown on the right instead of the link's hostname.
+		meta?: string;
+	}[];
+}
+
 const { items } = Astro.props;
 
-function destination(href) {
+function destination(href: string) {
 	if (!href.startsWith('http')) return href;
 
 	return new URL(href).hostname.replace(/^www\./, '');
 }
 
-function isExternal(href) {
+function isExternal(href: string) {
 	return href.startsWith('http');
 }
 ---
@@ -20,7 +29,8 @@ function isExternal(href) {
 			<a href={item.href}>
 				<span class="c-directory__name">{item.name}</span>
 				<span class="c-directory__destination">
-					{item.meta ?? destination(item.href)}{isExternal(item.href) && <Arrow />}
+					{item.meta ?? destination(item.href)}
+					{isExternal(item.href) && <Arrow />}
 				</span>
 			</a>
 		</li>

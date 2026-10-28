@@ -7,13 +7,34 @@
   publish = "dist/"
 
 #
+# Headers
+#
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Astro fingerprints these filenames, so they can be cached forever.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Fonts keep their names between deploys, so cache for a month rather than forever.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+#
 # Redirects
 #
 
-[[redirects]]
-  from = "/thoughts/what-the-f-is-going-on-with-leeds-nightlife/"
-  to = "/thoughts/the-state-of-leeds-nightlife"
-
+# Netlify matches with or without a trailing slash, so one rule covers both.
 [[redirects]]
   from = "/thoughts/what-the-f-is-going-on-with-leeds-nightlife"
   to = "/thoughts/the-state-of-leeds-nightlife"

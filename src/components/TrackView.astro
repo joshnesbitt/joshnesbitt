@@ -1,4 +1,9 @@
 ---
+interface Props {
+	key: string;
+	namespace?: 'site' | 'thoughts' | 'reviews';
+}
+
 const { key, namespace = 'site' } = Astro.props;
 ---
 
@@ -6,7 +11,7 @@ const { key, namespace = 'site' } = Astro.props;
 	(() => {
 		const id = document.currentScript.dataset.viewId;
 
-		fetch(`/api/views/${id}`, { method: 'POST' })
-			.then(res => res.json());
+		// Counting is best effort, so a failed request is ignored.
+		fetch(`/api/views/${id}`, { method: 'POST', keepalive: true }).catch(() => {});
 	})();
 </script>

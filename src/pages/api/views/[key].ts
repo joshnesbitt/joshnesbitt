@@ -1,67 +1,20 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getStore } from '@netlify/blobs';
+import { isViewKey, incrementViews } from '../../../utils/views';
 
-const headers = {
-  'Content-Type': 'application/json'
-};
-
-export const GET: APIRoute = async ({ params }) => {
-  const key = params.key;
-
-  if (!key) {
-    return new Response(JSON.stringify({ error: 'Key is required' }), {
-      status: 400,
-      headers
-    });
-  }
-
-  try {
-    const store = getStore({ name: 'views', consistency: 'strong' });
-    const views = await store.get(key) || '0';
-
-    return new Response(JSON.stringify({ views: parseInt(views, 10) }), {
-      status: 200,
-      headers
-    });
-  } catch (error) {
-    console.error('Blobs GET error:', error);
-
-    return new Response(JSON.stringify({ views: 0, error: 'Store unavailable' }), {
-      status: 200,
-      headers
-    });
-  }
-};
-
+// Counts are write-only from the outside: no response includes them, so
+// they're only ever read on the server.
 export const POST: APIRoute = async ({ params }) => {
-  const key = params.key;
+	if (!isViewKey(params.key)) return new Response(null, { status: 400 });
 
-  if (!key) {
-    return new Response(JSON.stringify({ error: 'Key is required' }), {
-      status: 400,
-      headers
-    });
-  }
+	try {
+		await incrementViews(params.key);
 
-  try {
-    const store = getStore({ name: 'views', consistency: 'strong' });
-    const current = await store.get(key) || '0';
-    const newCount = parseInt(current, 10) + 1;
+		return new Response(null, { status: 204 });
+	} catch (error) {
+		console.error('Blobs POST error:', error);
 
-    await store.set(key, newCount.toString());
-
-    return new Response(JSON.stringify({ views: newCount }), {
-      status: 200,
-      headers
-    });
-  } catch (error) {
-    console.error('Blobs POST error:', error);
-
-    return new Response(JSON.stringify({ views: 1, error: 'Store unavailable' }), {
-      status: 200,
-      headers
-    });
-  }
+		return new Response(null, { status: 503 });
+	}
 };

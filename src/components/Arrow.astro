@@ -1,5 +1,13 @@
 ---
-const { class: className } = Astro.props;
+interface Props {
+	class?: string;
+	// How the arrow answers its link's hover: turn green, or nudge up and out.
+	hover?: 'accent' | 'nudge';
+}
+
+const { class: className, hover = 'accent' } = Astro.props;
 ---
 
-<span class:list={['c-arrow', className]} aria-hidden="true">&nearr;</span>
+<span class:list={['c-arrow', `c-arrow--${hover}`, className]} aria-hidden="true">
+	&nearr;
+</span>

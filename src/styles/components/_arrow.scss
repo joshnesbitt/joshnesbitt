@@ -3,9 +3,22 @@
 @layer components {
 	.c-arrow {
 		@apply ml-1;
+	}
 
+	.c-arrow--accent {
 		a:hover & {
 			color: $color-primary;
+		}
+	}
+
+	.c-arrow--nudge {
+		@apply inline-block
+					 transition-transform
+					 duration-150;
+
+		a:hover & {
+			@apply -translate-y-0.5
+						 translate-x-0.5;
 		}
 	}
 }
