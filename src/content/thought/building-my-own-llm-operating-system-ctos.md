@@ -1,7 +1,7 @@
 ---
 title: "Building my own LLM Operating System, ctOS"
 description: "A conversation with Jack a few months ago set me off on an idea that radically changed how I work. We were talking about how skills in Claude could add an intelligent layer on top of the notes I'd been keeping in Obsidian for years. By the end of it, I'd started building something tailored to how I work as a CTO."
-pubDate: "24 Apr 2026 12:00:00"
+pubDate: 2026-04-24T12:00:00Z
 ---
 
 A conversation with [Jack](https://www.linkedin.com/in/jack-sails/) a few months ago set me off on an idea that radically changed how I work. We were talking about how skills in Claude could add an intelligent layer on top of the notes I'd been keeping in Obsidian for years. By the end of it, I'd started building something tailored to how I work as a CTO.

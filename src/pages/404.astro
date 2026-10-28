@@ -4,14 +4,16 @@ import Spacer from '../components/Spacer.astro';
 import TrackView from '../components/TrackView.astro';
 ---
 
-<Application title="404" description="The thing you're looking for doesn't exist (404).">
+<Application title="404" description="The thing you're looking for doesn't exist (404)." noindex>
 	<h1 class="c-heading">404</h1>
 
 	<Spacer />
 
 	<div class="markdown-container">
 		<p>The thing you're looking for doesn't exist.</p>
-		<p><a href="/">Go back</a></p>
+		<p>
+			<a href="/">Go back</a>
+		</p>
 	</div>
 </Application>
 

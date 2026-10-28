@@ -1,7 +1,7 @@
 ---
 title: "Consistency"
 description: "Last week, I was at an event discussing how long I'd been running the Hey! Presents events for (10 years as of a few weeks ago), and the person I was talking to asked how I'd stuck with it for so long."
-pubDate: "26 Jun 2023 12:01:34"
+pubDate: 2023-06-26T12:01:34Z
 ---
 
 Last week, I was at an event discussing how long I'd been running the Hey! Presents events for (10 years as of a few weeks ago), and the person I was talking to asked how I'd stuck with it for so long. Ten years is by no means a lifetime achievement, but it is a considerable amount of time to be running events, which led to my response.

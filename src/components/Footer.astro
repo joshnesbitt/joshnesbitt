@@ -1,19 +1,24 @@
 ---
-const year = new Date().getFullYear();
+import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 
-const links = [
-	{ label: 'GitHub', href: 'https://github.com/joshnesbitt' },
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/josh-nesbitt' },
-	{ label: 'Bluesky', href: 'https://bsky.app/profile/joshnesbitt.dev' },
-];
+const year = new Date().getFullYear();
 ---
 
 <footer class="c-footer">
 	<ul class="c-footer__links">
-		{links.map(({ label, href }) => (
-			<li><a href={href}>{label}<span class="c-footer__arrow" aria-hidden="true">&nearr;</span></a></li>
+		{SOCIAL_LINKS.map(({ label, href }) => (
+			<li>
+				<a href={href}>
+					{label}
+					<span class="c-link-arrow" aria-hidden="true">
+						&nearr;
+					</span>
+				</a>
+			</li>
 		))}
 	</ul>
 
-	<p class="c-footer__copyright">&copy; {year} Josh Nesbitt</p>
+	<p class="c-footer__copyright">
+		&copy; {year} {SITE_TITLE}
+	</p>
 </footer>

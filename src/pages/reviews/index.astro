@@ -1,20 +1,21 @@
 ---
-import { getReviews } from '../../utils/finders';
+import { getPosts } from '../../utils/finders';
+import { PAGES } from '../../consts';
 
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
 
-const reviews = await getReviews();
+const reviews = await getPosts('review');
 ---
 
-<Application title="Reviews" description="Annual reflections on work and life.">
+<Application {...PAGES.reviews}>
 	<h1 class="c-heading">Reviews</h1>
 
 	<Spacer />
 
-  <PostCards posts={reviews} path="reviews" level={2} />
+	<PostCards posts={reviews} path="reviews" level={2} />
 </Application>
 
 <TrackView namespace="reviews" key="index" />

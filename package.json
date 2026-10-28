@@ -1,44 +1,52 @@
 {
-  "name": "joshnesbitt",
-  "description": "The site for Josh Nesbitt.",
-  "type": "module",
-  "version": "1.0.0",
-  "author": "Josh Nesbitt",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "test": "vitest run tests/unit",
-    "test:build": "vitest run tests/build",
-    "check:a11y": "node scripts/axe.mjs"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^8.1.0",
-    "@astrojs/netlify": "^8.2.6",
-    "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.4",
-    "@netlify/blobs": "^11.1.5",
-    "@resvg/resvg-js": "^2.6.2",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.9",
-    "astro": "^7.4.1",
-    "autoprefixer": "^10.6.1",
-    "reading-time": "^1.5.0",
-    "sass": "^1.106.0",
-    "satori": "^0.63.2",
-    "tailwindcss": "^3.3.1"
-  },
-  "overrides": {
-    "@netlify/vite-plugin": "^3.0.1",
-    "sharp": "^0.35.5",
-    "fflate": "^0.7.5",
-    "postcss-selector-parser": "^7.1.7"
-  },
-  "devDependencies": {
-    "@axe-core/playwright": "^4.14.0",
-    "playwright": "^1.64.1",
-    "vitest": "^5.0.5"
-  }
+	"name": "joshnesbitt",
+	"description": "The site for Josh Nesbitt.",
+	"type": "module",
+	"private": true,
+	"author": "Josh Nesbitt",
+	"engines": {
+		"node": ">=22.12.0"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "astro check",
+		"test": "vitest run tests/unit",
+		"test:build": "vitest run tests/build",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"check:a11y": "node scripts/axe.mjs"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^8.1.0",
+		"@astrojs/netlify": "^8.2.6",
+		"@astrojs/rss": "^4.0.19",
+		"@astrojs/sitemap": "^3.7.4",
+		"@netlify/blobs": "^11.1.5",
+		"@resvg/resvg-js": "^2.6.2",
+		"@tailwindcss/typography": "^0.5.9",
+		"astro": "^7.4.1",
+		"autoprefixer": "^10.6.1",
+		"reading-time": "^1.5.0",
+		"sass": "^1.106.0",
+		"satori": "^0.63.2",
+		"tailwindcss": "^3.3.1"
+	},
+	"overrides": {
+		"@netlify/vite-plugin": "^3.0.1",
+		"sharp": "^0.35.5",
+		"fflate": "^0.7.5",
+		"postcss-selector-parser": "^7.1.7"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.12",
+		"@axe-core/playwright": "^4.14.0",
+		"playwright": "^1.64.1",
+		"prettier": "^3.9.10",
+		"prettier-plugin-astro": "^1.1.2",
+		"typescript": "^6.0.3",
+		"vitest": "^5.0.5"
+	}
 }

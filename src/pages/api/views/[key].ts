@@ -1,77 +1,31 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getStore } from '@netlify/blobs';
 import { getCollection } from 'astro:content';
-import { trackableKeys, parseCount } from '../../../utils/views';
+import { isViewKey, trackableKeys, incrementViews } from '../../../utils/views';
 
-const headers = {
-  'Content-Type': 'application/json'
-};
+async function isTrackable(key: string): Promise<boolean> {
+	const [thoughts, reviews] = await Promise.all([getCollection('thought'), getCollection('review')]);
 
-async function isTrackable(key: string | undefined): Promise<boolean> {
-  if (!key) return false;
-
-  const thoughts = await getCollection('thought');
-  const reviews = await getCollection('review');
-
-  return trackableKeys({
-    thoughts: thoughts.map((thought) => thought.id),
-    reviews: reviews.map((review) => review.id),
-  }).has(key);
+	return trackableKeys({
+		thoughts: thoughts.map((thought) => thought.id),
+		reviews: reviews.map((review) => review.id),
+	}).has(key);
 }
 
-function notFound() {
-  return new Response(JSON.stringify({ error: 'Unknown key' }), {
-    status: 404,
-    headers
-  });
-}
-
-export const GET: APIRoute = async ({ params }) => {
-  const key = params.key;
-
-  if (!(await isTrackable(key))) return notFound();
-
-  try {
-    const store = getStore({ name: 'views', consistency: 'strong' });
-    const views = parseCount(await store.get(key!));
-
-    return new Response(JSON.stringify({ views }), {
-      status: 200,
-      headers
-    });
-  } catch (error) {
-    console.error('Blobs GET error:', error);
-
-    return new Response(JSON.stringify({ views: 0, error: 'Store unavailable' }), {
-      status: 200,
-      headers
-    });
-  }
-};
-
+// Counts are write-only from the outside: no response includes them, so
+// they're only ever read on the server.
 export const POST: APIRoute = async ({ params }) => {
-  const key = params.key;
+	if (!isViewKey(params.key)) return new Response(null, { status: 400 });
+	if (!(await isTrackable(params.key))) return new Response(null, { status: 404 });
 
-  if (!(await isTrackable(key))) return notFound();
+	try {
+		await incrementViews(params.key);
 
-  try {
-    const store = getStore({ name: 'views', consistency: 'strong' });
-    const newCount = parseCount(await store.get(key!)) + 1;
+		return new Response(null, { status: 204 });
+	} catch (error) {
+		console.error('Blobs POST error:', error);
 
-    await store.set(key!, newCount.toString());
-
-    return new Response(JSON.stringify({ views: newCount }), {
-      status: 200,
-      headers
-    });
-  } catch (error) {
-    console.error('Blobs POST error:', error);
-
-    return new Response(JSON.stringify({ views: 1, error: 'Store unavailable' }), {
-      status: 200,
-      headers
-    });
-  }
+		return new Response(null, { status: 503 });
+	}
 };

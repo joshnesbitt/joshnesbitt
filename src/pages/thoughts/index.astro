@@ -1,20 +1,49 @@
 ---
-import { getThoughts } from '../../utils/finders';
+export const prerender = false;
+
+import { getPosts } from '../../utils/finders';
+import { getMostViewed } from '../../utils/views';
+import { PAGES } from '../../consts';
 
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
+import Directory from '../../components/Directory.astro';
 
-const thoughts = await getThoughts();
+const thoughts = await getPosts('thought');
+
+const mostRead = (await getMostViewed('thoughts', thoughts)).map((post) => ({
+	name: post.data.title,
+	href: `/thoughts/${post.id}`,
+	meta: post.data.pubDate.toLocaleDateString('en-uk', { year: 'numeric', month: 'short' }),
+}));
+
+// Counts move slowly, so let the CDN hold the page rather than reading the
+// store on every request.
+Astro.response.headers.set('Netlify-CDN-Cache-Control', 'public, durable, s-maxage=3600, stale-while-revalidate=86400');
 ---
 
-<Application title="Thoughts" description="A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.">
-  <h1 class="c-heading">Thoughts</h1>
+<Application {...PAGES.thoughts}>
+	<h1 class="c-heading">Thoughts</h1>
 
-  <Spacer />
+	<Spacer />
 
-  <PostCards posts={thoughts} path="thoughts" level={2} />
+	{mostRead.length > 0 && (
+		<Fragment>
+			<h2 class="c-sub-heading">Most read</h2>
+
+			<Directory items={mostRead} />
+
+			<Spacer />
+
+			<h2 class="c-sub-heading">All thoughts</h2>
+		</Fragment>
+	)}
+
+	<div class:list={{ '-mt-6': mostRead.length > 0 }}>
+		<PostCards posts={thoughts} path="thoughts" level={mostRead.length > 0 ? 3 : 2} />
+	</div>
 </Application>
 
 <TrackView namespace="thoughts" key="index" />

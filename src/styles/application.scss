@@ -75,48 +75,55 @@ $color-spacer: rgb(var(--color-rule));
 }
 
 ::selection {
-  background: $color-primary;
+	background: $color-primary;
 }
 
 ::-moz-selection {
-  background: $color-primary;
+	background: $color-primary;
 }
 
 @layer components {
-  .markdown-container {
-    @apply markdown
+	.markdown-container {
+		@apply markdown
 					 markdown-xl
-           sm:markdown-2xl
-           print:markdown-sm
+					 sm:markdown-2xl
+					 print:markdown-sm
 					 max-w-none
 					 break-words
 					 md:break-normal
 					 leading-8
-					 hover:markdown-a:text-accent
-           markdown-h1:font-medium
-           markdown-h2:font-medium
-           markdown-h3:font-medium
-           markdown-h4:font-medium
-           markdown-h5:font-medium
-           markdown-code:before:hidden
-           markdown-code:after:hidden
-           markdown-code:font-normal
-           markdown-hr:border-rule
-           markdown-hr:border-y
-           markdown-hr:w-6
-           markdown-img:rounded-md;
+					 markdown-h1:font-medium
+					 markdown-h2:font-medium
+					 markdown-h3:font-medium
+					 markdown-h4:font-medium
+					 markdown-h5:font-medium
+					 markdown-code:before:hidden
+					 markdown-code:after:hidden
+					 markdown-code:font-normal
+					 markdown-hr:border-rule
+					 markdown-hr:border-y
+					 markdown-hr:w-6
+					 markdown-img:rounded-md;
 
 		:not(pre) > code {
-		  @apply px-1 py-0.5 rounded-sm bg-ink/5;
+			@apply px-1 py-0.5 rounded-sm bg-ink/5;
+		}
+
+		// The green is too light to read as text on paper, so hovered links
+		// keep ink text and take a thick green underline instead.
+		a:hover {
+			text-decoration-color: $color-primary;
+			text-decoration-thickness: 0.15em;
 		}
 
 		a:hover::selection {
-		  color: $color-background;
+			color: $color-background;
 		}
-  }
+	}
 
 	.podcast-player-container {
-		@apply w-full;
+		@apply w-full
+					 mb-4;
 	}
 
 	.c-gallery {
@@ -430,12 +437,11 @@ $color-spacer: rgb(var(--color-rule));
 		}
 
 		a {
-			@apply text-ink
-						 hover:text-accent;
+			@apply text-ink;
 		}
 	}
 
-	.c-footer__arrow {
+	.c-link-arrow {
 		@apply ml-1
 					 inline-block
 					 transition-transform
@@ -699,6 +705,18 @@ $color-spacer: rgb(var(--color-rule));
 		@apply markdown-container
 					 mb-6
 					 max-w-screen-md;
+
+		// Titles sit at body size, overriding the prose heading scale.
+		h2,
+		h3 {
+			@apply text-[1em]
+						 font-medium;
+		}
+	}
+
+	.c-post-meta {
+		@apply text-lg
+					 font-bold;
 	}
 
 	.c-spacer {
