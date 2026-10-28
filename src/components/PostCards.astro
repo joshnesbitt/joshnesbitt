@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Prose from './Prose.astro';
 
 interface Props {
 	posts: CollectionEntry<'thought' | 'review'>[];
@@ -14,12 +15,12 @@ const Heading = level === 2 ? 'h2' : 'h3';
 
 <div>
 	{posts.map((post) => (
-		<div class="c-post-card">
+		<Prose class="c-post-card">
 			<Heading>
 				<a href={`/${path}/${post.id}`}>{post.data.title}</a>
 			</Heading>
 
 			<p>{post.data.description}</p>
-		</div>
+		</Prose>
 	))}
 </div>

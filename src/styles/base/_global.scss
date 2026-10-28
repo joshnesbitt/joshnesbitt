@@ -8,6 +8,12 @@
 	}
 }
 
+// Tailwind 4's preflight no longer gives buttons a pointer.
+button:not(:disabled),
+[role='button']:not(:disabled) {
+	cursor: pointer;
+}
+
 ::selection {
 	background: $color-primary;
 }

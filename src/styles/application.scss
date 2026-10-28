@@ -1,8 +1,9 @@
 @use 'sass:meta';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// Sass compiles first and leaves these for Tailwind, which runs afterwards
+// as a PostCSS plugin. The .css extension keeps Sass from resolving it.
+@import 'tailwindcss/index.css';
+@config '../../tailwind.config.cjs';
 
 //
 // Base

@@ -24,7 +24,7 @@
 					 markdown-img:rounded-md;
 
 		:not(pre) > code {
-			@apply px-1 py-0.5 rounded-sm bg-ink/5;
+			@apply px-1 py-0.5 rounded-xs bg-ink/5;
 		}
 
 		// The green is too light to read as text on paper, so hovered links

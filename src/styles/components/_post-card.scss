@@ -1,8 +1,7 @@
 @layer components {
 	.c-post-card {
-		@apply markdown-container
-					 mb-6
-					 max-w-screen-md;
+		@apply mb-6
+					 max-w-3xl;
 
 		// Titles sit at body size, overriding the prose heading scale.
 		h2,

@@ -40,13 +40,16 @@
 		}
 	}
 
+	// Tailwind 4 lets `leading-snug` beat `sm:text-3xl`'s own line height, so
+	// the larger size sets its leading explicitly.
 	.c-callout__title {
 		@apply block
 					 font-heading
 					 font-bold
 					 text-2xl
 					 sm:text-3xl
-					 leading-snug;
+					 leading-snug
+					 sm:leading-9;
 	}
 
 	.c-callout__meta {
