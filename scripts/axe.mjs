@@ -20,12 +20,20 @@ const browser = await chromium.launch();
 const context = await browser.newContext({ reducedMotion: 'reduce' });
 let failures = 0;
 
-// Vite's error overlay means the page broke in the dev server. It can arrive
-// after load, pushed from another request, so check for it after the audit too.
+// Astro's error overlay (mounted as <vite-error-overlay>) means the page broke
+// in the dev server. It can arrive after load, pushed from another request, so
+// check for it after the audit.
 const overlayText = (page) =>
-	page.evaluate(
-		() => document.querySelector('vite-error-overlay')?.shadowRoot?.querySelector('.window')?.textContent ?? null
-	);
+	page.evaluate(() => {
+		const root = document.querySelector('vite-error-overlay')?.shadowRoot;
+
+		if (!root) return null;
+
+		return ['#name', '#message-content', '#hint-content', '#stack-content']
+			.map((selector) => root.querySelector(selector)?.textContent?.trim())
+			.filter(Boolean)
+			.join('\n    ');
+	});
 
 for (const path of pages) {
 	const page = await context.newPage();
