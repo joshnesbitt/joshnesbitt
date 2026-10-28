@@ -1,12 +1,48 @@
 ---
+import { getStore } from '@netlify/blobs';
+
 import { getThoughts } from '../../utils/finders';
 
 import Application from '../../layouts/Application.astro';
 import Spacer from '../../components/Spacer.astro';
 import TrackView from '../../components/TrackView.astro';
 import PostCards from '../../components/PostCards.astro';
+import Directory from '../../components/Directory.astro';
 
 const thoughts = await getThoughts();
+
+// Ranks thoughts by the view counts TrackView keeps in Netlify Blobs. Returns
+// an empty list when the store is unavailable or too few posts have been read,
+// so the section simply doesn't render.
+async function getMostRead(posts, limit = 5) {
+	try {
+		const store = getStore({ name: 'views', consistency: 'strong' });
+
+		const counts = await Promise.all(
+			posts.map(async (post) => parseInt(await store.get(`thoughts:${post.id}`) || '0', 10))
+		);
+
+		const ranked = posts
+			.map((post, index) => ({ post, views: counts[index] }))
+			.filter(({ views }) => views > 0)
+			.sort((a, b) => b.views - a.views || new Date(b.post.data.pubDate) - new Date(a.post.data.pubDate))
+			.slice(0, limit);
+
+		return ranked.length >= 3 ? ranked.map(({ post }) => post) : [];
+	} catch {
+		return [];
+	}
+}
+
+const mostRead = (await getMostRead(thoughts)).map((post) => ({
+	name: post.data.title,
+	href: `/thoughts/${post.id}`,
+	meta: new Date(post.data.pubDate).toLocaleDateString('en-uk', { year: 'numeric', month: 'short' })
+}));
+
+// Counts move slowly, so let the CDN hold the page rather than reading the
+// store on every request.
+Astro.response.headers.set('Netlify-CDN-Cache-Control', 'public, durable, s-maxage=3600, stale-while-revalidate=86400');
 ---
 
 <Application title="Thoughts" description="A running log of thoughts on engineering, leadership, AI, running conferences and building teams, products, platforms and communities.">
@@ -14,7 +50,21 @@ const thoughts = await getThoughts();
 
   <Spacer />
 
-  <PostCards posts={thoughts} path="thoughts" level={2} />
+  {mostRead.length > 0 && (
+    <Fragment>
+      <h2 class="c-sub-heading">Most read</h2>
+
+      <Directory items={mostRead} />
+
+      <Spacer />
+
+      <h2 class="c-sub-heading">All thoughts</h2>
+    </Fragment>
+  )}
+
+  <div class:list={{ '-mt-6': mostRead.length > 0 }}>
+    <PostCards posts={thoughts} path="thoughts" level={mostRead.length > 0 ? 3 : 2} />
+  </div>
 </Application>
 
 <TrackView namespace="thoughts" key="index" />
