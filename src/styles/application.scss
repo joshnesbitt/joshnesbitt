@@ -437,16 +437,11 @@ $color-spacer: rgb(var(--color-rule));
 		}
 
 		a {
-			@apply text-ink
-						 underline-offset-[0.3em]
-						 hover:underline;
-
-			text-decoration-color: $color-primary;
-			text-decoration-thickness: 0.15em;
+			@apply text-ink;
 		}
 	}
 
-	.c-footer__arrow {
+	.c-link-arrow {
 		@apply ml-1
 					 inline-block
 					 transition-transform

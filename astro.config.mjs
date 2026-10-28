@@ -12,4 +12,17 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: 'auto',
 	},
+	vite: {
+		optimizeDeps: {
+			// The view transitions client is only discovered once a page loads in
+			// the browser, so Vite re-optimises and reloads mid-session. Bundle it
+			// up front so the dev server (and the a11y check against it) is stable.
+			include: [
+				'astro/virtual-modules/transitions-events.js',
+				'astro/virtual-modules/transitions-router.js',
+				'astro/virtual-modules/transitions-swap-functions.js',
+				'astro/virtual-modules/transitions-types.js',
+			],
+		},
+	},
 });

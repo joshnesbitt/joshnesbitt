@@ -28,7 +28,12 @@ import { SITE_TITLE, SOCIAL_LINKS } from '../consts';
 			<ul class="c-nav__networks">
 				{SOCIAL_LINKS.map(({ label, href }) => (
 					<li>
-						<a href={href}>{label}</a>
+						<a href={href}>
+							{label}
+							<span class="c-link-arrow" aria-hidden="true">
+								&nearr;
+							</span>
+						</a>
 					</li>
 				))}
 			</ul>
