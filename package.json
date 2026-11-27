@@ -21,13 +21,13 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^8.1.2",
-		"@astrojs/netlify": "^8.2.6",
+		"@astrojs/netlify": "^8.2.14",
 		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.4",
 		"@netlify/blobs": "^11.1.7",
 		"@resvg/resvg-js": "^2.6.2",
 		"@tailwindcss/typography": "^0.5.9",
-		"astro": "^7.4.4",
+		"astro": "^7.4.13",
 		"autoprefixer": "^10.6.2",
 		"reading-time": "^1.5.0",
 		"sass": "^1.106.1",
@@ -38,7 +38,10 @@
 		"@netlify/vite-plugin": "^3.0.1",
 		"sharp": "^0.35.5",
 		"fflate": "^0.7.5",
-		"postcss-selector-parser": "^7.1.7"
+		"postcss-selector-parser": "^7.1.7",
+		"node-forge": "^1.4.4",
+		"glob": "^14.0.6",
+		"minimatch": "^11.0.9"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.12",
